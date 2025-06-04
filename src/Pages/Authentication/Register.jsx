@@ -13,6 +13,7 @@ import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../../main";
 
 import Swal from "sweetalert2";
+import Playpulsebutton from "../../Atoms/Playpulsebutton";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
@@ -27,7 +28,7 @@ const Register = () => {
     const photoURL = form.photoURL.value;
 
     createUser(email, password, name, photoURL)
-      .then((user) => {
+      .then(() => {
         // Registration successful, show success message or redirect
         Swal.fire({
           title: "Success",
@@ -122,14 +123,7 @@ const Register = () => {
             </div>
 
             {/* Submit Button */}
-            <button
-              type="submit"
-              className="w-full bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-400 text-white py-3 rounded-xl 
-             shadow-md hover:shadow-lg hover:scale-[1.02] transition-all duration-300 ease-in-out 
-             font-semibold tracking-wide focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500"
-            >
-              Register
-            </button>
+            <Playpulsebutton>Register</Playpulsebutton>
           </form>
 
           {/* Divider */}
