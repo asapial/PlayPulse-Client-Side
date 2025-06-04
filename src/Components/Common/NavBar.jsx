@@ -3,7 +3,8 @@ import { Link, NavLink } from "react-router";
 
 const NavBar = () => {
   return (
-    <div className="navbar bg-base-100 shadow-sm">
+    <div className="navbar bg-base-100 shadow-sm ">
+
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -47,10 +48,10 @@ const NavBar = () => {
           </ul>
         </div>
         <a className="text-3xl text-blue-400 font-bold">
-          Carrer<span className="text-cyan-400">Sphare</span>
+          Play<span className="text-cyan-400">Pulse</span>
         </a>
       </div>
-      <div className="navbar-center hidden lg:flex">
+      <div className="navbar-center hidden lg:flex ">
         <ul className="menu menu-horizontal px-1">
           <li>
             <Link to={"/"}>Home</Link>
@@ -100,7 +101,7 @@ const NavBar = () => {
                 name="theme-dropdown"
                 className="theme-controller w-full btn btn-sm btn-block btn-ghost justify-start"
                 aria-label="Dark"
-                value="CarrerSphareDark"
+                value="PlayPulseDark"
               />
             </li>
             <li>
@@ -109,7 +110,7 @@ const NavBar = () => {
                 name="theme-dropdown"
                 className="theme-controller w-full btn btn-sm btn-block btn-ghost justify-start"
                 aria-label="Light"
-                value="CarrerSphareLight"
+                value="PlayPulseLight"
               />
             </li>
           </ul>

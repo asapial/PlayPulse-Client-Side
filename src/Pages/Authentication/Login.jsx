@@ -2,13 +2,15 @@ import Lottie from "lottie-react";
 import React, { useContext, useState } from "react";
 import { FaEnvelope, FaLock } from "react-icons/fa";
 import { FaEye, FaEyeSlash } from "react-icons/fa"; // Add these imports
-import login from "../../assets/animationJSON/login.json";
+import login from "../../assets/LottiAnimation/login.json";
 import { FcGoogle } from "react-icons/fc";
-import Swal from "sweetalert2";
 import { AuthContext } from "../../main";
+import Swal from "sweetalert2";
+
+
 
 const Login = () => {
-  const { signInUser } = useContext(AuthContext);
+  const { loginUser } = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false); // State for password visibility
 
   const handleLogin = event => {
@@ -18,7 +20,7 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
 
-    signInUser(email, password)
+    loginUser(email, password)
       .then((res) => {
         Swal.fire({
           title: "Welcome Back!",

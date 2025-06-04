@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { AuthContext } from "../main";
-import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
-import { auth } from "../FireBase/FireBase.init";
+import React, { useEffect, useState } from 'react';
+import { AuthContext } from '../main';
+import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
+import { auth } from '../FireBase/FireBase.init';
 
-const AuthProvider = ({ children }) => {
+
+const AuthProvider = ({children}) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-
+  const [authActionCount, setAuthActionCount] = useState(0); // Triggers useEffect
   const provider = new GoogleAuthProvider();
 
   const createUser = (email, password, name, photoURL) => {
@@ -18,6 +19,7 @@ const AuthProvider = ({ children }) => {
           displayName: name,
           photoURL: photoURL,
         }).then(() => {
+          setAuthActionCount((prev) => prev + 1); // Trigger effect
           return user;
         });
       })
@@ -28,7 +30,7 @@ const AuthProvider = ({ children }) => {
     setLoading(true);
     return signInWithEmailAndPassword(auth, email, password)
       .then((res) => {
-
+        setAuthActionCount((prev) => prev + 1); // Trigger effect
         return res;
       })
       .finally(() => setLoading(false));
@@ -38,7 +40,7 @@ const AuthProvider = ({ children }) => {
     setLoading(true);
     return signOut(auth)
       .then(() => {
-
+        setAuthActionCount((prev) => prev + 1); // Trigger effect
       })
       .finally(() => setLoading(false));
   };
@@ -50,18 +52,20 @@ const AuthProvider = ({ children }) => {
       photoURL: photo,
     })
       .then(() => {
+        setAuthActionCount((prev) => prev + 1); // Trigger effect
       })
       .finally(() => setLoading(false));
   };
 
-  const loginWithGoogle = () => {
+  const loginWithGoogle=()=>{
     setLoading(true);
-    return signInWithPopup(auth, provider).finally(() => setLoading(false));
-  };
+    return signInWithPopup(auth,provider)
+    .finally(() => setLoading(false));
+  }
 
-  const resetEmail = (email) => {
-    return sendPasswordResetEmail(auth, email);
-  };
+  const resetEmail=(email)=>{
+    return sendPasswordResetEmail(auth,email);
+  }
 
   useEffect(() => {
     setLoading(true);
@@ -70,10 +74,15 @@ const AuthProvider = ({ children }) => {
       setLoading(false);
     });
 
-    return () => unsubscribe();
-  }, []); 
+    return () => unsubscribe(); // Cleanup on unmount
+  }, [authActionCount]); // 🔁 Re-run when any auth action occurs
 
-  const data = {
+
+  // data fetching part 
+
+
+
+  const userData = {
     createUser,
     loginUser,
     signOutUser,
@@ -81,10 +90,11 @@ const AuthProvider = ({ children }) => {
     user,
     loading,
     loginWithGoogle,
-    resetEmail,
+    resetEmail
   };
-
-  return <AuthContext.Provider value={data}>{children}</AuthContext.Provider>;
+  return (
+    <AuthContext.Provider value={userData}>{children}</AuthContext.Provider>
+  );
 };
 
 export default AuthProvider;
