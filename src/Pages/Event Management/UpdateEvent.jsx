@@ -1,10 +1,114 @@
+import Lottie from 'lottie-react';
 import React from 'react';
+import sportAnimation from "../../assets/LottiAnimation/createEvent.json";
 
 const UpdateEvent = () => {
     return (
-        <div>
-            
+    <section className="min-h-screen bg-gradient-to-br from-base-300 via-base-100 to-base-300 flex items-center justify-center px-4">
+      <div className="bg-base-200 shadow-2xl rounded-2xl w-full md:w-4/5  lg:flex justify-center items-center">
+        {/* Lottie Animation */}
+        <div className="w-full lg:w-2/5 h-[500px] flex justify-center items-center p-10">
+          <Lottie animationData={sportAnimation} loop={true} />
         </div>
+
+        {/* Event Creation Form */}
+        <div className="p-8 space-y-6 w-full lg:w-3/5">
+          <h2 className="text-3xl font-extrabold text-center text-neutral">
+            Create Event <Playpulsenameplate />
+          </h2>
+          <form className="space-y-4" onSubmit={handleCreateEvent}>
+            {/* Event Name */}
+            <div className="relative">
+              <FaListAlt className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
+              <input
+                type="text"
+                name="eventName"
+                placeholder="Event Name"
+                className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                required
+              />
+            </div>
+            {/* Event Type */}
+            <div className="relative">
+              <FaListAlt className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
+              <select
+                name="eventType"
+                className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                required
+                defaultValue=""
+              >
+                <option value="" disabled>
+                  Select Event Type
+                </option>
+                {eventTypes.map((type) => (
+                  <option key={type} value={type}>
+                    {type}
+                  </option>
+                ))}
+              </select>
+            </div>
+            {/* Event Date */}
+            <div className="relative">
+              <FaCalendarAlt className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
+              <input
+                type="date"
+                name="eventDate"
+                className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                required
+              />
+            </div>
+            {/* Description */}
+            <div className="relative">
+              <FaAlignLeft className="absolute left-4 top-4 text-gray-400" />
+              <textarea
+                name="description"
+                placeholder="Event Description"
+                className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                rows={3}
+                required
+              />
+            </div>
+            {/* Creator Email */}
+            <div className="relative">
+              <FaEnvelope className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
+              <input
+                type="email"
+                name="creatorEmail"
+                value={user?.email || ""}
+                readOnly
+                className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg bg-gray-100 focus:outline-none"
+              />
+            </div>
+            {/* Creator Name */}
+            <div className="relative">
+              <FaUser className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
+              <input
+                type="text"
+                name="creatorName"
+                value={user?.displayName || ""}
+                readOnly
+                className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg bg-gray-100 focus:outline-none"
+              />
+            </div>
+            {/* Event Picture */}
+            <div className="relative">
+              <FaImage className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
+              <input
+                type="url"
+                name="eventImage"
+                placeholder="Event Image URL"
+                className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                required
+              />
+            </div>
+            {/* Submit Button */}
+            <button type="submit" className=" w-full">
+              <Playpulsebutton>Create Event</Playpulsebutton>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
     );
 };
 

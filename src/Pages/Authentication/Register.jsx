@@ -14,9 +14,10 @@ import { AuthContext } from "../../main";
 
 import Swal from "sweetalert2";
 import Playpulsebutton from "../../Atoms/Playpulsebutton";
+import { toast } from "react-toastify";
 
 const Register = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser,loginWithGoogle } = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false); // State for password visibility
 
   const handleRegister = (event) => {
@@ -44,6 +45,35 @@ const Register = () => {
         });
       });
   };
+
+    const handleRegisterWithGmail=()=>{
+      loginWithGoogle()
+      .then(res=>{
+                toast.success("Register successful!", {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+      })
+      .catch((error)=>{
+          toast.error(`Error! ${error.message}`, {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+      })
+  
+    }
 
   return (
     <section className="min-h-screen bg-gradient-to-br from-base-300 via-base-100 to-base-300 flex items-center justify-center px-4">
@@ -135,6 +165,7 @@ const Register = () => {
 
           {/* Google Sign-In Button */}
           <button
+          onClick={handleRegisterWithGmail}
             type="button"
             className="w-full flex items-center justify-center gap-3 py-3  bg-base-200 rounded-xl shadow-sm 
                          hover:bg-base-100 transition duration-300 ease-in-out text-neutral font-medium"

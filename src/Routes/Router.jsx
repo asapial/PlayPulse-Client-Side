@@ -4,6 +4,7 @@ import Home from "../Pages/Home/Home";
 import Login from "../Pages/Authentication/Login";
 import Register from "../Pages/Authentication/Register";
 import CreateEvent from "../Pages/Event Management/CreateEvent";
+import EventDetails from "../Pages/Event Management/EventDetails";
 
 export const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ export const router = createBrowserRouter([
         {
           path:'createEvent',
           Component:CreateEvent
+        },
+        {
+          path:'/events/:id',
+          Component:EventDetails
         }
     ]
   },

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext } from "react";
 import {
   FaEnvelope,
   FaUser,
@@ -7,13 +7,14 @@ import {
   FaListAlt,
   FaAlignLeft,
 } from "react-icons/fa";
-import Lottie from 'lottie-react';
+import Lottie from "lottie-react";
 import sportAnimation from "../../assets/LottiAnimation/createEvent.json";
-import Playpulsenameplate from '../../Atoms/Playpulsenameplate';
-import { AuthContext } from '../../main';
-import Playpulsebutton from '../../Atoms/Playpulsebutton';
-import Loader from '../../Components/Common/Loader';
-import Swal from 'sweetalert2';
+import Playpulsenameplate from "../../Atoms/Playpulsenameplate";
+import { AuthContext } from "../../main";
+import Playpulsebutton from "../../Atoms/Playpulsebutton";
+import Loader from "../../Components/Common/Loader";
+import Swal from "sweetalert2";
+import { toast } from "react-toastify";
 
 const eventTypes = [
   "Swimming",
@@ -21,49 +22,48 @@ const eventTypes = [
   "Long Jump",
   "High Jump",
   "Hurdle race",
-  "Other"
+  "Other",
 ];
 
 const CreateEvent = () => {
-  const { user,loading } = useContext(AuthContext);
-  
-  if(loading)
-    {
-        return <Loader></Loader>
-    }
-    
-    console.log(user);
-    const handleCreateEvent=e=>{
-        e.preventDefault();
-        const form=e.target;
+  const { user, loading } = useContext(AuthContext);
 
-        const formData=new FormData(form);
-        const data= Object.fromEntries(formData.entries());
-        console.log(data)
+  if (loading) {
+    return <Loader></Loader>;
+  }
 
-        fetch('http://localhost:3000/createEvent',{
-            method:"POST",
-            headers:{
-                "Content-Type":"application/json",
-            },
-            body:JSON.stringify(data),
+  console.log(user);
+  const handleCreateEvent = (e) => {
+    e.preventDefault();
+    const form = e.target;
 
-        })
-        .then(res=>res.json())
-        .then(data=>{
-            if(data.acknowledged)
-            {
-                        Swal.fire({
-                          title: "Error!",
-                          text: error.message,
-                          icon: "error"
-                        });
-            }
-        })
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+    console.log(data);
 
-
-
-    }
+    fetch("http://localhost:3000/createEvent", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.acknowledged) {
+          toast.success("Data inserted successfully", {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+        }
+      });
+  };
 
   return (
     <section className="min-h-screen bg-gradient-to-br from-base-300 via-base-100 to-base-300 flex items-center justify-center px-4">
@@ -103,7 +103,9 @@ const CreateEvent = () => {
                   Select Event Type
                 </option>
                 {eventTypes.map((type) => (
-                  <option key={type} value={type}>{type}</option>
+                  <option key={type} value={type}>
+                    {type}
+                  </option>
                 ))}
               </select>
             </div>
@@ -162,10 +164,7 @@ const CreateEvent = () => {
               />
             </div>
             {/* Submit Button */}
-            <button
-              type="submit"
-              className=' w-full'
-            >
+            <button type="submit" className=" w-full">
               <Playpulsebutton>Create Event</Playpulsebutton>
             </button>
           </form>
