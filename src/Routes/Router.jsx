@@ -3,6 +3,7 @@ import Root from "../Root";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Authentication/Login";
 import Register from "../Pages/Authentication/Register";
+import CreateEvent from "../Pages/Event Management/CreateEvent";
 
 export const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ export const router = createBrowserRouter([
         {
           path:'register',
           Component:Register
+        },
+        {
+          path:'createEvent',
+          Component:CreateEvent
         }
     ]
   },

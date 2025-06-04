@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, NavLink } from "react-router";
+import Playpulsenameplate from "../../Atoms/Playpulsenameplate";
 
 const NavBar = () => {
   return (
@@ -47,9 +48,9 @@ const NavBar = () => {
             </li>
           </ul>
         </div>
-        <a className="text-3xl text-blue-400 font-bold">
-          Play<span className="text-cyan-400">Pulse</span>
-        </a>
+        <Link to={'/'} className="text-3xl text-blue-400 font-bold">
+          <Playpulsenameplate></Playpulsenameplate>
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex ">
         <ul className="menu menu-horizontal px-1">
@@ -57,7 +58,7 @@ const NavBar = () => {
             <Link to={"/"}>Home</Link>
           </li>
           <li>
-            <Link to={"/registerSeeker"}>Add Profile</Link>
+            <Link to={"/createEvent"}>Create Event</Link>
           </li>
           <li>
             <details>
@@ -113,6 +114,54 @@ const NavBar = () => {
                 value="PlayPulseLight"
               />
             </li>
+             <li>
+      <input
+        type="radio"
+        name="theme-dropdown"
+        className="theme-controller w-full btn btn-sm btn-block btn-ghost justify-start"
+        aria-label="Default"
+        value="default" />
+    </li>
+    <li>
+      <input
+        type="radio"
+        name="theme-dropdown"
+        className="theme-controller w-full btn btn-sm btn-block btn-ghost justify-start"
+        aria-label="Retro"
+        value="retro" />
+    </li>
+    <li>
+      <input
+        type="radio"
+        name="theme-dropdown"
+        className="theme-controller w-full btn btn-sm btn-block btn-ghost justify-start"
+        aria-label="Cyberpunk"
+        value="cyberpunk" />
+    </li>
+    <li>
+      <input
+        type="radio"
+        name="theme-dropdown"
+        className="theme-controller w-full btn btn-sm btn-block btn-ghost justify-start"
+        aria-label="Valentine"
+        value="valentine" />
+    </li>
+    <li>
+      <input
+        type="radio"
+        name="theme-dropdown"
+        className="theme-controller w-full btn btn-sm btn-block btn-ghost justify-start"
+        aria-label="Aqua"
+        value="aqua" />
+    </li>
+        <li>
+      <input
+        type="radio"
+        name="theme-dropdown"
+        className="theme-controller w-full btn btn-sm btn-block btn-ghost justify-start"
+        aria-label="Cupcake"
+        value="cupcake" />
+    </li>
           </ul>
         </div>
         <NavLink to={"/login"} className="btn btn-primary btn-soft rounded-2xl">

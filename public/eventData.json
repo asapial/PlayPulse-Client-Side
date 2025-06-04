@@ -1,0 +1,182 @@
+[
+  {
+    "eventName": "Summer Sprint",
+    "eventType": "Sprinting",
+    "eventDate": "2025-07-15",
+    "description": "Join us for the thrilling Summer Sprint, a 100-meter race open to participants of all ages. This event is designed to bring together runners from the community to compete in a friendly yet competitive environment. Whether you're a seasoned sprinter or a first-time runner, come test your speed on the track and enjoy a day of fun and fitness.",
+    "creatorEmail": "john.doe@example.com",
+    "creatorName": "John Doe",
+    "pictureUrl": "https://example.com/images/summer_sprint.jpg"
+  },
+  {
+    "eventName": "Aquatic Challenge",
+    "eventType": "Swimming",
+    "eventDate": "2025-07-20",
+    "description": "Dive into the Aquatic Challenge, a 200-meter freestyle swimming competition held at the city aquatic center. This event welcomes swimmers of all skill levels to showcase their abilities in the pool. Spectators can enjoy a vibrant atmosphere with music and refreshments, making it a perfect family-friendly event.",
+    "creatorEmail": "jane.smith@example.com",
+    "creatorName": "Jane Smith",
+    "pictureUrl": "https://example.com/images/aquatic_challenge.jpg"
+  },
+  {
+    "eventName": "High Jump Showdown",
+    "eventType": "High Jump",
+    "eventDate": "2025-08-01",
+    "description": "The High Jump Showdown is an exciting event for professional athletes looking to push their limits. Held at the regional sports complex, this competition features top high jumpers battling for the highest leap. Expect a day filled with impressive athletic performances and enthusiastic crowd support.",
+    "creatorEmail": "alice.johnson@example.com",
+    "creatorName": "Alice Johnson",
+    "pictureUrl": "https://example.com/images/high_jump.jpg"
+  },
+  {
+    "eventName": "Hurdle Dash",
+    "eventType": "Hurdle race",
+    "eventDate": "2025-08-05",
+    "description": "Get ready for the Hurdle Dash, a 110-meter hurdle race designed for advanced competitors. This high-energy event challenges athletes to combine speed and precision as they navigate the hurdles. Join us at the city stadium for an action-packed day of racing and camaraderie.",
+    "creatorEmail": "bob.wilson@example.com",
+    "creatorName": "Bob Wilson",
+    "pictureUrl": "https://example.com/images/hurdle_dash.jpg"
+  },
+  {
+    "eventName": "Long Jump Classic",
+    "eventType": "Long Jump",
+    "eventDate": "2025-08-10",
+    "description": "The Long Jump Classic is a must-attend event for athletes of all skill levels. Held at the community sports field, this competition invites participants to showcase their jumping prowess. With food stalls and live entertainment, it’s a great day out for competitors and spectators alike.",
+    "creatorEmail": "emma.brown@example.com",
+    "creatorName": "Emma Brown",
+    "pictureUrl": "https://example.com/images/long_jump.jpg"
+  },
+  {
+    "eventName": "Sprint Spectacular",
+    "eventType": "Sprinting",
+    "eventDate": "2025-08-15",
+    "description": "The Sprint Spectacular brings together local athletes for a thrilling 200-meter sprint. Held at the downtown track, this event is perfect for runners looking to test their speed and endurance. Enjoy a festive atmosphere with music, food trucks, and cheering crowds supporting the competitors.",
+    "creatorEmail": "michael.lee@example.com",
+    "creatorName": "Michael Lee",
+    "pictureUrl": "https://example.com/images/sprint_spectacular.jpg"
+  },
+  {
+    "eventName": "Swim Relay",
+    "eventType": "Swimming",
+    "eventDate": "2025-08-20",
+    "description": "The Swim Relay is a team-based 4x100-meter relay swim competition held at the state aquatic center. Teams of four will compete in this exciting event, showcasing teamwork and swimming skills. Spectators can enjoy a lively environment with refreshments and activities for all ages.",
+    "creatorEmail": "sarah.davis@example.com",
+    "creatorName": "Sarah Davis",
+    "pictureUrl": "https://example.com/images/swim_relay.jpg"
+  },
+  {
+    "eventName": "Hurdle Mania",
+    "eventType": "Hurdle race",
+    "eventDate": "2025-08-25",
+    "description": "Hurdle Mania is a 400-meter hurdle race open to participants of all ages. This event, held at the regional track, combines speed, agility, and technique as athletes navigate the hurdles. Join us for a day of exciting races, community spirit, and fun activities for spectators.",
+    "creatorEmail": "david.martin@example.com",
+    "creatorName": "David Martin",
+    "pictureUrl": "https://example.com/images/hurdle_mania.jpg"
+  },
+  {
+    "eventName": "Jump Fest",
+    "eventType": "High Jump",
+    "eventDate": "2025-09-01",
+    "description": "Jump Fest is a beginner-friendly high jump competition held at the local sports complex. This event is perfect for those new to high jumping, offering a supportive environment to learn and compete. Families can enjoy a fun day out with food vendors and entertainment.",
+    "creatorEmail": "lisa.white@example.com",
+    "creatorName": "Lisa White",
+    "pictureUrl": "https://example.com/images/jump_fest.jpg"
+  },
+  {
+    "eventName": "Long Jump League",
+    "eventType": "Long Jump",
+    "eventDate": "2025-09-05",
+    "description": "The Long Jump League is a regional competition for long jump enthusiasts. Held at the city sports arena, this event brings together athletes to compete for the longest jump. Spectators can enjoy a vibrant atmosphere with live music and local food vendors.",
+    "creatorEmail": "chris.taylor@example.com",
+    "creatorName": "Chris Taylor",
+    "pictureUrl": "https://example.com/images/long_jump_league.jpg"
+  },
+  {
+    "eventName": "Sprint Showdown",
+    "eventType": "Sprinting",
+    "eventDate": "2025-09-10",
+    "description": "The Sprint Showdown is a high-stakes 100-meter sprint for elite runners. Hosted at the national track stadium, this event draws top talent from across the region. Come witness incredible speed and enjoy a day of entertainment with food stalls and live performances.",
+    "creatorEmail": "emily.moore@example.com",
+    "creatorName": "Emily Moore",
+    "pictureUrl": "https://example.com/images/sprint_showdown.jpg"
+  },
+  {
+    "eventName": "Freestyle Swim",
+    "eventType": "Swimming",
+    "eventDate": "2025-09-15",
+    "description": "The Freestyle Swim is a 100-meter competition open to swimmers of all levels. Held at the community pool, this event offers a chance to showcase your freestyle skills in a supportive environment. Families can enjoy a day of swimming and fun activities by the poolside.",
+    "creatorEmail": "james.jackson@example.com",
+    "creatorName": "James Jackson",
+    "pictureUrl": "https://example.com/images/freestyle_swim.jpg"
+  },
+  {
+    "eventName": "Hurdle Challenge",
+    "eventType": "Hurdle race",
+    "eventDate": "2025-09-20",
+    "description": "The Hurdle Challenge is a 200-meter hurdle race designed for youth athletes. Held at the local track, this event encourages young runners to test their skills in a fun and competitive setting. Spectators can enjoy a family-friendly day with food and games.",
+    "creatorEmail": "olivia.martinez@example.com",
+    "creatorName": "Olivia Martinez",
+    "pictureUrl": "https://example.com/images/hurdle_challenge.jpg"
+  },
+  {
+    "eventName": "High Jump Elite",
+    "eventType": "High Jump",
+    "eventDate": "2025-09-25",
+    "description": "The High Jump Elite is a premier competition for top high jump athletes. Hosted at the state sports complex, this event showcases incredible talent and determination. Join us for a day of high-flying action, live music, and a festive atmosphere for all attendees.",
+    "creatorEmail": "william.anderson@example.com",
+    "creatorName": "William Anderson",
+    "pictureUrl": "https://example.com/images/high_jump_elite.jpg"
+  },
+  {
+    "eventName": "Long Jump Pro",
+    "eventType": "Long Jump",
+    "eventDate": "2025-10-01",
+    "description": "The Long Jump Pro is a professional-level competition for seasoned long jumpers. Held at the regional sports field, this event promises intense competition and impressive jumps. Spectators can enjoy a lively day with food trucks, music, and a vibrant crowd.",
+    "creatorEmail": "sophia.thomas@example.com",
+    "creatorName": "Sophia Thomas",
+    "pictureUrl": "https://example.com/images/long_jump_pro.jpg"
+  },
+  {
+    "eventName": "Sprint Relay",
+    "eventType": "Sprinting",
+    "eventDate": "2025-10-05",
+    "description": "The Sprint Relay is a thrilling 4x100-meter team race held at the city track. Teams of four will compete in this fast-paced event, showcasing teamwork and speed. Join us for a day of exciting races, food vendors, and a festive community atmosphere.",
+    "creatorEmail": "daniel.white@example.com",
+    "creatorName": "Daniel White",
+    "pictureUrl": "https://example.com/images/sprint_relay.jpg"
+  },
+  {
+    "eventName": "Swim Sprint",
+    "eventType": "Swimming",
+    "eventDate": "2025-10-10",
+    "description": "The Swim Sprint is a fast-paced 50-meter swim competition open to all skill levels. Held at the local aquatic center, this event is perfect for swimmers looking to test their speed. Enjoy a fun day by the pool with refreshments and entertainment for all.",
+    "creatorEmail": "mia.jackson@example.com",
+    "creatorName": "Mia Jackson",
+    "pictureUrl": "https://example.com/images/swim_sprint.jpg"
+  },
+  {
+    "eventName": "Hurdle Sprint",
+    "eventType proviso: "Hurdle race",
+    "eventDate": "2025-10-15",
+    "description": "The Hurdle Sprint is a 100-meter hurdle race tailored for amateur athletes. Hosted at the community track, this event offers a chance to combine speed and technique in a supportive setting. Spectators can enjoy a day of races, food stalls, and family-friendly activities.",
+    "creatorEmail": "ethan.martin@example.com",
+    "creatorName": "Ethan Martin",
+    "pictureUrl": "https://example.com/images/hurdle_sprint.jpg"
+  },
+  {
+    "eventName": "Jump Jamboree",
+    "eventType": "High Jump",
+    "eventDate": "2025-10-20",
+    "description": "Jump Jamboree is a high jump event designed for local school athletes. Held at the city sports field, this competition encourages young jumpers to shine in a fun and supportive environment. Families can enjoy a day of jumping, music, and local food vendors.",
+    "creatorEmail": "ava.miller@example.com",
+    "creatorName": "Ava Miller",
+    "pictureUrl": "https://example.com/images/jump_jamboree.jpg"
+  },
+  {
+    "eventName": "Long Jump Finale",
+    "eventType": "Long Jump",
+    "eventDate": "2025-10-25",
+    "description": "The Long Jump Finale is the season-ending competition for long jump enthusiasts. Hosted at the regional sports complex, this event brings together top athletes for a thrilling finale. Enjoy a festive day with live entertainment, food trucks, and a vibrant crowd cheering on the jumpers.",
+    "creatorEmail": "noah.wilson@example.com",
+    "creatorName": "Noah Wilson",
+    "pictureUrl": "https://example.com/images/long_jump_finale.jpg"
+  }
+]
