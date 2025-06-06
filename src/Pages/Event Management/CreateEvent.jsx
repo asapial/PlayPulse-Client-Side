@@ -22,7 +22,10 @@ const eventTypes = [
   "Long Jump",
   "High Jump",
   "Hurdle race",
-  "Other",
+  "Water-Polo",
+  "Fencing",
+  "Volley-Ball", 
+  "Badminton", 
 ];
 
 const CreateEvent = () => {
@@ -67,6 +70,7 @@ const CreateEvent = () => {
 
   return (
     <section className="min-h-screen bg-gradient-to-br from-base-300 via-base-100 to-base-300 flex items-center justify-center px-4">
+    <title>PlayPulse | CreateEvent</title>
       <div className="bg-base-200 shadow-2xl rounded-2xl w-full md:w-4/5  lg:flex justify-center items-center">
         {/* Lottie Animation */}
         <div className="w-full lg:w-2/5 h-[500px] flex justify-center items-center p-10">

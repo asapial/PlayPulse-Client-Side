@@ -17,14 +17,17 @@ import { toast } from "react-toastify";
 import Loader from "../../Components/Common/Loader";
 
 const UpdateEvent = () => {
-  const eventTypes = [
-    "Swimming",
-    "Sprinting",
-    "Long Jump",
-    "High Jump",
-    "Hurdle race",
-    "Other",
-  ];
+const eventTypes = [
+  "Swimming",
+  "Sprinting",
+  "Long Jump",
+  "High Jump",
+  "Hurdle race",
+  "Water-Polo",
+  "Fencing",
+  "Volley-Ball", 
+  "Other", 
+];
 
   const { user,loading } = useContext(AuthContext);
   const [event, setEvent] = useState();
@@ -78,6 +81,7 @@ const UpdateEvent = () => {
   };
   return (
     <section className="min-h-screen bg-gradient-to-br from-base-300 via-base-100 to-base-300 flex items-center justify-center px-4">
+    <title>PlayPulse | UpdateEvent</title>
       <div className="bg-base-200 shadow-2xl rounded-2xl w-full md:w-4/5  lg:flex justify-center items-center">
         {/* Lottie Animation */}
         <div className="w-full lg:w-2/5 h-[500px] flex justify-center items-center p-10">

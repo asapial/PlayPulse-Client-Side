@@ -73,13 +73,14 @@ const EventDetails = () => {
 
   return (
     <div className="w-full md:max-w-5xl mx-auto bg-base-100 shadow-2xl rounded-2xl p-8 mt-10">
+    <title>PlayPulse | Details</title>
       <h2 className="text-3xl font-extrabold mb-4 flex items-center gap-2 text-primary">
         <FaTag className="text-secondary" /> {event.eventName}
       </h2>
       <img
         src={event.eventImage}
         alt={event.eventName}
-        className="w-full h-64 object-cover rounded-xl mb-6 border-2 border-primary/20 shadow"
+        className="w-full h-200 object-cover object-top rounded-xl mb-6 border-2 border-primary/20 shadow"
       />
       <div className="space-y-2 mb-6">
         <p className="flex items-center gap-2 text-lg">

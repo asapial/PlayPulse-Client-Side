@@ -7,7 +7,7 @@ const EventCard = ({ data, handleEventDelete }) => {
   const navigate = useNavigate();
   return (
     <div className="bg-base-100 border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-300 rounded-2xl overflow-hidden flex flex-col">
-      <figure className="h-48 overflow-hidden rounded-t-2xl">
+      <figure className="h-100 overflow-hidden rounded-t-2xl">
         <img
           src={data.eventImage || "https://via.placeholder.com/300x200?text=No+Image"}
           alt={data.eventName}

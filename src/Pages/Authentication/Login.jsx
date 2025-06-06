@@ -80,6 +80,7 @@ const Login = () => {
   }
   return (
     <section className="min-h-screen bg-gradient-to-br from-base-300 via-base-100 to-base-300 flex items-center justify-center px-4 m-4 ">
+    <title>PlayPulse | Login</title>
       <div className="bg-base-300 shadow-xl rounded-2xl lg:w-4/5 lg:flex justify-center items-center">
         <div className="w-full lg:w-2/5 h-[500px] flex justify-center items-center p-10">
           <Lottie animationData={login} loop={true} />

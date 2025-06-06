@@ -178,5 +178,181 @@
     "creatorEmail": "noah.wilson@example.com",
     "creatorName": "Noah Wilson",
     "pictureUrl": "https://example.com/images/long_jump_finale.jpg"
+  },
+  {
+    "eventName": "Water Polo Splash I",
+    "eventType": "Water Polo",
+    "eventDate": "2025-09-10",
+    "description": "Dive into the Water Polo Splash I, a thrilling water polo tournament for skilled athletes. Compete in a fast-paced, team-based aquatic showdown at the city aquatic center. Expect intense matches and a vibrant atmosphere.",
+    "creatorEmail": "alice.smith@example.com",
+    "creatorName": "Alice Smith",
+    "pictureUrl": "https://example.com/images/water_polo_splash1.jpg"
+  },
+  {
+    "eventName": "Water Polo Splash II",
+    "eventType": "Water Polo",
+    "eventDate": "2025-09-15",
+    "description": "Join Water Polo Splash II for another round of aquatic excitement. This tournament at the coastal arena brings together top teams for a day of fierce competition and team spirit.",
+    "creatorEmail": "bob.wilson@example.com",
+    "creatorName": "Bob Wilson",
+    "pictureUrl": "https://example.com/images/water_polo_splash2.jpg"
+  },
+  {
+    "eventName": "Water Polo Surge",
+    "eventType": "Water Polo",
+    "eventDate": "2025-10-01",
+    "description": "Experience the Water Polo Surge, a high-energy water polo event at the regional aquatic complex. Perfect for athletes looking to showcase their skills in a competitive yet fun environment.",
+    "creatorEmail": "clara.johnson@example.com",
+    "creatorName": "Clara Johnson",
+    "pictureUrl": "https://example.com/images/water_polo_surge.jpg"
+  },
+  {
+    "eventName": "Water Polo Wave",
+    "eventType": "Water Polo",
+    "eventDate": "2025-10-10",
+    "description": "Ride the wave at Water Polo Wave, a dynamic tournament for water polo enthusiasts. Held at the city pool, this event promises thrilling matches and a great community vibe.",
+    "creatorEmail": "david.lee@example.com",
+    "creatorName": "David Lee",
+    "pictureUrl": "https://example.com/images/water_polo_wave.jpg"
+  },
+  {
+    "eventName": "Fencing Clash I",
+    "eventType": "Fencing",
+    "eventDate": "2025-10-15",
+    "description": "Join the Fencing Clash I, a dynamic fencing competition for seasoned swordsmen and women. Test your agility, strategy, and precision in this electrifying event at the downtown sports arena.",
+    "creatorEmail": "john.doe@example.com",
+    "creatorName": "John Doe",
+    "pictureUrl": "https://example.com/images/fencing_clash1.jpg"
+  },
+  {
+    "eventName": "Fencing Clash II",
+    "eventType": "Fencing",
+    "eventDate": "2025-10-20",
+    "description": "Fencing Clash II brings more swordplay action to the city arena. Compete in thrilling duels and showcase your fencing prowess in this exciting tournament.",
+    "creatorEmail": "emma.jones@example.com",
+    "creatorName": "Emma Jones",
+    "pictureUrl": "https://example.com/images/fencing_clash2.jpg"
+  },
+  {
+    "eventName": "Fencing Duel",
+    "eventType": "Fencing",
+    "eventDate": "2025-11-05",
+    "description": "Step into the Fencing Duel, a high-stakes fencing event at the regional sports hall. Perfect for fencers looking to challenge their skills in a competitive setting.",
+    "creatorEmail": "sarah.brown@example.com",
+    "creatorName": "Sarah Brown",
+    "pictureUrl": "https://example.com/images/fencing_duel.jpg"
+  },
+  {
+    "eventName": "Fencing Strike",
+    "eventType": "Fencing",
+    "eventDate": "2025-11-10",
+    "description": "Fencing Strike is a fast-paced fencing tournament at the community arena. Join us for a day of strategic bouts and skillful swordplay in a lively atmosphere.",
+    "creatorEmail": "michael.green@example.com",
+    "creatorName": "Michael Green",
+    "pictureUrl": "https://example.com/images/fencing_strike.jpg"
+  },
+  {
+    "eventName": "Volley-Ball Slam I",
+    "eventType": "Volley-Ball",
+    "eventDate": "2025-11-20",
+    "description": "Spike your way to victory at the Volley-Ball Slam I, a high-energy volleyball tournament. Teams will battle it out on the court at the community sports complex, showcasing teamwork and athleticism.",
+    "creatorEmail": "emma.jones@example.com",
+    "creatorName": "Emma Jones",
+    "pictureUrl": "https://example.com/images/volley_ball_slam1.jpg"
+  },
+  {
+    "eventName": "Volley-Ball Slam II",
+    "eventType": "Volley-Ball",
+    "eventDate": "2025-11-25",
+    "description": "Volley-Ball Slam II brings more volleyball action to the city sports complex. Join teams from across the region for a day of intense matches and camaraderie.",
+    "creatorEmail": "lisa.white@example.com",
+    "creatorName": "Lisa White",
+    "pictureUrl": "https://example.com/images/volley_ball_slam2.jpg"
+  },
+  {
+    "eventName": "Volley-Ball Spike Fest",
+    "eventType": "Volley-Ball",
+    "eventDate": "2025-12-01",
+    "description": "Get ready for Volley-Ball Spike Fest, a thrilling volleyball event at the regional sports center. Compete in exciting matches and enjoy a day of team spirit and competition.",
+    "creatorEmail": "tom.clark@example.com",
+    "creatorName": "Tom Clark",
+    "pictureUrl": "https://example.com/images/volley_ball_spike_fest.jpg"
+  },
+  {
+    "eventName": "Volley-Ball Rally",
+    "eventType": "Volley-Ball",
+    "eventDate": "2025-12-10",
+    "description": "Join the Volley-Ball Rally for a fun and competitive volleyball tournament. Held at the community court, this event is perfect for teams looking to showcase their skills and enjoy a great day out.",
+    "creatorEmail": "anna.martin@example.com",
+    "creatorName": "Anna Martin",
+    "pictureUrl": "https://example.com/images/volley_ball_rally.jpg"
+  },
+  {
+    "eventName": "Badminton Blitz I",
+    "eventType": "Badminton",
+    "eventDate": "2025-12-05",
+    "description": "Smash your way to glory at the Badminton Blitz I, an exhilarating badminton tournament for enthusiasts and pros alike. Held at the city sports hall, this event promises fast-paced rallies and fierce competition.",
+    "creatorEmail": "sarah.brown@example.com",
+    "creatorName": "Sarah Brown",
+    "pictureUrl": "https://example.com/images/badminton_blitz1.jpg"
+  },
+  {
+    "eventName": "Badminton Blitz II",
+    "eventType": "Badminton",
+    "eventDate": "2025-12-15",
+    "description": "Badminton Blitz II brings more shuttlecock action to the city sports hall. Compete in thrilling matches and test your agility in this exciting badminton tournament.",
+    "creatorEmail": "peter.jackson@example.com",
+    "creatorName": "Peter Jackson",
+    "pictureUrl": "https://example.com/images/badminton_blitz2.jpg"
+  },
+  {
+    "eventName": "Badminton Smash",
+    "eventType": "Badminton",
+    "eventDate": "2026-01-05",
+    "description": "Join the Badminton Smash, a high-energy badminton event at the regional sports complex. Perfect for players looking to showcase their skills in a competitive and fun environment.",
+    "creatorEmail": "laura.miller@example.com",
+    "creatorName": "Laura Miller",
+    "pictureUrl": "https://example.com/images/badminton_smash.jpg"
+  },
+  {
+    "eventName": "Badminton Rally",
+    "eventType": "Badminton",
+    "eventDate": "2026-01-10",
+    "description": "Badminton Rally is a dynamic tournament for badminton enthusiasts. Held at the community sports hall, this event offers fast-paced matches and a great community atmosphere.",
+    "creatorEmail": "chris.evans@example.com",
+    "creatorName": "Chris Evans",
+    "pictureUrl": "https://example.com/images/badminton_rally.jpg"
   }
 ]
+
+
+// https://i.ibb.co/3Y8pCtZX/water-polo-1.png
+// https://i.ibb.co/tpjyQWj9/fencing-2.png
+// https://i.ibb.co/nM5jCwnx/fencing-1.png
+// https://i.ibb.co/23w141Jn/volleyball-5.png
+// https://i.ibb.co/5WCZ8XrJ/volleyball-4.png
+// https://i.ibb.co/9kddmZJK/volleyball-3.png
+// https://i.ibb.co/XxJ8d1P0/volleyball-2.png
+// https://i.ibb.co/5WTGgxqw/volleyball-1.png
+// https://i.ibb.co/Ngk1fqVK/badminton-3.png
+// https://i.ibb.co/Ygp42Wd/badminton-2.png
+// https://i.ibb.co/SwTgjf27/badminton-1.png
+// https://i.ibb.co/gFyLnXSy/table-tenis-1.png
+// https://i.ibb.co/Ng3qfckY/high-jump-3.png
+// https://i.ibb.co/ccd2g094/high-jump-2.png
+// https://i.ibb.co/Tqd4tvg4/high-jump-1.png
+// https://i.ibb.co/KxKt7KY0/long-jump-2.png
+// https://i.ibb.co/99jJkSBs/long-jump-1.png
+// https://i.ibb.co/G4J5N7SY/hurdale-race-1.png
+// https://i.ibb.co/kbct3FV/springting-track-7.png
+// https://i.ibb.co/r2hRkzqd/springting-track-6.png
+// https://i.ibb.co/Gf78FBkC/springting-track-5.png
+// https://i.ibb.co/jZwTWTfx/springting-track-4.png
+// https://i.ibb.co/pptPkMx/springting-track-3.png
+// https://i.ibb.co/s9FjPmV6/springting-track-2.png
+// https://i.ibb.co/GfxQNGRv/springting-track-1.png
+// https://i.ibb.co/WNTz52V1/swimming-pool-5.png
+// https://i.ibb.co/4g5fjCV4/swimming-pool-4.png
+// https://i.ibb.co/d0ST7VX2/swimming-pool-3.png
+// https://i.ibb.co/vxvZBxq8/swimming-pool-2.png
+// https://i.ibb.co/PZ2bf8DS/swimming-pool-1.png

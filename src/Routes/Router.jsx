@@ -8,6 +8,7 @@ import EventDetails from "../Pages/Event Management/EventDetails";
 import MyBookings from "../Pages/Event Management/MyBookings";
 import ManageEventsPage from "../Pages/Event Management/ManageEventsPage";
 import UpdateEvent from "../Pages/Event Management/UpdateEvent";
+import Error from "../Pages/Others/Error";
 
 export const router = createBrowserRouter([
   {
@@ -49,4 +50,8 @@ export const router = createBrowserRouter([
 
     ]
   },
+  {
+    path:"*",
+    Component:Error
+  }
 ]);
