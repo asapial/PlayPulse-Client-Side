@@ -82,7 +82,7 @@ const EventDetails = () => {
         alt={event.eventName}
         className="w-full h-200 object-cover object-top rounded-xl mb-6 border-2 border-primary/20 shadow"
       />
-      <div className="space-y-2 mb-6">
+      <div className="space-y-2 mb-6 bg-base-200 rounded-xl p-6 shadow-inner">
         <p className="flex items-center gap-2 text-lg">
           <FaTag className="text-secondary" />{" "}
           <span className="font-semibold">Type:</span> {event.eventType}
@@ -91,11 +91,11 @@ const EventDetails = () => {
           <FaCalendarAlt className="text-secondary" />{" "}
           <span className="font-semibold">Date:</span> {event.eventDate}
         </p>
-        <p className="flex items-center gap-2 text-lg">
+        {/* <p className="flex items-center gap-2 text-lg">
           <FaMapMarkerAlt className="text-secondary" />{" "}
           <span className="font-semibold">Location:</span>{" "}
           {event.location || "N/A"}
-        </p>
+        </p> */}
         <p className="flex items-center gap-2 text-lg">
           <FaInfoCircle className="text-secondary" />{" "}
           <span className="font-semibold">Description:</span>{" "}
@@ -112,6 +112,8 @@ const EventDetails = () => {
           {event.creatorEmail}
         </p>
       </div>
+
+      
 
       <div className="mt-8 bg-base-200 rounded-xl p-6 shadow-inner">
         <h3 className="text-xl font-bold mb-4 flex items-center gap-2 text-primary">

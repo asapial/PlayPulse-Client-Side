@@ -26,6 +26,8 @@ const eventTypes = [
   "Fencing",
   "Volley-Ball", 
   "Badminton", 
+  "Others", 
+  
 ];
 
 const CreateEvent = () => {

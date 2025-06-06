@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import DataCard from "../../Atoms/DataCard";
 import { FaStar } from "react-icons/fa";
 import { Typewriter } from "react-simple-typewriter";
+import { Link } from "react-router";
+import Playpulsebutton from "../../Atoms/Playpulsebutton";
 
 const ShowEvent = () => {
   const [data, setData] = useState([]);
@@ -45,6 +47,13 @@ const ShowEvent = () => {
             <DataCard data={item} key={item._id || index} />
           ))
         )}
+      </div>
+      <div className="w-full md:w-1/2 lg:w-1/4 mx-auto my-5" >
+        <Link to={'/showAllEvents'}>
+          <Playpulsebutton>
+            Show All
+          </Playpulsebutton>
+        </Link>
       </div>
     </section>
   );

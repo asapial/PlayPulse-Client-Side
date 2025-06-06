@@ -9,9 +9,10 @@ import Swal from "sweetalert2";
 import Playpulsebutton from "../../Atoms/Playpulsebutton";
 import Playpulsenameplate from "../../Atoms/Playpulsenameplate";
 import { toast } from "react-toastify";
+import { useLocation, useNavigate } from "react-router";
 
 const Login = () => {
-  const { loginUser,loginWithGoogle } = useContext(AuthContext);
+  const { loginUser, loginWithGoogle } = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false); // State for password visibility
 
   const handleLogin = (event) => {
@@ -20,6 +21,8 @@ const Login = () => {
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
+    const navigate=useNavigate();
+    const location=useLocation();
 
     loginUser(email, password)
       .then((res) => {
@@ -34,9 +37,9 @@ const Login = () => {
           theme: "light",
         });
         console.log(res.user);
+
       })
       .catch((error) => {
-
         toast.error(`Error! ${error.message}`, {
           position: "top-right",
           autoClose: 5000,
@@ -50,10 +53,10 @@ const Login = () => {
       });
   };
 
-  const handleLoginWithGmail=()=>{
+  const handleLoginWithGmail = () => {
     loginWithGoogle()
-    .then(res=>{
-              toast.success("Welcome Back Login successful!", {
+      .then((res) => {
+        toast.success("Welcome Back Login successful!", {
           position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,
@@ -63,8 +66,9 @@ const Login = () => {
           progress: undefined,
           theme: "light",
         });
-    })
-    .catch((error)=>{
+
+      })
+      .catch((error) => {
         toast.error(`Error! ${error.message}`, {
           position: "top-right",
           autoClose: 5000,
@@ -75,12 +79,11 @@ const Login = () => {
           progress: undefined,
           theme: "light",
         });
-    })
-
-  }
+      });
+  };
   return (
     <section className="min-h-screen bg-gradient-to-br from-base-300 via-base-100 to-base-300 flex items-center justify-center px-4 m-4 ">
-    <title>PlayPulse | Login</title>
+      <title>PlayPulse | Login</title>
       <div className="bg-base-300 shadow-xl rounded-2xl lg:w-4/5 lg:flex justify-center items-center">
         <div className="w-full lg:w-2/5 h-[500px] flex justify-center items-center p-10">
           <Lottie animationData={login} loop={true} />
@@ -144,7 +147,7 @@ const Login = () => {
 
           {/* Google Sign-In Button */}
           <button
-          onClick={handleLoginWithGmail}
+            onClick={handleLoginWithGmail}
             type="button"
             className="w-full flex items-center justify-center gap-3 py-3  bg-base-200 rounded-xl shadow-sm 
              hover:bg-base-100 transition duration-300 ease-in-out text-neutral font-medium"

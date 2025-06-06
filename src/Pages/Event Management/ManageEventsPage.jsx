@@ -50,7 +50,7 @@ const ManageEventsPage = () => {
   };
 
   return (
-    <div className="max-w-11/12 mx-auto py-10 px-4 min-h-screen">
+    <div className="w-full lg:max-w-11/12 mx-auto py-10 px-4 min-h-screen">
     <title>PlayPulse | ManageEvents</title>
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8 gap-4">
