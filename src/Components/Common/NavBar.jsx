@@ -1,12 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, NavLink } from "react-router";
 import Playpulsenameplate from "../../Atoms/Playpulsenameplate";
+import { AuthContext } from "../../main";
 
 const NavBar = () => {
+  const {user}=useContext(AuthContext);
   return (
     <div className="navbar bg-base-100 shadow-sm ">
 
       <div className="navbar-start">
+                          <div className="mask mask-squircle h-12 w-12">
+                      <img
+                        src={user?.photoURL}
+                        alt="Avatar Tailwind CSS Component"
+                      />
+                    </div>
+
+       {/* dropdown for theme  */}
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
             <svg
@@ -44,7 +54,7 @@ const NavBar = () => {
               </ul>
             </li>
             <li>
-              <Link to={"/updateSeekerProfile"}>UpDate Profile</Link>
+              <Link to={"/manageEvents"}>Manage Events</Link>
             </li>
           </ul>
         </div>
@@ -74,7 +84,7 @@ const NavBar = () => {
             </details>
           </li>
           <li>
-            <Link to={"/updateSeekerProfile"}>UpDate Profile</Link>
+            <Link to={"/manageEvents"}>Manage Events</Link>
           </li>
         </ul>
       </div>

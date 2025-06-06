@@ -6,6 +6,8 @@ import Register from "../Pages/Authentication/Register";
 import CreateEvent from "../Pages/Event Management/CreateEvent";
 import EventDetails from "../Pages/Event Management/EventDetails";
 import MyBookings from "../Pages/Event Management/MyBookings";
+import ManageEventsPage from "../Pages/Event Management/ManageEventsPage";
+import UpdateEvent from "../Pages/Event Management/UpdateEvent";
 
 export const router = createBrowserRouter([
   {
@@ -35,7 +37,16 @@ export const router = createBrowserRouter([
         {
           path:'myBookings',
           Component:MyBookings
+        },
+        {
+          path:'updateEvent/:id',
+          Component:UpdateEvent
+        },
+        {
+          path:'manageEvents',
+          Component:ManageEventsPage
         }
+
     ]
   },
 ]);
