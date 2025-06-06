@@ -8,7 +8,7 @@ const Root = () => {
   return (
     <div>
       <NavBar></NavBar>
-      <div className=" w-full md:w-11/12 mx-auto">
+      <div className=" bg-gradient-to-br from-base-300 via-base-100 to-base-300 p-10">
         <Outlet></Outlet>
       </div>
       <Footer></Footer>

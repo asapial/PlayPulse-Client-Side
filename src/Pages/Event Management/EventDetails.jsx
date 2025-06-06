@@ -72,7 +72,7 @@ const EventDetails = () => {
   };
 
   return (
-    <div className="w-full md:max-w-5xl mx-auto bg-base-100 shadow-2xl rounded-2xl p-8 mt-10">
+    <div className="w-full md:max-w-5xl mx-auto bg-base-100 shadow-primary shadow-xs rounded-2xl p-8 border border-primary ">
     <title>PlayPulse | Details</title>
       <h2 className="text-3xl font-extrabold mb-4 flex items-center gap-2 text-primary">
         <FaTag className="text-secondary" /> {event.eventName}
@@ -126,7 +126,7 @@ const EventDetails = () => {
               type="text"
               value={user?.displayName || ""}
               readOnly
-              className="w-full border px-3 py-2 rounded bg-gray-100 focus:outline-none"
+              className="w-full border px-3 py-2 rounded  focus:outline-none"
             />
           </div>
           <div>
@@ -137,7 +137,7 @@ const EventDetails = () => {
               type="email"
               value={user?.email || ""}
               readOnly
-              className="w-full border px-3 py-2 rounded bg-gray-100 focus:outline-none"
+              className="w-full border px-3 py-2 rounded  focus:outline-none"
             />
           </div>
         </form>

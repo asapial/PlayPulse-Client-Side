@@ -50,7 +50,7 @@ const ManageEventsPage = () => {
   };
 
   return (
-    <div className="max-w-6xl mx-auto py-10 px-4 min-h-screen">
+    <div className="max-w-11/12 mx-auto py-10 px-4 min-h-screen">
     <title>PlayPulse | ManageEvents</title>
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8 gap-4">
@@ -93,10 +93,10 @@ const ManageEventsPage = () => {
       </div>
 
       {viewMode === "table" ? (
-        <div className="overflow-x-auto rounded-xl shadow-lg bg-base-100">
-          <table className="table w-full">
+        <div className="overflow-x-auto rounded-xl  bg-base-100 border border-primary shadow-2xl ">
+          <table className="table w-full table-zebra">
             <thead className="bg-base-200 text-base-content">
-              <tr>
+              <tr className="text-xl">
                 <th className="py-3 px-4">Sl</th>
                 <th className="py-3 px-4">Event</th>
                 <th className="py-3 px-4">Description</th>

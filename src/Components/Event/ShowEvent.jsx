@@ -13,7 +13,7 @@ const ShowEvent = () => {
   }, []);
 
   return (
-    <section className="max-w-7xl mx-auto py-10 px-4">
+    <section className="max-w-11/12 mx-auto py-10 px-4">
       <h2 className="text-3xl font-bold text-primary mb-8 text-center flex items-center justify-center gap-2">
         <Typewriter
           words={[

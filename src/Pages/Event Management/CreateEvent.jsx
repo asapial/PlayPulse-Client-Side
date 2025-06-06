@@ -69,17 +69,17 @@ const CreateEvent = () => {
   };
 
   return (
-    <section className="min-h-screen bg-gradient-to-br from-base-300 via-base-100 to-base-300 flex items-center justify-center px-4">
+    <section className="min-h-screen bg-gradient-to-br from-base-300 via-base-100 to-base-300 flex items-center justify-center px-4 py-10 ">
     <title>PlayPulse | CreateEvent</title>
-      <div className="bg-base-200 shadow-2xl rounded-2xl w-full md:w-4/5  lg:flex justify-center items-center">
+      <div className="bg-base-200 shadow-md rounded-2xl w-full md:w-4/5  lg:flex justify-center items-center p-2 lg:p-5 border border-primary shadow-primary  ">
         {/* Lottie Animation */}
-        <div className="w-full lg:w-2/5 h-[500px] flex justify-center items-center p-10">
+        <div className="w-full lg:w-2/5 h-[500px] flex justify-center items-center p-2 lg:p-5">
           <Lottie animationData={sportAnimation} loop={true} />
         </div>
 
         {/* Event Creation Form */}
-        <div className="p-8 space-y-6 w-full lg:w-3/5">
-          <h2 className="text-3xl font-extrabold text-center text-neutral">
+        <div className="p-2 lg:p-5 space-y-6 w-full lg:w-3/5">
+          <h2 className="text-3xl lg:text-5xl font-extrabold text-center text-neutral">
             Create Event <Playpulsenameplate />
           </h2>
           <form className="space-y-4" onSubmit={handleCreateEvent}>
@@ -103,7 +103,7 @@ const CreateEvent = () => {
                 required
                 defaultValue=""
               >
-                <option value="" disabled>
+                <option value="" disabled >
                   Select Event Type
                 </option>
                 {eventTypes.map((type) => (
@@ -142,7 +142,7 @@ const CreateEvent = () => {
                 name="creatorEmail"
                 value={user?.email || ""}
                 readOnly
-                className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg bg-gray-100 focus:outline-none"
+                className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none"
               />
             </div>
             {/* Creator Name */}
@@ -153,7 +153,7 @@ const CreateEvent = () => {
                 name="creatorName"
                 value={user?.displayName || ""}
                 readOnly
-                className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg bg-gray-100 focus:outline-none"
+                className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg  focus:outline-none"
               />
             </div>
             {/* Event Picture */}

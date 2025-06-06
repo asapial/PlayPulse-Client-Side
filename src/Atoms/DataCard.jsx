@@ -8,11 +8,11 @@ const DataCard = ({ data }) => {
 
   return (
     <div className="bg-base-100 border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-300 rounded-2xl overflow-hidden flex flex-col">
-      <figure className="h-48 overflow-hidden rounded-t-2xl">
+      <figure className="h-150 overflow-hidden rounded-t-2xl">
         <img
           src={data.eventImage || "https://via.placeholder.com/300x200?text=No+Image"}
           alt={data.eventName}
-          className="object-cover w-full h-full transition-transform duration-300 hover:scale-105"
+          className="object-cover object-top w-full h-full transition-transform duration-300 hover:scale-105"
         />
       </figure>
       <div className="p-5 flex-1 flex flex-col gap-2">
