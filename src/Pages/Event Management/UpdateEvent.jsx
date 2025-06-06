@@ -11,8 +11,10 @@ import {
   FaAlignLeft,
 } from "react-icons/fa";
 import Playpulsenameplate from "../../Atoms/Playpulsenameplate";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Playpulsebutton from "../../Atoms/Playpulsebutton";
+import { toast } from "react-toastify";
+import Loader from "../../Components/Common/Loader";
 
 const UpdateEvent = () => {
   const eventTypes = [
@@ -24,20 +26,53 @@ const UpdateEvent = () => {
     "Other",
   ];
 
-  const { user } = useContext(AuthContext);
+  const { user,loading } = useContext(AuthContext);
   const [event, setEvent] = useState();
 
   const { id } = useParams();
   console.log(id);
 
+  useEffect(()=>{
   fetch(`http://localhost:3000/events/${id}`)
     .then((res) => res.json())
     .then((data) => setEvent(data));
+  },[])
 
+    if(loading)
+  {
+    return <Loader></Loader>
+  }
   console.log(event);
 
   const handleUpdateEvent = (e) => {
     e.preventDefault();
+    const form=e.target;
+    const formData=new FormData(form);
+    const data=Object.fromEntries(formData.entries())
+    console.log(data);
+
+        fetch(`http://localhost:3000/updateEvent/${id}`, {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.modifiedCount) {
+              toast.success("Data is Updated successfully", {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+              });
+            }
+          });
   };
   return (
     <section className="min-h-screen bg-gradient-to-br from-base-300 via-base-100 to-base-300 flex items-center justify-center px-4">
