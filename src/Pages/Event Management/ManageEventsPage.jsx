@@ -21,7 +21,7 @@ const ManageEventsPage = () => {
   }, [loading, user?.email, relode]);
 
   if (loading) {
-    return <Loader></Loader>;
+    return <Loader />;
   }
 
   const handleEventDelete = (id) => {
@@ -48,88 +48,97 @@ const ManageEventsPage = () => {
         }
       });
   };
+
   return (
     <div className="max-w-6xl mx-auto py-10 px-4 min-h-screen">
       {/* Header */}
-      <div className="flex items-center justify-between mb-8">
-        <h2 className="text-3xl font-bold flex items-center gap-3 text-primary">
-          <FaCalendarAlt className="text-secondary" /> Manage My Events
-        </h2>
-        <button
-          className="flex items-center gap-2 bg-primary text-base-100 px-4 py-2 rounded-lg shadow hover:bg-secondary transition"
-          onClick={() => (window.location.href = "/createEvent")}
-        >
-          <FaPlusCircle /> Create Event
-        </button>
-        <div className="flex justify-end mb-4 gap-2">
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8 gap-4">
+        <div className="flex items-center gap-3">
+          <FaCalendarAlt className="text-3xl text-secondary" />
+          <h2 className="text-3xl font-bold text-primary">Manage My Events</h2>
+        </div>
+        <div className="flex items-center gap-3">
           <button
-            className={`p-2 rounded ${
-              viewMode === "table" ? "bg-primary text-white" : "bg-base-200"
-            }`}
-            onClick={() => setViewMode("table")}
-            title="Table View"
+            className="flex items-center gap-2 bg-primary text-base-100 px-4 py-2 rounded-lg shadow hover:bg-secondary transition"
+            onClick={() => (window.location.href = "/createEvent")}
           >
-            <FaTable />
+            <FaPlusCircle /> <span className="hidden sm:inline">Create Event</span>
           </button>
-          <button
-            className={`p-2 rounded ${
-              viewMode === "card" ? "bg-primary text-white" : "bg-base-200"
-            }`}
-            onClick={() => setViewMode("card")}
-            title="Card View"
-          >
-            <FaThLarge />
-          </button>
+          <div className="flex gap-2 ml-2">
+            <button
+              className={`p-2 rounded-full border transition ${
+                viewMode === "table"
+                  ? "bg-primary text-white border-primary"
+                  : "bg-base-200 text-primary border-base-200"
+              }`}
+              onClick={() => setViewMode("table")}
+              title="Table View"
+            >
+              <FaTable />
+            </button>
+            <button
+              className={`p-2 rounded-full border transition ${
+                viewMode === "card"
+                  ? "bg-primary text-white border-primary"
+                  : "bg-base-200 text-primary border-base-200"
+              }`}
+              onClick={() => setViewMode("card")}
+              title="Card View"
+            >
+              <FaThLarge />
+            </button>
+          </div>
         </div>
       </div>
 
-      {
-        (viewMode=='table'?( 
-      <div className="overflow-x-auto rounded-xl shadow-lg bg-base-100">
-        <table className="table w-full">
-          <thead className="bg-base-200 text-base-content">
-            <tr>
-              <th className="py-3 px-4">Sl</th>
-              <th className="py-3 px-4">Event </th>
-              <th className="py-3 px-4">Description</th>
-              <th className="py-3 px-4">Update | Delete</th>
-            </tr>
-          </thead>
-          <tbody>
-            {data.length === 0 ? (
+      {viewMode === "table" ? (
+        <div className="overflow-x-auto rounded-xl shadow-lg bg-base-100">
+          <table className="table w-full">
+            <thead className="bg-base-200 text-base-content">
               <tr>
-                <td colSpan={6} className="text-center py-8 text-gray-400">
-                  No events found.
-                </td>
+                <th className="py-3 px-4">Sl</th>
+                <th className="py-3 px-4">Event</th>
+                <th className="py-3 px-4">Description</th>
+                <th className="py-3 px-4">Update | Delete</th>
               </tr>
-            ) : (
-              data.map((items, index) => (
-                <DataRow
-                  data={items}
-                  key={items._id || index}
-                  sl={index + 1}
-                  handleEventDelete={handleEventDelete}
-                />
-              ))
-            )}
-          </tbody>
-        </table>
-      </div>):(            <div className="   grid grid-cols-3 gap-5">
-                {
-                    data.map((items, index) => (
-                <EventCard
-                  data={items}
-                  key={ index}
-                  handleEventDelete={handleEventDelete}
-                />
-              ))
-                }
-            </div>))
-      }
-
-
-
-
+            </thead>
+            <tbody>
+              {data.length === 0 ? (
+                <tr>
+                  <td colSpan={6} className="text-center py-8 text-gray-400">
+                    No events found.
+                  </td>
+                </tr>
+              ) : (
+                data.map((items, index) => (
+                  <DataRow
+                    data={items}
+                    key={items._id || index}
+                    sl={index + 1}
+                    handleEventDelete={handleEventDelete}
+                  />
+                ))
+              )}
+            </tbody>
+          </table>
+        </div>
+      ) : (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
+          {data.length === 0 ? (
+            <div className="col-span-full text-center text-gray-400 py-8">
+              No events found.
+            </div>
+          ) : (
+            data.map((items, index) => (
+              <EventCard
+                data={items}
+                key={items._id || index}
+                handleEventDelete={handleEventDelete}
+              />
+            ))
+          )}
+        </div>
+      )}
     </div>
   );
 };

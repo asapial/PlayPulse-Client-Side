@@ -1,7 +1,7 @@
 import Lottie from "lottie-react";
 import sportAnimation from "../../assets/LottiAnimation/createEvent.json";
 import { AuthContext } from "../../main";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import {
   FaEnvelope,
   FaUser,
@@ -28,6 +28,7 @@ const UpdateEvent = () => {
 
   const { user,loading } = useContext(AuthContext);
   const [event, setEvent] = useState();
+  const navigate=useNavigate();
 
   const { id } = useParams();
   console.log(id);
@@ -71,6 +72,7 @@ const UpdateEvent = () => {
                 progress: undefined,
                 theme: "light",
               });
+              navigate('/manageEvents')
             }
           });
   };

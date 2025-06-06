@@ -22,9 +22,9 @@ const DataCard = ({ data }) => {
         <div className="flex items-center gap-2 text-sm text-gray-500">
           <FaCalendarAlt className="text-primary" /> {data.eventDate}
         </div>
-        <div className="flex items-center gap-2 text-sm text-gray-500">
+        {/* <div className="flex items-center gap-2 text-sm text-gray-500">
           <FaMapMarkerAlt className="text-primary" /> {data.location || "N/A"}
-        </div>
+        </div> */}
         <div className="text-sm text-gray-600 mt-1">
           <span className="font-semibold">Type:</span> {data.eventType}
         </div>
