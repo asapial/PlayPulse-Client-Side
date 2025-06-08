@@ -24,10 +24,9 @@ const eventTypes = [
   "Hurdle race",
   "Water-Polo",
   "Fencing",
-  "Volley-Ball", 
-  "Badminton", 
-  "Others", 
-  
+  "Volley-Ball",
+  "Badminton",
+  "Others",
 ];
 
 const CreateEvent = () => {
@@ -56,7 +55,7 @@ const CreateEvent = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.acknowledged) {
-          toast.success("Data inserted successfully", {
+          toast.success("✅ Data Inserted Successfully", {
             position: "top-right",
             autoClose: 5000,
             hideProgressBar: false,
@@ -72,7 +71,7 @@ const CreateEvent = () => {
 
   return (
     <section className="min-h-screen bg-gradient-to-br from-base-300 via-base-100 to-base-300 flex items-center justify-center px-4 py-10 ">
-    <title>PlayPulse | CreateEvent</title>
+      <title>PlayPulse | CreateEvent</title>
       <div className="bg-base-200 shadow-md rounded-2xl w-full md:w-4/5  lg:flex justify-center items-center p-2 lg:p-5 border border-primary shadow-primary  ">
         {/* Lottie Animation */}
         <div className="w-full lg:w-2/5 h-[500px] flex justify-center items-center p-2 lg:p-5">
@@ -105,7 +104,7 @@ const CreateEvent = () => {
                 required
                 defaultValue=""
               >
-                <option value="" disabled >
+                <option value="" disabled>
                   Select Event Type
                 </option>
                 {eventTypes.map((type) => (

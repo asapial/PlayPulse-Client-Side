@@ -26,7 +26,7 @@ const Login = () => {
 
     loginUser(email, password)
       .then((res) => {
-        toast.success("Welcome Back Login successful!", {
+        toast.success("✅ Login Successful — Great to see you again!", {
           position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,
@@ -40,7 +40,7 @@ const Login = () => {
 
       })
       .catch((error) => {
-        toast.error(`Error! ${error.message}`, {
+        toast.error(`❌ Error Occurred: ${error.message}`, {
           position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,
@@ -56,7 +56,7 @@ const Login = () => {
   const handleLoginWithGmail = () => {
     loginWithGoogle()
       .then((res) => {
-        toast.success("Welcome Back Login successful!", {
+        toast.success("✅ Login Successful — Great to see you again!", {
           position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,
@@ -69,7 +69,7 @@ const Login = () => {
 
       })
       .catch((error) => {
-        toast.error(`Error! ${error.message}`, {
+        toast.error(`❌ Error Occurred: ${error.message}`, {
           position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,

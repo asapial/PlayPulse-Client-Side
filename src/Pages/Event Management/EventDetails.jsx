@@ -20,7 +20,7 @@ const EventDetails = () => {
   const { user } = useContext(AuthContext);
   const [event, setEvent] = useState({});
   const [booked, setBooked] = useState(true);
-  const navigate=useNavigate();
+  const navigate = useNavigate();
   console.log(user);
 
   useEffect(() => {
@@ -41,39 +41,35 @@ const EventDetails = () => {
 
   const handleBookNow = () => {
     if (user?.uid && id) {
-      fetch(
-        `http://localhost:3000/checkBooking`
-      ,{
-        method:"POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({userId:user.uid, eventId:id}),
-        
+      fetch(`http://localhost:3000/checkBooking`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ userId: user.uid, eventId: id }),
       })
         .then((res) => res.json())
-        .then((data) =>{
-            if(data.acknowledged){
-                setBooked(true);
-                          toast.success("Event is booked successfully", {
-                            position: "top-right",
-                            autoClose: 5000,
-                            hideProgressBar: false,
-                            closeOnClick: false,
-                            pauseOnHover: true,
-                            draggable: true,
-                            progress: undefined,
-                            theme: "light",
-                          });
-            }
-
+        .then((data) => {
+          if (data.acknowledged) {
+            setBooked(true);
+            toast.success("✅ Event Booked Successfully", {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: false,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
+            });
+          }
         });
     }
   };
 
   return (
     <div className="w-full md:max-w-5xl mx-auto bg-base-100 shadow-primary shadow-xs rounded-2xl p-8 border border-primary ">
-    <title>PlayPulse | Details</title>
+      <title>PlayPulse | Details</title>
       <h2 className="text-3xl font-extrabold mb-4 flex items-center gap-2 text-primary">
         <FaTag className="text-secondary" /> {event.eventName}
       </h2>
@@ -112,8 +108,6 @@ const EventDetails = () => {
           {event.creatorEmail}
         </p>
       </div>
-
-      
 
       <div className="mt-8 bg-base-200 rounded-xl p-6 shadow-inner">
         <h3 className="text-xl font-bold mb-4 flex items-center gap-2 text-primary">

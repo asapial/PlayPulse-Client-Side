@@ -17,75 +17,74 @@ import { toast } from "react-toastify";
 import Loader from "../../Components/Common/Loader";
 
 const UpdateEvent = () => {
-const eventTypes = [
-  "Swimming",
-  "Sprinting",
-  "Long Jump",
-  "High Jump",
-  "Hurdle race",
-  "Water-Polo",
-  "Fencing",
-  "Volley-Ball", 
-  "Other", 
-];
+  const eventTypes = [
+    "Swimming",
+    "Sprinting",
+    "Long Jump",
+    "High Jump",
+    "Hurdle race",
+    "Water-Polo",
+    "Fencing",
+    "Volley-Ball",
+    "Other",
+  ];
 
-  const { user,loading } = useContext(AuthContext);
+  const { user, loading } = useContext(AuthContext);
   const [event, setEvent] = useState();
-  const navigate=useNavigate();
+  const navigate = useNavigate();
 
   const { id } = useParams();
   console.log(id);
 
-  useEffect(()=>{
-  fetch(`http://localhost:3000/events/${id}`)
-    .then((res) => res.json())
-    .then((data) => setEvent(data));
-  },[])
+  useEffect(() => {
+    fetch(`http://localhost:3000/events/${id}`)
+      .then((res) => res.json())
+      .then((data) => setEvent(data));
+  }, []);
 
-    if(loading)
-  {
-    return <Loader></Loader>
+  if (loading) {
+    return <Loader></Loader>;
   }
   console.log(event);
 
   const handleUpdateEvent = (e) => {
     e.preventDefault();
-    const form=e.target;
-    const formData=new FormData(form);
-    const data=Object.fromEntries(formData.entries())
+    const form = e.target;
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
     console.log(data);
 
-        fetch(`http://localhost:3000/updateEvent/${id}`, {
-          method: "PATCH",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            if (data.modifiedCount) {
-              toast.success("Data is Updated successfully", {
-                position: "top-right",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: false,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "light",
-              });
-              navigate('/manageEvents')
-            }
+    fetch(`http://localhost:3000/updateEvent/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.modifiedCount) {
+          toast.success("✅ Data Updated Successfully", {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
           });
+          navigate("/manageEvents");
+        }
+      });
   };
   return (
     <section className="min-h-screen  flex items-center justify-center px-4 ">
-    <title>PlayPulse | UpdateEvent</title>
+      <title>PlayPulse | UpdateEvent</title>
       <div className="bg-base-200 shadow-md rounded-2xl w-full md:w-4/5  lg:flex justify-center items-center p-5 border border-primary shadow-primary  ">
         {/* Lottie Animation */}
         <div className="w-full lg:w-2/5  flex justify-center items-center ">
-          <img src={event?.eventImage}/>
+          <img src={event?.eventImage} />
         </div>
 
         {/* Event Creation Form */}
@@ -133,7 +132,7 @@ const eventTypes = [
                 name="eventDate"
                 className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-400"
                 required
-                 defaultValue={event?.eventDate}
+                defaultValue={event?.eventDate}
               />
             </div>
             {/* Description */}
@@ -146,8 +145,7 @@ const eventTypes = [
                 rows={3}
                 required
                 defaultValue={event?.description}
-
-                />
+              />
             </div>
             {/* Creator Email */}
             <div className="relative">
@@ -181,7 +179,6 @@ const eventTypes = [
                 className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-400"
                 required
                 defaultValue={event?.eventImage}
-
               />
             </div>
             {/* Submit Button */}
