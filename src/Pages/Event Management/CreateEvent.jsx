@@ -70,9 +70,9 @@ const CreateEvent = () => {
   };
 
   return (
-    <section className="min-h-screen bg-gradient-to-br from-base-300 via-base-100 to-base-300 flex items-center justify-center px-4 py-10 ">
+    <section className="min-h-screen  flex items-center justify-center ">
       <title>PlayPulse | CreateEvent</title>
-      <div className="bg-base-200 shadow-md rounded-2xl w-full md:w-4/5  lg:flex justify-center items-center p-2 lg:p-5 border border-primary shadow-primary  ">
+      <div className="bg-base-200 shadow-md rounded-2xl w-full max-w-6xl  lg:flex justify-center items-center p-2 lg:p-5 border border-primary shadow-primary  ">
         {/* Lottie Animation */}
         <div className="w-full lg:w-2/5 h-[500px] flex justify-center items-center p-2 lg:p-5">
           <Lottie animationData={sportAnimation} loop={true} />

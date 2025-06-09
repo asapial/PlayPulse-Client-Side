@@ -5,7 +5,7 @@ import { AuthContext } from "../../main";
 import { toast } from "react-toastify";
 
 const NavBar = () => {
-  const { user,signOutUser } = useContext(AuthContext);
+  const { user, signOutUser } = useContext(AuthContext);
   const eventTypes = [
     "Swimming",
     "Sprinting",
@@ -18,7 +18,6 @@ const NavBar = () => {
     "Badminton",
     "Others",
     "All",
-
   ];
 
   const eventList = (
@@ -31,33 +30,39 @@ const NavBar = () => {
     </>
   );
 
-  const handleLogOut=()=>{
+  const handleLogOut = () => {
     signOutUser()
-    .then(()=>{
-              toast.success("Logged Out of PlayPulse! Stay active, come back stronger! 💪", {
-                position: "top-right",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: false,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "light",
-              });
-    })
-    .catch((error)=>{
-                toast.success(`⚠️ Oops! Something tripped — ${error.message}. Let's get back in the game! 🏃‍♂️💨`, {
-                  position: "top-right",
-                  autoClose: 5000,
-                  hideProgressBar: false,
-                  closeOnClick: false,
-                  pauseOnHover: true,
-                  draggable: true,
-                  progress: undefined,
-                  theme: "light",
-                });
-    })
-  }
+      .then(() => {
+        toast.success(
+          "Logged Out of PlayPulse! Stay active, come back stronger! 💪",
+          {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          }
+        );
+      })
+      .catch((error) => {
+        toast.success(
+          `⚠️ Oops! Something tripped — ${error.message}. Let's get back in the game! 🏃‍♂️💨`,
+          {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          }
+        );
+      });
+  };
 
   return (
     <div className="navbar bg-base-100 shadow-sm ">
@@ -94,9 +99,7 @@ const NavBar = () => {
             </li>
             <li>
               <a>Parent</a>
-              <ul className="p-2">
-              {eventList}
-              </ul>
+              <ul className="p-2">{eventList}</ul>
             </li>
             <li>
               <Link to={"/manageEvents"}>Manage Events</Link>
@@ -118,9 +121,7 @@ const NavBar = () => {
           <li>
             <details>
               <summary>Event List</summary>
-              <ul className="p-2">
-              {eventList}
-              </ul>
+              <ul className="p-2">{eventList}</ul>
             </details>
           </li>
           <li>
@@ -169,21 +170,30 @@ const NavBar = () => {
             </li>
           </ul>
         </div>
-        <NavLink to={"/login"} className="btn btn-primary btn-soft rounded-2xl">
-          Login
-        </NavLink>
-        <NavLink
-          to={"/register"}
-          className="btn btn-primary btn-soft rounded-2xl"
-        >
-          Register
-        </NavLink>
-        <button
-          onClick={handleLogOut}
-          className="btn btn-primary btn-soft rounded-2xl"
-        >
-          LogOut
-        </button>
+
+        {!user ? (
+          <>
+            <NavLink
+              to={"/login"}
+              className="btn btn-primary btn-soft rounded-2xl"
+            >
+              Login
+            </NavLink>
+            <NavLink
+              to={"/register"}
+              className="btn btn-primary btn-soft rounded-2xl"
+            >
+              Register
+            </NavLink>
+          </>
+        ) : (
+          <button
+            onClick={handleLogOut}
+            className="btn btn-primary btn-soft rounded-2xl"
+          >
+            LogOut
+          </button>
+        )}
       </div>
     </div>
   );

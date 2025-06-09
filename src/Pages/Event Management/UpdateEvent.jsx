@@ -1,6 +1,7 @@
 import Lottie from "lottie-react";
 import sportAnimation from "../../assets/LottiAnimation/createEvent.json";
 import { AuthContext } from "../../main";
+import { motion } from "framer-motion";
 import { useNavigate, useParams } from "react-router";
 import {
   FaEnvelope,
@@ -79,17 +80,33 @@ const UpdateEvent = () => {
       });
   };
   return (
-    <section className="min-h-screen  flex items-center justify-center px-4 ">
+    <section className="min-h-screen  flex items-center justify-center ">
       <title>PlayPulse | UpdateEvent</title>
-      <div className="bg-base-200 shadow-md rounded-2xl w-full md:w-4/5  lg:flex justify-center items-center p-5 border border-primary shadow-primary  ">
+      <div className="bg-base-200 shadow-md rounded-2xl w-full max-w-6xl  lg:flex justify-center items-center p-2 lg:p-5 border border-primary shadow-primary  ">
         {/* Lottie Animation */}
-        <div className="w-full lg:w-2/5  flex justify-center items-center ">
-          <img src={event?.eventImage} />
-        </div>
+        <motion.div
+          className="w-full lg:w-2/5 h-[500px] flex justify-center items-center p-2 lg:p-5"
+          animate={{
+            scale: [1, 1.03, 1],
+            opacity: [1, 0.95, 1],
+          }}
+          transition={{
+            duration: 3,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        >
+          <img
+            src={event?.eventImage}
+            alt="Event"
+            className="h-full object-contain"
+          />
+        </motion.div>
 
         {/* Event Creation Form */}
-        <div className=" space-y-6 w-full lg:w-3/5">
-          <h2 className="text-3xl font-extrabold text-center text-neutral">
+        <div className="p-2 lg:p-5 space-y-6 w-full lg:w-3/5">
+          <h2 className="text-3xl lg:text-5xl font-extrabold text-center text-neutral">
+            {" "}
             Update Event <Playpulsenameplate />
           </h2>
           <form className="space-y-4" onSubmit={handleUpdateEvent}>
