@@ -49,7 +49,7 @@ const ShowEvent = () => {
         )}
       </div>
       <div className="w-full md:w-1/2 lg:w-1/4 mx-auto my-5" >
-        <Link to={'/showAllEvents'}>
+        <Link to={'/showEventData/All'}>
           <Playpulsebutton>
             Show All
           </Playpulsebutton>

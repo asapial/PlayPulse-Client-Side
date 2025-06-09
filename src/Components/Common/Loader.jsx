@@ -4,7 +4,7 @@ import Lottie from 'lottie-react';
 const Loader = () => {
     return (
         <div className=' flex justify-center items-center min-h-screen'>
-            <Lottie animationData={loading} loop={true} className=' w-1/4 '/>
+            <Lottie animationData={loading} loop={true} className=' w-1/5 '/>
         </div>
     );
 };

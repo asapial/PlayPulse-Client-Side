@@ -4,19 +4,40 @@ import Playpulsenameplate from "../../Atoms/Playpulsenameplate";
 import { AuthContext } from "../../main";
 
 const NavBar = () => {
-  const {user}=useContext(AuthContext);
+  const { user } = useContext(AuthContext);
+  const eventTypes = [
+    "Swimming",
+    "Sprinting",
+    "Long Jump",
+    "High Jump",
+    "Hurdle race",
+    "Water-Polo",
+    "Fencing",
+    "Volley-Ball",
+    "Badminton",
+    "Others",
+    "All",
+
+  ];
+
+  const eventList = (
+    <>
+      {eventTypes.map((event) => (
+        <li>
+          <Link to={`/showEventData/${event}`}>{event}</Link>
+        </li>
+      ))}
+    </>
+  );
+
   return (
     <div className="navbar bg-base-100 shadow-sm ">
-
       <div className="navbar-start">
-                          <div className="mask mask-squircle h-12 w-12">
-                      <img
-                        src={user?.photoURL}
-                        alt="Avatar Tailwind CSS Component"
-                      />
-                    </div>
+        <div className="mask mask-squircle h-12 w-12">
+          <img src={user?.photoURL} alt="Avatar Tailwind CSS Component" />
+        </div>
 
-       {/* dropdown for theme  */}
+        {/* dropdown for theme  */}
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
             <svg
@@ -45,12 +66,7 @@ const NavBar = () => {
             <li>
               <a>Parent</a>
               <ul className="p-2">
-                <li>
-                  <a>Submenu 1</a>
-                </li>
-                <li>
-                  <a>Submenu 2</a>
-                </li>
+              {eventList}
               </ul>
             </li>
             <li>
@@ -58,7 +74,7 @@ const NavBar = () => {
             </li>
           </ul>
         </div>
-        <Link to={'/'} className="text-3xl text-blue-400 font-bold">
+        <Link to={"/"} className="text-3xl text-blue-400 font-bold">
           <Playpulsenameplate></Playpulsenameplate>
         </Link>
       </div>
@@ -72,14 +88,9 @@ const NavBar = () => {
           </li>
           <li>
             <details>
-              <summary>Parent</summary>
+              <summary>Event List</summary>
               <ul className="p-2">
-                <li>
-                  <a>Submenu 1</a>
-                </li>
-                <li>
-                  <a>Submenu 2</a>
-                </li>
+              {eventList}
               </ul>
             </details>
           </li>
@@ -124,54 +135,60 @@ const NavBar = () => {
                 value="PlayPulseLight"
               />
             </li>
-             <li>
-      <input
-        type="radio"
-        name="theme-dropdown"
-        className="theme-controller w-full btn btn-sm btn-block btn-ghost justify-start"
-        aria-label="Default"
-        value="default" />
-    </li>
-    <li>
-      <input
-        type="radio"
-        name="theme-dropdown"
-        className="theme-controller w-full btn btn-sm btn-block btn-ghost justify-start"
-        aria-label="Retro"
-        value="retro" />
-    </li>
-    <li>
-      <input
-        type="radio"
-        name="theme-dropdown"
-        className="theme-controller w-full btn btn-sm btn-block btn-ghost justify-start"
-        aria-label="Cyberpunk"
-        value="cyberpunk" />
-    </li>
-    <li>
-      <input
-        type="radio"
-        name="theme-dropdown"
-        className="theme-controller w-full btn btn-sm btn-block btn-ghost justify-start"
-        aria-label="Valentine"
-        value="valentine" />
-    </li>
-    <li>
-      <input
-        type="radio"
-        name="theme-dropdown"
-        className="theme-controller w-full btn btn-sm btn-block btn-ghost justify-start"
-        aria-label="Aqua"
-        value="aqua" />
-    </li>
-        <li>
-      <input
-        type="radio"
-        name="theme-dropdown"
-        className="theme-controller w-full btn btn-sm btn-block btn-ghost justify-start"
-        aria-label="Cupcake"
-        value="cupcake" />
-    </li>
+            <li>
+              <input
+                type="radio"
+                name="theme-dropdown"
+                className="theme-controller w-full btn btn-sm btn-block btn-ghost justify-start"
+                aria-label="Default"
+                value="default"
+              />
+            </li>
+            <li>
+              <input
+                type="radio"
+                name="theme-dropdown"
+                className="theme-controller w-full btn btn-sm btn-block btn-ghost justify-start"
+                aria-label="Retro"
+                value="retro"
+              />
+            </li>
+            <li>
+              <input
+                type="radio"
+                name="theme-dropdown"
+                className="theme-controller w-full btn btn-sm btn-block btn-ghost justify-start"
+                aria-label="Cyberpunk"
+                value="cyberpunk"
+              />
+            </li>
+            <li>
+              <input
+                type="radio"
+                name="theme-dropdown"
+                className="theme-controller w-full btn btn-sm btn-block btn-ghost justify-start"
+                aria-label="Valentine"
+                value="valentine"
+              />
+            </li>
+            <li>
+              <input
+                type="radio"
+                name="theme-dropdown"
+                className="theme-controller w-full btn btn-sm btn-block btn-ghost justify-start"
+                aria-label="Aqua"
+                value="aqua"
+              />
+            </li>
+            <li>
+              <input
+                type="radio"
+                name="theme-dropdown"
+                className="theme-controller w-full btn btn-sm btn-block btn-ghost justify-start"
+                aria-label="Cupcake"
+                value="cupcake"
+              />
+            </li>
           </ul>
         </div>
         <NavLink to={"/login"} className="btn btn-primary btn-soft rounded-2xl">

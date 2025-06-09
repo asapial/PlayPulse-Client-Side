@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router";
+import {  useParams } from "react-router";
 import { AuthContext } from "../../main";
 import Swal from "sweetalert2";
 import Playpulsebutton from "../../Atoms/Playpulsebutton";
@@ -20,14 +20,15 @@ const EventDetails = () => {
   const { user } = useContext(AuthContext);
   const [event, setEvent] = useState({});
   const [booked, setBooked] = useState(true);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   console.log(user);
 
   useEffect(() => {
     fetch(`http://localhost:3000/events/${id}`)
       .then((res) => res.json())
       .then((data) => setEvent(data));
-  }, []);
+  }, [id]);
+  console.log(event);
 
   useEffect(() => {
     if (user?.uid && id) {
@@ -37,7 +38,7 @@ const EventDetails = () => {
         .then((res) => res.json())
         .then((data) => setBooked(data.booked));
     }
-  }, [user?.uid]);
+  }, [user?.uid, id]);
 
   const handleBookNow = () => {
     if (user?.uid && id) {
@@ -52,7 +53,7 @@ const EventDetails = () => {
         .then((data) => {
           if (data.acknowledged) {
             setBooked(true);
-            toast.success("✅ Event Booked Successfully", {
+            toast.success(`✅ Event Booked Successfully`, {
               position: "top-right",
               autoClose: 5000,
               hideProgressBar: false,

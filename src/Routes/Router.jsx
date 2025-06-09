@@ -9,8 +9,8 @@ import MyBookings from "../Pages/Event Management/MyBookings";
 import ManageEventsPage from "../Pages/Event Management/ManageEventsPage";
 import UpdateEvent from "../Pages/Event Management/UpdateEvent";
 import Error from "../Pages/Others/Error";
-import ShowAllEvent from "../Pages/Event Management/ShowAllEvent";
 import ProtectedRoute from "./ProtectedRoute";
+import ShowEventData from "../Pages/Event Management/ShowEventData";
 
 export const router = createBrowserRouter([
   {
@@ -37,6 +37,10 @@ export const router = createBrowserRouter([
           path:'/events/:id',
           element:<ProtectedRoute><EventDetails></EventDetails></ProtectedRoute>
         },
+        // {
+        //   path:'/events/:id',
+        //   Component:EventDetails
+        // },
         {
           path:'myBookings',
           Component:MyBookings
@@ -50,8 +54,8 @@ export const router = createBrowserRouter([
           Component:ManageEventsPage
         },
         {
-          path:'showAllEvents',
-          Component:ShowAllEvent
+          path:'showEventData/:event',
+          Component:ShowEventData
         }
 
     ]
