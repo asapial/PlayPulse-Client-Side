@@ -37,10 +37,6 @@ export const router = createBrowserRouter([
           path:'/events/:id',
           element:<ProtectedRoute><EventDetails></EventDetails></ProtectedRoute>
         },
-        // {
-        //   path:'/events/:id',
-        //   Component:EventDetails
-        // },
         {
           path:'myBookings',
           Component:MyBookings

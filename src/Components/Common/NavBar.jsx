@@ -2,9 +2,10 @@ import React, { useContext } from "react";
 import { Link, NavLink } from "react-router";
 import Playpulsenameplate from "../../Atoms/Playpulsenameplate";
 import { AuthContext } from "../../main";
+import { toast } from "react-toastify";
 
 const NavBar = () => {
-  const { user } = useContext(AuthContext);
+  const { user,signOutUser } = useContext(AuthContext);
   const eventTypes = [
     "Swimming",
     "Sprinting",
@@ -29,6 +30,34 @@ const NavBar = () => {
       ))}
     </>
   );
+
+  const handleLogOut=()=>{
+    signOutUser()
+    .then(()=>{
+              toast.success("Logged Out of PlayPulse! Stay active, come back stronger! 💪", {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+              });
+    })
+    .catch((error)=>{
+                toast.success(`⚠️ Oops! Something tripped — ${error.message}. Let's get back in the game! 🏃‍♂️💨`, {
+                  position: "top-right",
+                  autoClose: 5000,
+                  hideProgressBar: false,
+                  closeOnClick: false,
+                  pauseOnHover: true,
+                  draggable: true,
+                  progress: undefined,
+                  theme: "light",
+                });
+    })
+  }
 
   return (
     <div className="navbar bg-base-100 shadow-sm ">
@@ -96,6 +125,9 @@ const NavBar = () => {
           </li>
           <li>
             <Link to={"/manageEvents"}>Manage Events</Link>
+          </li>
+          <li>
+            <Link to={"/myBookings"}>My Bookings</Link>
           </li>
         </ul>
       </div>
@@ -200,6 +232,12 @@ const NavBar = () => {
         >
           Register
         </NavLink>
+        <button
+          onClick={handleLogOut}
+          className="btn btn-primary btn-soft rounded-2xl"
+        >
+          LogOut
+        </button>
       </div>
     </div>
   );

@@ -9,24 +9,25 @@ import Swal from "sweetalert2";
 import Playpulsebutton from "../../Atoms/Playpulsebutton";
 import Playpulsenameplate from "../../Atoms/Playpulsenameplate";
 import { toast } from "react-toastify";
-import { useLocation, useNavigate } from "react-router";
+import { useNavigate } from "react-router";
+// import { useLocation, useNavigate } from "react-router";
 
 const Login = () => {
   const { loginUser, loginWithGoogle } = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false); // State for password visibility
-
+    const navigate=useNavigate();
+    // const location=useLocation();
   const handleLogin = (event) => {
     event.preventDefault();
 
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    const navigate=useNavigate();
-    const location=useLocation();
+
 
     loginUser(email, password)
       .then((res) => {
-        toast.success("✅ Login Successful — Great to see you again!", {
+        toast.success("Login Successful — Great to see you again!", {
           position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,
@@ -36,11 +37,11 @@ const Login = () => {
           progress: undefined,
           theme: "light",
         });
-        console.log(res.user);
+        navigate('/');
 
       })
       .catch((error) => {
-        toast.error(`❌ Error Occurred: ${error.message}`, {
+        toast.error(`Error Occurred: ${error.message}`, {
           position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,
@@ -55,8 +56,8 @@ const Login = () => {
 
   const handleLoginWithGmail = () => {
     loginWithGoogle()
-      .then((res) => {
-        toast.success("✅ Login Successful — Great to see you again!", {
+      .then(() => {
+        toast.success("Login Successful — Great to see you again!", {
           position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,
@@ -66,10 +67,11 @@ const Login = () => {
           progress: undefined,
           theme: "light",
         });
+        navigate('/');
 
       })
       .catch((error) => {
-        toast.error(`❌ Error Occurred: ${error.message}`, {
+        toast.error(`Error Occurred: ${error.message}`, {
           position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,
