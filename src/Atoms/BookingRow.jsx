@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router';
 import Playpulsebutton from './Playpulsebutton';
-import { FaEdit, FaTrash } from 'react-icons/fa';
+import {  FaTrash } from 'react-icons/fa';
+import { TbListDetails } from 'react-icons/tb';
 
 const BookingRow = ({ data, sl,handleEventDelete }) => {
     console.log(data);
@@ -31,12 +32,14 @@ const BookingRow = ({ data, sl,handleEventDelete }) => {
         {data.event.description}
       </td>
 
-<th className="w-[200px] flex gap-3">
+<th className="w-[250px] grid grid-cols-1 lg:grid-cols-2 gap-1">
  <Link
     to={`/events/${data.eventId}`}
     className="flex items-center gap-2 px-3 py-2 bg-blue-100 text-blue-700 font-medium rounded-xl shadow-sm hover:bg-blue-200 transition duration-200"
   >
-    <FaEdit className="text-blue-600" />
+
+
+    <TbListDetails className="text-blue-600" />
     See Details
   </Link>
 

@@ -7,30 +7,28 @@ import Loader from "../../Components/Common/Loader";
 
 const ShowEventData = () => {
   const [data, setData] = useState([]);
-  const {event}=useParams();
-  const [loading,setLoading]=useState(false);
+  const { event } = useParams();
+  const [loading, setLoading] = useState(false);
 
+  useEffect(() => {
+    setLoading(true);
+    fetch(`http://localhost:3000/showEventData/${event}`)
+      .then((res) => res.json())
+      .then((fetchData) => {
+        setData(fetchData);
+        setLoading(false); // Now runs after data is set
+      })
+      .catch(() => setLoading(false)); // Also stop loading on error
+  }, [event]);
 
-
-
-useEffect(() => {
-  setLoading(true);
-  fetch(`http://localhost:3000/showEventData/${event}`)
-    .then((res) => res.json())
-    .then((fetchData) => {
-      setData(fetchData);
-      setLoading(false); // Now runs after data is set
-    })
-    .catch(() => setLoading(false)); // Also stop loading on error
-}, [event]);
-
-  if(loading){
-    return <Loader></Loader>
+  if (loading) {
+    return <Loader></Loader>;
   }
 
   return (
     <section className="max-w-11/12 mx-auto py-10 px-4">
       <h2 className="text-3xl font-bold text-primary mb-8 text-center flex items-center justify-center gap-2">
+        <title>PlayPulse | EventData</title>
         <Typewriter
           words={[
             "Dive into the thrill of Swimming! 🏊‍♂️💦",

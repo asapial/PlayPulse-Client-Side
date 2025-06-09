@@ -167,60 +167,6 @@ const NavBar = () => {
                 value="PlayPulseLight"
               />
             </li>
-            <li>
-              <input
-                type="radio"
-                name="theme-dropdown"
-                className="theme-controller w-full btn btn-sm btn-block btn-ghost justify-start"
-                aria-label="Default"
-                value="default"
-              />
-            </li>
-            <li>
-              <input
-                type="radio"
-                name="theme-dropdown"
-                className="theme-controller w-full btn btn-sm btn-block btn-ghost justify-start"
-                aria-label="Retro"
-                value="retro"
-              />
-            </li>
-            <li>
-              <input
-                type="radio"
-                name="theme-dropdown"
-                className="theme-controller w-full btn btn-sm btn-block btn-ghost justify-start"
-                aria-label="Cyberpunk"
-                value="cyberpunk"
-              />
-            </li>
-            <li>
-              <input
-                type="radio"
-                name="theme-dropdown"
-                className="theme-controller w-full btn btn-sm btn-block btn-ghost justify-start"
-                aria-label="Valentine"
-                value="valentine"
-              />
-            </li>
-            <li>
-              <input
-                type="radio"
-                name="theme-dropdown"
-                className="theme-controller w-full btn btn-sm btn-block btn-ghost justify-start"
-                aria-label="Aqua"
-                value="aqua"
-              />
-            </li>
-            <li>
-              <input
-                type="radio"
-                name="theme-dropdown"
-                className="theme-controller w-full btn btn-sm btn-block btn-ghost justify-start"
-                aria-label="Cupcake"
-                value="cupcake"
-              />
-            </li>
           </ul>
         </div>
         <NavLink to={"/login"} className="btn btn-primary btn-soft rounded-2xl">

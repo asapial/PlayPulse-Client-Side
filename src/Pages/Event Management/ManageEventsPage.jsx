@@ -55,13 +55,13 @@ const ManageEventsPage = () => {
   };
 
   return (
-    <div className="w-full lg:max-w-11/12 mx-auto py-10 px-4 min-h-screen">
+    <div className="w-full lg:max-w-7xl mx-auto py-10 px-4 min-h-screen">
       <title>PlayPulse | ManageEvents</title>
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8 gap-4">
         <div className="flex items-center gap-3">
-          <FaCalendarAlt className="text-3xl text-secondary" />
-          <h2 className="text-3xl font-bold text-primary">Manage My Events</h2>
+          <FaCalendarAlt className="text-4xl text-secondary drop-shadow" />
+          <h2 className="text-4xl font-extrabold text-primary tracking-tight">Manage My Events</h2>
         </div>
         <div className="flex items-center gap-3">
           <button
