@@ -26,7 +26,7 @@ const Login = () => {
 
 
     loginUser(email, password)
-      .then((res) => {
+      .then(() => {
         toast.success("Login Successful — Great to see you again!", {
           position: "top-right",
           autoClose: 5000,

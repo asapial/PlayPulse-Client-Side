@@ -76,4 +76,34 @@
   --noise: 0;
 }
 
+[data-theme="PlayPulseLight"] .custom-bg {
+  @apply bg-gradient-to-br from-blue-100 via-white to-cyan-100;
+} 
+
+[data-theme="PlayPulseDark"] .custom-bg {
+  @apply bg-gradient-to-br from-slate-800 via-slate-900 to-black;
+}
+
+
+
+/* @keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+} */
+
+[data-theme="PlayPulseLight"] .custom-bg {
+  background: linear-gradient(135deg, #f1f5f9, #e0f2fe, #ffffff); /* slate-100, sky-100, white */
+  background-size: 300% 300%;
+  animation: gradientShift 10s ease infinite;
+}
+
+[data-theme="PlayPulseDark"] .custom-bg {
+  background: linear-gradient(135deg, #0f172a, #0284c7, #000000); /* slate-900, sky-600, black */
+  background-size: 300% 300%;
+  animation: gradientShift 10s ease infinite;
+} 
 

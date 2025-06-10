@@ -8,11 +8,10 @@ const Root = () => {
   return (
     <div>
       <NavBar></NavBar>
-      <div className=" bg-gradient-to-br from-base-300 via-base-100 to-base-300 p-10">
+      <div className=" bg-base-100 p-10">
         <Outlet></Outlet>
       </div>
       <Footer></Footer>
-
       <ToastContainer
         position="top-right"
         autoClose={3000}

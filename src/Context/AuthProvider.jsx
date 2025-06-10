@@ -74,8 +74,8 @@ const AuthProvider = ({children}) => {
       setLoading(false);
     });
 
-    return () => unsubscribe(); // Cleanup on unmount
-  }, [authActionCount]); // 🔁 Re-run when any auth action occurs
+    return () => unsubscribe(); 
+  }, [authActionCount]); 
 
 
   // data fetching part 
