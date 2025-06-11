@@ -11,10 +11,8 @@ import Lottie from "lottie-react";
 import registerAnim from "../../assets/LottiAnimation/registration.json";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../../main";
-
-import Swal from "sweetalert2";
 import Playpulsebutton from "../../Atoms/Playpulsebutton";
-import { toast } from "react-toastify";
+import { ErrorToast, SuccessToast } from "../../Utilities/ToastMaker";
 
 const Register = () => {
   const { createUser, loginWithGoogle } = useContext(AuthContext);
@@ -31,56 +29,21 @@ const Register = () => {
     createUser(email, password, name, photoURL)
       .then(() => {
         // Registration successful, show success message or redirect
-        toast.success("✅ Registration Successful", {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: false,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
+        SuccessToast("Registration Successful");
       })
       .catch((error) => {
-        toast.error(`❌ Error Occurred: ${error.message}`, {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: false,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
+        ErrorToast(`Error Occurred: ${error.message}`);
       });
   };
 
   const handleRegisterWithGmail = () => {
     loginWithGoogle()
       .then(() => {
-        toast.success("✅ Registration Successful", {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: false,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
+        // Registration successful, show success message or redirect
+        SuccessToast("Registration Successful");
       })
       .catch((error) => {
-        toast.error(`❌ Error Occurred: ${error.message}`, {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: false,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
+        ErrorToast(`Error Occurred: ${error.message}`);
       });
   };
 

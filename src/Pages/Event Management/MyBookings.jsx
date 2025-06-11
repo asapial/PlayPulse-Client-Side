@@ -9,7 +9,7 @@ import {
 import Loader from "../../Components/Common/Loader";
 import BookingRow from "../../Atoms/BookingRow";
 import BookingEventCard from "../../Atoms/BookingEventCard";
-import { toast } from "react-toastify";
+import { SuccessToast } from "../../Utilities/ToastMaker";
 
 const MyBookings = () => {
   const { user, loading } = useContext(AuthContext);
@@ -40,16 +40,7 @@ const MyBookings = () => {
       }
     )
       .then(() => {
-        toast.success("Booking Deleted — Pulse Back in Play!", {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: false,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
+        SuccessToast("🗑️ Booking Deleted — Pulse Back in Play!");
         setRelode(!relode);
       })
       .catch(() => {});

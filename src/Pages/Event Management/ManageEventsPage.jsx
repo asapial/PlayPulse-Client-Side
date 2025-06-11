@@ -8,9 +8,9 @@ import {
   FaThLarge,
 } from "react-icons/fa";
 import Loader from "../../Components/Common/Loader";
-import { toast } from "react-toastify";
 import EventCard from "../../Atoms/EventCard";
 import useFetchApi from "../../api/useFetchApi";
+import { SuccessToast } from "../../Utilities/ToastMaker";
 
 
 const ManageEventsPage = () => {
@@ -50,16 +50,7 @@ useEffect(() => {
       .then((res) => res.json())
       .then((deletedData) => {
         if (deletedData.deletedCount) {
-          toast.success("🗑️ Event Deleted Successfully", {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: false,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-          });
+          SuccessToast("🗑️ Event Deleted Successfully");
           setRelode(!relode);
         }
       });

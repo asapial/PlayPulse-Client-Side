@@ -14,6 +14,7 @@ import {
 } from "react-icons/fa";
 import Loader from "../../Components/Common/Loader";
 import { toast } from "react-toastify";
+import { SuccessToast } from "../../Utilities/ToastMaker";
 
 const EventDetails = () => {
   const { id } = useParams();
@@ -53,16 +54,7 @@ const EventDetails = () => {
         .then((data) => {
           if (data.acknowledged) {
             setBooked(true);
-            toast.success(`✅ Event Booked Successfully`, {
-              position: "top-right",
-              autoClose: 5000,
-              hideProgressBar: false,
-              closeOnClick: false,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-              theme: "light",
-            });
+            SuccessToast("🎉 Event Booked Successfully!");
           }
         });
     }

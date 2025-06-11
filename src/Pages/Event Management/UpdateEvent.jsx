@@ -1,7 +1,4 @@
-import Lottie from "lottie-react";
-import sportAnimation from "../../assets/LottiAnimation/createEvent.json";
 import { AuthContext } from "../../main";
-import { motion } from "framer-motion";
 import { useNavigate, useParams } from "react-router";
 import {
   FaEnvelope,
@@ -14,8 +11,8 @@ import {
 import Playpulsenameplate from "../../Atoms/Playpulsenameplate";
 import { useContext, useEffect, useState } from "react";
 import Playpulsebutton from "../../Atoms/Playpulsebutton";
-import { toast } from "react-toastify";
 import Loader from "../../Components/Common/Loader";
+import { SuccessToast } from "../../Utilities/ToastMaker";
 
 const UpdateEvent = () => {
   const eventTypes = [
@@ -65,16 +62,7 @@ const UpdateEvent = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount) {
-          toast.success("✅ Data Updated Successfully", {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: false,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-          });
+          SuccessToast("🎉 Event Updated Successfully!");
           navigate("/manageEvents");
         }
       });

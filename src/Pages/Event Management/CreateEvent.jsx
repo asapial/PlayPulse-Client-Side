@@ -13,8 +13,7 @@ import Playpulsenameplate from "../../Atoms/Playpulsenameplate";
 import { AuthContext } from "../../main";
 import Playpulsebutton from "../../Atoms/Playpulsebutton";
 import Loader from "../../Components/Common/Loader";
-import Swal from "sweetalert2";
-import { toast } from "react-toastify";
+import { SuccessToast } from "../../Utilities/ToastMaker";
 
 const eventTypes = [
   "Swimming",
@@ -55,16 +54,7 @@ const CreateEvent = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.acknowledged) {
-          toast.success("✅ Data Inserted Successfully", {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: false,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-          });
+          SuccessToast("🎉 Event Created Successfully!");
         }
       });
   };

@@ -5,18 +5,16 @@ import { FaEye, FaEyeSlash } from "react-icons/fa"; // Add these imports
 import login from "../../assets/LottiAnimation/login.json";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../../main";
-import Swal from "sweetalert2";
 import Playpulsebutton from "../../Atoms/Playpulsebutton";
 import Playpulsenameplate from "../../Atoms/Playpulsenameplate";
-import { toast } from "react-toastify";
 import { useNavigate } from "react-router";
-// import { useLocation, useNavigate } from "react-router";
+import { ErrorToast, SuccessToast } from "../../Utilities/ToastMaker";
 
 const Login = () => {
   const { loginUser, loginWithGoogle } = useContext(AuthContext);
-  const [showPassword, setShowPassword] = useState(false); // State for password visibility
-    const navigate=useNavigate();
-    // const location=useLocation();
+  const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
+  // const location=useLocation();
   const handleLogin = (event) => {
     event.preventDefault();
 
@@ -24,63 +22,24 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
 
-
     loginUser(email, password)
       .then(() => {
-        toast.success("Login Successful — Great to see you again!", {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: false,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
-        navigate('/');
-
+        SuccessToast("Login Successful — Great to see you again!");
+        navigate("/");
       })
       .catch((error) => {
-        toast.error(`Error Occurred: ${error.message}`, {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: false,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
+        ErrorToast(`Error Occurred: ${error.message}`);
       });
   };
 
   const handleLoginWithGmail = () => {
     loginWithGoogle()
       .then(() => {
-        toast.success("Login Successful — Great to see you again!", {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: false,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
-        navigate('/');
-
+        SuccessToast("Login Successful — Great to see you again!");
+        navigate("/");
       })
       .catch((error) => {
-        toast.error(`Error Occurred: ${error.message}`, {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: false,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
+        ErrorToast(`Error Occurred: ${error.message}`);
       });
   };
   return (
