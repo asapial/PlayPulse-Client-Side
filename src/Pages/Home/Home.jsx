@@ -9,7 +9,7 @@ const Home = () => {
     <div className="min-h-screen">
       <title>PlayPulse | Home</title>
       <Slider></Slider>
-      <div className="showEventContainer centerize bg-amber-200">
+      <div className="showEventContainer centerize custom-gradient">
         <ShowEvent></ShowEvent>
       </div>
       <div className="popularEventContainer centerize bg-gradient-to-br from-slate-900 via-sky-900 to-black">
