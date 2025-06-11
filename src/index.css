@@ -107,3 +107,6 @@
   animation: gradientShift 10s ease infinite;
 } 
 
+.centerize{
+  @apply flex items-center justify-center;
+}
