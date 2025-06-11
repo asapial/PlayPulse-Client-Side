@@ -10,20 +10,31 @@ import {
 import Loader from "../../Components/Common/Loader";
 import { toast } from "react-toastify";
 import EventCard from "../../Atoms/EventCard";
+import useFetchApi from "../../api/useFetchApi";
+
 
 const ManageEventsPage = () => {
   const { user, loading } = useContext(AuthContext);
   const [data, setData] = useState([]);
   const [relode, setRelode] = useState(false);
   const [viewMode, setViewMode] = useState("table");
+  const {myEvents}=useFetchApi();
 
-  useEffect(() => {
-    if (!loading && user?.email) {
-      fetch(`http://localhost:3000/myEvents?email=${user.email}`)
-        .then((res) => res.json())
-        .then((fetchData) => setData(fetchData));
+useEffect(() => {
+  const fetchData = async () => {
+    try {
+      const data = await myEvents(user.email);
+      setData(data);
+    } catch (error) {
+      console.error('Failed to fetch events:', error);
     }
-  }, [loading, user?.email, relode]);
+  };
+
+  if (user?.email) {
+    fetchData();
+  }
+}, [ user?.email]);
+
 
   if (loading) {
     return <Loader />;
