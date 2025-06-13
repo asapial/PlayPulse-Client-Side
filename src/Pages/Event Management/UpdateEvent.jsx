@@ -1,5 +1,6 @@
 import { AuthContext } from "../../main";
 import { useNavigate, useParams } from "react-router";
+import { motion } from "framer-motion";
 import {
   FaEnvelope,
   FaUser,

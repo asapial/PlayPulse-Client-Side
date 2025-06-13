@@ -31,7 +31,7 @@ export const router = createBrowserRouter([
         },
         {
           path:'createEvent',
-          Component:CreateEvent
+          element:<ProtectedRoute><CreateEvent></CreateEvent></ProtectedRoute>
         },
         {
           path:'/events/:id',
@@ -39,11 +39,13 @@ export const router = createBrowserRouter([
         },
         {
           path:'myBookings',
-          Component:MyBookings
+          element:<ProtectedRoute><MyBookings></MyBookings></ProtectedRoute>
+
         },
         {
           path:'updateEvent/:id',
-          Component:UpdateEvent
+                    element:<ProtectedRoute><UpdateEvent></UpdateEvent></ProtectedRoute>
+
         },
         {
           path:'manageEvents',

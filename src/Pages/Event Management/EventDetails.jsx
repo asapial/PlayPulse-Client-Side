@@ -12,8 +12,6 @@ import {
   FaInfoCircle,
   FaUserCheck,
 } from "react-icons/fa";
-import Loader from "../../Components/Common/Loader";
-import { toast } from "react-toastify";
 import { SuccessToast } from "../../Utilities/ToastMaker";
 
 const EventDetails = () => {

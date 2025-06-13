@@ -35,15 +35,15 @@ const statsData = [
 
 export function StatisticsAndAchivements() {
   return (
-    <section className="relative  text-white py-20 px-4 md:px-16 rounded-3xl shadow-2xl max-w-7xl mx-auto my-16 overflow-hidden">
+    <section className="relative   py-20 px-4 md:px-16 rounded-3xl shadow-2xl max-w-7xl mx-auto my-16 overflow-hidden">
       {/* Decorative blurred gradient */}
-      <div className="absolute -top-20 -left-20 w-96 h-96 bg-pink-400 opacity-20 rounded-full blur-3xl pointer-events-none"></div>
-      <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-cyan-400 opacity-20 rounded-full blur-3xl pointer-events-none"></div>
+      {/* <div className="absolute -top-20 -left-20 w-96 h-96 bg-pink-400 opacity-20 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-cyan-400 opacity-20 rounded-full blur-3xl pointer-events-none"></div> */}
       <div className="relative z-10">
-        <h2 className="text-4xl md:text-5xl font-extrabold mb-6 text-center drop-shadow-lg">
+        <h2 className="text-4xl md:text-5xl font-extrabold mb-6 text-center drop-shadow-lg text-primary">
           PlayPulse by the Numbers
         </h2>
-        <p className="text-center text-lg md:text-xl text-pink-100 mb-14 max-w-2xl mx-auto">
+        <p className="text-center text-lg md:text-xl text-neutral mb-14 max-w-2xl mx-auto">
           Discover our journey of excellence and the milestones achieved by our
           passionate community.
         </p>
@@ -56,11 +56,11 @@ export function StatisticsAndAchivements() {
               <div className="mb-2 group-hover:scale-110 transition-transform">
                 {icon}
               </div>
-              <span className="text-5xl font-extrabold text-cyan-200 drop-shadow">
+              <span className="text-5xl font-extrabold text-secondary drop-shadow">
                 <CountUp end={value} duration={2} separator="," />
               </span>
-              <p className="text-xl font-bold text-white">{label}</p>
-              <p className="text-base text-cyan-100">{desc}</p>
+              <p className="text-xl font-bold text-neutral">{label}</p>
+              <p className="text-base text-secondary">{desc}</p>
             </div>
           ))}
         </div>

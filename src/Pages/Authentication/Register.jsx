@@ -13,10 +13,15 @@ import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../../main";
 import Playpulsebutton from "../../Atoms/Playpulsebutton";
 import { ErrorToast, SuccessToast } from "../../Utilities/ToastMaker";
+import Playpulsenameplate from "../../Atoms/Playpulsenameplate";
+import { passwordValidator } from "../../Utilities/PasswordValidator";
+import { useNavigate } from "react-router";
 
 const Register = () => {
   const { createUser, loginWithGoogle } = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false); // State for password visibility
+  const [errorMassage, setErrorMassage] = useState("");
+  const navigate = useNavigate();
 
   const handleRegister = (event) => {
     event.preventDefault();
@@ -25,11 +30,19 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
     const photoURL = form.photoURL.value;
+    console.log(email, password, name, photoURL);
+
+    // password validation
+
+    console.log(errorMassage);
+    if (!passwordValidator(password, setErrorMassage)) return;
 
     createUser(email, password, name, photoURL)
       .then(() => {
         // Registration successful, show success message or redirect
         SuccessToast("Registration Successful");
+        navigate("/");
+
       })
       .catch((error) => {
         ErrorToast(`Error Occurred: ${error.message}`);
@@ -48,9 +61,9 @@ const Register = () => {
   };
 
   return (
-    <section className="min-h-screen bg-gradient-to-br from-base-300 via-base-100 to-base-300 flex items-center justify-center px-4">
+    <section className="min-h-screen custom-gradient flex items-center justify-center px-4">
       <title>PlayPulse | Register</title>
-      <div className="bg-base-300 shadow-xl rounded-2xl w-full md:w-4/5  lg:flex justify-center items-center">
+      <div className="bg-base-100 shadow-xl rounded-2xl w-full lg:max-w-7xl mx-auto lg:flex justify-center items-center border border-primary shadow-primary ">
         {/* Lottie Animation */}
         <div className="w-full lg:w-2/5 h-[500px] flex justify-center items-center p-10">
           <Lottie animationData={registerAnim} loop={true} />
@@ -58,11 +71,8 @@ const Register = () => {
 
         {/* Registration Form */}
         <div className="p-8 space-y-6 w-full lg:w-3/5">
-          <h2 className="text-3xl font-extrabold text-center text-neutral">
-            Join{" "}
-            <span className="text-primary">
-              Career<span className=" text-secondary">Sphere</span>
-            </span>
+          <h2 className="text-3xl font-extrabold text-center text-neutral flex justify-center items-center">
+            Join <Playpulsenameplate></Playpulsenameplate>
           </h2>
           <p className="text-center text-neutral text-sm">
             Create an account to get started
@@ -114,6 +124,14 @@ const Register = () => {
               </span>
             </div>
 
+            {/* password error  */}
+
+            {errorMassage && (
+              <div className="flex items-center gap-2 bg-red-100 text-red-700 border border-red-300 px-4 py-2 rounded-lg shadow-sm text-sm">
+                <span>{errorMassage}</span>
+              </div>
+            )}
+
             {/* Profile Photo Link */}
             <div className="relative">
               <FaImage className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
@@ -126,7 +144,9 @@ const Register = () => {
             </div>
 
             {/* Submit Button */}
-            <Playpulsebutton>Register</Playpulsebutton>
+            <button type="submit" className="w-full">
+              <Playpulsebutton>Register</Playpulsebutton>
+            </button>
           </form>
 
           {/* Divider */}

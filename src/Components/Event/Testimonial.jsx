@@ -36,10 +36,9 @@ const cardVariants = {
 
 export function Testimonial() {
   return (
-    <div className="max-w-7xl mx-auto py-10 px-4 min-h-screen relative flex items-center justify-center  overflow-hidden">
-      <div className="absolute "></div>
-      <div className="relative z-10 w-full">
-        <h2 className="text-4xl lg:text-5xl font-extrabold text-center text-primary mb-12">
+    <div className="max-w-7xl mx-auto py-10 px-4  relative flex items-center justify-center  overflow-hidden ">
+      <div className=" w-full">
+        <h2 className="text-4xl lg:text-5xl font-extrabold text-center text-primary mb-5">
           🌟 What Our Users Say
         </h2>
         <motion.div

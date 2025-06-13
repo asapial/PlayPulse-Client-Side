@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from "framer-motion";
 import { FaBasketballBall, FaFutbol, FaSwimmer, FaTableTennis, FaVolleyballBall, FaRunning } from "react-icons/fa";
+import Playpulsenameplate from '../../Atoms/Playpulsenameplate';
 
 const sports = [
   {
@@ -43,9 +44,9 @@ const sports = [
 
 export function PopularEvent() {
   return (
-    <div className="max-w-7xl mx-auto py-10 px-4 min-h-screen  text-white p-8 flex flex-col justify-center">
-      <h2 className="text-3xl lg:text-4xl font-bold text-center mb-10">
-        🏅 Popular Sports at PlayPulse
+    <div className="max-w-7xl mx-auto py-10 px-4 min-h-screen  text-primary p-8 flex flex-col justify-center">
+      <h2 className="text-3xl lg:text-4xl font-bold text-center mb-10 flex items-center justify-center gap-">
+        🏅 Popular Sports at <Playpulsenameplate></Playpulsenameplate>
       </h2>
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10  mx-auto">
         {sports.map((sport, i) => (
@@ -57,19 +58,18 @@ export function PopularEvent() {
             transition={{ duration: 0.5, delay: i * 0.15 }}
             className="relative group rounded-3xl overflow-hidden shadow-2xl"
           >
-            {/* Animated border */}
-            <div className="absolute inset-0 z-0 bg-gradient-to-br from-cyan-400 via-blue-400 to-purple-400 opacity-60 group-hover:opacity-100 blur-lg transition duration-500"></div>
+
             {/* Card content */}
-            <div className="relative z-10 bg-slate-900/90 backdrop-blur-xl rounded-3xl overflow-hidden flex flex-col h-full shadow-lg border border-slate-700 group-hover:border-cyan-400 transition">
+            <div className="relative  rounded-3xl overflow-hidden flex flex-col h-full shadow-lg border border-slate-700 border-b-8 border-b-cyan-900 group-hover:border-cyan-400 transition">
               <img
                 src={sport.image}
                 alt={sport.name}
                 className="w-full h-48 object-cover object-center rounded-t-3xl border-b border-slate-800"
               />
-              <div className="p-6 flex flex-col items-center text-center gap-2">
+              <div className="p-6 flex flex-col items-center text-center gap-2  bg-gradient-to-t from-base-100 to-base-300/50 h-full ">
                 <div className="mb-2">{sport.icon}</div>
-                <h3 className="text-2xl font-bold text-cyan-300">{sport.name}</h3>
-                <p className="text-base text-slate-300">{sport.desc}</p>
+                <h3 className="text-2xl font-bold text-primary">{sport.name}</h3>
+                <p className="text-neutral ">{sport.desc}</p>
               </div>
             </div>
           </motion.div>

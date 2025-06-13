@@ -12,14 +12,14 @@ const Home = () => {
       <div className="showEventContainer centerize custom-gradient">
         <ShowEvent></ShowEvent>
       </div>
-      <div className="popularEventContainer centerize bg-gradient-to-br from-slate-900 via-sky-900 to-black">
+      <div className="popularEventContainer centerize custom-gradient-alt">
         <PopularEvent></PopularEvent>
       </div>
-      <div className="testimonialContainer centerize bg-gradient-to-br from-sky-100 via-white to-sky-50">
+      <div className="testimonialContainer centerize bg-base-300">
         <Testimonial></Testimonial>
       </div>
 
-      <div className="statisticsAndAchivmentsContianer centerize  bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900">
+      <div className="statisticsAndAchivmentsContianer centerize custom-gradient ">
         <StatisticsAndAchivements></StatisticsAndAchivements>
       </div>
     </div>
