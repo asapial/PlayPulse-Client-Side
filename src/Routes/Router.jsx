@@ -13,6 +13,8 @@ import ProtectedRoute from "./ProtectedRoute";
 import ShowEventData from "../Pages/Event Management/ShowEventData";
 import updateProfile from "../Pages/Authentication/UpdateProfile";
 import EventsPage from "../Pages/Event Management/EventsPage";
+import Copyright from "../Pages/Footer.jsx/Copyright";
+import ContactInformation from "../Pages/Footer.jsx/ContactInformation";
 
 export const router = createBrowserRouter([
   {
@@ -64,6 +66,14 @@ export const router = createBrowserRouter([
         {
           path:'eventType',
           Component:EventsPage,
+        },
+        {
+          path:'copyRight',
+          Component:Copyright,
+        },
+        {
+          path:'contactInformation',
+          Component:ContactInformation,
         }
 
     ]

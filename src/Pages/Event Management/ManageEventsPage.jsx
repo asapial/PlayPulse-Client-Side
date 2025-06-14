@@ -33,7 +33,7 @@ useEffect(() => {
   if (user?.email) {
     fetchData();
   }
-}, [ user?.email]);
+}, [ user?.email,relode ]);
 
 
   if (loading) {

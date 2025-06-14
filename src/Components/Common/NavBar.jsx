@@ -14,29 +14,20 @@ import {
 const NavBar = () => {
   const { user, signOutUser } = useContext(AuthContext);
   const [theme, setTheme] = useState(true);
-  const eventTypes = [
-    "Swimming",
-    "Sprinting",
-    "Long Jump",
-    "High Jump",
-    "Hurdle race",
-    "Water-Polo",
-    "Fencing",
-    "Volley-Ball",
-    "Badminton",
-    "Others",
-    "All",
-  ];
 
-  const eventList = (
-    <>
-      {eventTypes.map((event) => (
-        <li>
-          <Link to={`/showEventData/${event}`}>{event}</Link>
-        </li>
-      ))}
-    </>
-  );
+  const handleLogOut = () => {
+    signOutUser()
+      .then(() => {
+        SuccessToast(
+          "Logged Out of PlayPulse! Stay active, come back stronger! 💪"
+        );
+      })
+      .catch((error) => {
+        ErrorToast(
+          `⚠️ Oops! Something tripped — ${error.message}. Let's get back in the game! 🏃‍♂️💨`
+        );
+      });
+  };
 
   const linkList = (
     <>
@@ -64,21 +55,34 @@ const NavBar = () => {
           Create Event
         </NavLink>
       </li>
+      {!user ? (
+        <>
+          <li className="block sm:hidden">
+            <Link to="/login" className="btn btn-primary btn-soft rounded-2xl">
+              Login
+            </Link>
+          </li>
+          <li className="block sm:hidden">
+            <Link
+              to="/register"
+              className="btn btn-primary btn-soft rounded-2xl"
+            >
+              Register
+            </Link>
+          </li>
+        </>
+      ) : (
+        <li className="block sm:hidden">
+          <button
+            onClick={handleLogOut}
+            className="btn btn-primary btn-soft rounded-2xl"
+          >
+            LogOut
+          </button>
+        </li>
+      )}
     </>
   );
-  const handleLogOut = () => {
-    signOutUser()
-      .then(() => {
-        SuccessToast(
-          "Logged Out of PlayPulse! Stay active, come back stronger! 💪"
-        );
-      })
-      .catch((error) => {
-        ErrorToast(
-          `⚠️ Oops! Something tripped — ${error.message}. Let's get back in the game! 🏃‍♂️💨`
-        );
-      });
-  };
 
   const toggleTheme = () => {
     const html = document.documentElement;
@@ -134,29 +138,32 @@ const NavBar = () => {
         >
           {theme ? <FaSun size={30}></FaSun> : <FaMoon size={30}></FaMoon>}
         </button>
-        {!user ? (
-          <>
-            <Link
-              to={"/login"}
+
+        <div className="hidden lg:block">
+          {!user ? (
+            <>
+              <Link
+                to={"/login"}
+                className="btn btn-primary btn-soft rounded-2xl"
+              >
+                Login
+              </Link>
+              <Link
+                to={"/register"}
+                className="btn btn-primary btn-soft rounded-2xl"
+              >
+                Register
+              </Link>
+            </>
+          ) : (
+            <button
+              onClick={handleLogOut}
               className="btn btn-primary btn-soft rounded-2xl"
             >
-              Login
-            </Link>
-            <Link
-              to={"/register"}
-              className="btn btn-primary btn-soft rounded-2xl"
-            >
-              Register
-            </Link>
-          </>
-        ) : (
-          <button
-            onClick={handleLogOut}
-            className="btn btn-primary btn-soft rounded-2xl"
-          >
-            LogOut
-          </button>
-        )}
+              LogOut
+            </button>
+          )}
+        </div>
 
         <div className="dropdown dropdown-end">
           <div tabIndex={0} role="button" className="">

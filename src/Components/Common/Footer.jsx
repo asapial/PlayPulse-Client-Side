@@ -5,7 +5,7 @@ import Playpulsenameplate from "../../Atoms/Playpulsenameplate";
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-br from-base-100 via-base-300 to-base-100 text-gray-400 pt-16 pb-12 px-4 sm:px-10 w-full flex  flex-col items-center justify-center ">
+    <footer className="bg-gradient-to-br from-base-100 via-base-300 to-base-100 text-gray-400 pt-16 pb-12 px-4 sm:px-10 w-full flex  flex-col items-center justify-center  ">
       <div className=" mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left  justify-around">
         {/* Brand Section */}
         <div>
@@ -31,7 +31,7 @@ const Footer = () => {
           <ul className="space-y-3 text-sm font-medium text-neutral">
             <li>
               <Link
-                to={"/copyRightInformation"}
+                to={"/copyRight"}
                 className="hover:text-primary transition-all duration-300 hover:underline underline-offset-4"
               >
                 Copyright notice
@@ -39,7 +39,7 @@ const Footer = () => {
             </li>
             <li>
               <Link
-                to={"/contact"}
+                to={"/contactInformation"}
                 className="hover:text-primary transition-all duration-300 hover:underline underline-offset-4"
               >
                 Contact information

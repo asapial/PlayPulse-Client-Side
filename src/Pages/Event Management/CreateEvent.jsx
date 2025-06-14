@@ -14,6 +14,7 @@ import { AuthContext } from "../../main";
 import Playpulsebutton from "../../Atoms/Playpulsebutton";
 import Loader from "../../Components/Common/Loader";
 import { SuccessToast } from "../../Utilities/ToastMaker";
+import { Datepicker } from "flowbite-react";
 
 const eventTypes = [
   "Swimming",
@@ -106,13 +107,11 @@ const CreateEvent = () => {
             </div>
             {/* Event Date */}
             <div className="relative">
-              <FaCalendarAlt className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
-              <input
-                type="date"
+              <Datepicker
+              title="Event Date"
+                id="eventDate"
                 name="eventDate"
-                className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-400"
-                required
-              />
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-400 bg-inherit"              />
             </div>
             {/* Description */}
             <div className="relative">
