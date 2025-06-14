@@ -11,7 +11,7 @@ import { useLocation, useNavigate } from "react-router";
 import { ErrorToast, SuccessToast } from "../../Utilities/ToastMaker";
 
 const Login = () => {
-  const location=useLocation();
+  const location = useLocation();
   const { loginUser, loginWithGoogle } = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
@@ -26,7 +26,7 @@ const Login = () => {
     loginUser(email, password)
       .then(() => {
         SuccessToast("Login Successful — Great to see you again!");
-          navigate(`${location.state ? location.state : "/"}`);
+        navigate(`${location.state ? location.state : "/"}`);
       })
       .catch((error) => {
         ErrorToast(`Error Occurred: ${error.message}`);
@@ -37,26 +37,25 @@ const Login = () => {
     loginWithGoogle()
       .then(() => {
         SuccessToast("Login Successful — Great to see you again!");
-                  navigate(`${location.state ? location.state : "/"}`);
-
+        navigate(`${location.state ? location.state : "/"}`);
       })
       .catch((error) => {
         ErrorToast(`Error Occurred: ${error.message}`);
       });
   };
   return (
-    <section className="min-h-screen custom-gradient-alt flex items-center justify-center px-4">
+    <section className="min-h-screen custom-gradient flex items-center justify-center px-4 py-10">
       <title>PlayPulse | Login</title>
-      <div className="bg-base-100 shadow-xl rounded-2xl w-full lg:max-w-7xl mx-auto lg:flex justify-center items-center border border-primary shadow-primary ">
+      <div className="bg-base-100  rounded-2xl w-full lg:max-w-5xl mx-auto lg:flex justify-center items-center border border-primary shadow-primary shadow ">
         <div className="w-full lg:w-2/5 h-[500px] flex justify-center items-center p-10">
           <Lottie animationData={login} loop={true} />
         </div>
-        <div className="p-8 space-y-6">
+        <div className="w-full lg:w-3/5 p-10">
           {/* Logo / Title */}
-          <h2 className="text-3xl font-extrabold text-center text-neutral">
+          <h2 className="text-3xl lg:text-4xl font-extrabold flex items-center gap-2 justify-center text-neutral">
             Welcome to <Playpulsenameplate></Playpulsenameplate>
           </h2>
-          <p className="text-center text-neutral text-sm">
+          <p className="text-center text-neutral text-lg my-2">
             Please sign in to continue
           </p>
 

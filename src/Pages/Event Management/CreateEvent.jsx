@@ -60,9 +60,9 @@ const CreateEvent = () => {
   };
 
   return (
-    <section className="min-h-screen  flex items-center justify-center ">
+    <section className="min-h-screen  flex items-center justify-center py-10 custom-gradient ">
       <title>PlayPulse | CreateEvent</title>
-      <div className="bg-base-200 shadow-md rounded-2xl w-full max-w-6xl  lg:flex justify-center items-center p-2 lg:p-5 border border-primary shadow-primary  ">
+      <div className="bg-base-200 shadow rounded-2xl w-full max-w-6xl  lg:flex justify-center items-center p-2 lg:p-5 border border-primary shadow-primary  ">
         {/* Lottie Animation */}
         <div className="w-full lg:w-2/5 h-[500px] flex justify-center items-center p-2 lg:p-5">
           <Lottie animationData={sportAnimation} loop={true} />
@@ -70,7 +70,7 @@ const CreateEvent = () => {
 
         {/* Event Creation Form */}
         <div className="p-2 lg:p-5 space-y-6 w-full lg:w-3/5">
-          <h2 className="text-3xl lg:text-5xl font-extrabold text-center text-neutral">
+          <h2 className="text-3xl lg:text-5xl font-bold text-center text-neutral">
             Create Event <Playpulsenameplate />
           </h2>
           <form className="space-y-4" onSubmit={handleCreateEvent}>

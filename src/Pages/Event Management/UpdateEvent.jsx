@@ -69,7 +69,7 @@ const UpdateEvent = () => {
       });
   };
   return (
-    <section className="min-h-screen  flex items-center justify-center">
+    <section className="min-h-screen  flex items-center justify-center py-10">
       <title>PlayPulse | UpdateEvent</title>
       <div className="bg-base-200 shadow-md rounded-2xl w-full max-w-6xl  lg:flex justify-center items-center p-2 lg:p-5 border border-primary shadow-primary  ">
         {/* Lottie Animation */}

@@ -1,11 +1,13 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router";
 import Playpulsenameplate from "../../Atoms/Playpulsenameplate";
 import { AuthContext } from "../../main";
 import { toast } from "react-toastify";
+import { FaMoon, FaSun } from "react-icons/fa";
 
 const NavBar = () => {
   const { user, signOutUser } = useContext(AuthContext);
+  const [theme,setTheme]=useState(true);
   const eventTypes = [
     "Swimming",
     "Sprinting",
@@ -167,10 +169,12 @@ const NavBar = () => {
         )}
 
         <button
-          onClick={toggleTheme}
-          className="btn btn-primary "
+          onClick={()=>{
+            setTheme(!theme);
+            toggleTheme();
+          }}
         >
-          Toggle Theme
+          {(theme?(<FaSun size={30}></FaSun>):(<FaMoon size={30}></FaMoon>))}
         </button>
       </div>
     </div>

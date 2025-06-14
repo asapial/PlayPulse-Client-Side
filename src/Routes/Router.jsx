@@ -11,6 +11,7 @@ import UpdateEvent from "../Pages/Event Management/UpdateEvent";
 import Error from "../Pages/Others/Error";
 import ProtectedRoute from "./ProtectedRoute";
 import ShowEventData from "../Pages/Event Management/ShowEventData";
+import updateProfile from "../Pages/Authentication/UpdateProfile";
 
 export const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ export const router = createBrowserRouter([
         {
           path:'register',
           Component:Register
+        },
+        {
+          path:'update',
+          Component:updateProfile
         },
         {
           path:'createEvent',

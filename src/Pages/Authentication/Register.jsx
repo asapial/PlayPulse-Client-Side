@@ -61,9 +61,9 @@ const Register = () => {
   };
 
   return (
-    <section className="min-h-screen custom-gradient flex items-center justify-center px-4">
+    <section className="min-h-screen custom-gradient flex items-center justify-center px-4 py-10">
       <title>PlayPulse | Register</title>
-      <div className="bg-base-100 shadow-xl rounded-2xl w-full lg:max-w-7xl mx-auto lg:flex justify-center items-center border border-primary shadow-primary ">
+      <div className="bg-base-100 shadow rounded-2xl w-full lg:max-w-5xl mx-auto lg:flex justify-center items-center border border-primary shadow-primary ">
         {/* Lottie Animation */}
         <div className="w-full lg:w-2/5 h-[500px] flex justify-center items-center p-10">
           <Lottie animationData={registerAnim} loop={true} />
@@ -71,10 +71,10 @@ const Register = () => {
 
         {/* Registration Form */}
         <div className="p-8 space-y-6 w-full lg:w-3/5">
-          <h2 className="text-3xl font-extrabold text-center text-neutral flex justify-center items-center">
+          <h2 className="text-3xl lg:text-5xl font-extrabold flex items-center justify-center gap-2 text-neutral">
             Join <Playpulsenameplate></Playpulsenameplate>
           </h2>
-          <p className="text-center text-neutral text-sm">
+          <p className="text-center text-neutral text-lg my-2">
             Create an account to get started
           </p>
 
