@@ -12,6 +12,7 @@ import Error from "../Pages/Others/Error";
 import ProtectedRoute from "./ProtectedRoute";
 import ShowEventData from "../Pages/Event Management/ShowEventData";
 import updateProfile from "../Pages/Authentication/UpdateProfile";
+import EventsPage from "../Pages/Event Management/EventsPage";
 
 export const router = createBrowserRouter([
   {
@@ -54,11 +55,15 @@ export const router = createBrowserRouter([
         },
         {
           path:'manageEvents',
-          Component:ManageEventsPage
+           element:<ProtectedRoute><ManageEventsPage></ManageEventsPage></ProtectedRoute>
         },
         {
           path:'showEventData/:event',
           Component:ShowEventData
+        },
+        {
+          path:'eventType',
+          Component:EventsPage,
         }
 
     ]

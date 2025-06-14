@@ -2,12 +2,18 @@ import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router";
 import Playpulsenameplate from "../../Atoms/Playpulsenameplate";
 import { AuthContext } from "../../main";
-import { toast } from "react-toastify";
 import { FaMoon, FaSun } from "react-icons/fa";
+import { ErrorToast, SuccessToast } from "../../Utilities/ToastMaker";
+import {
+  Avatar,
+  Dropdown,
+  DropdownDivider,
+  DropdownItem,
+} from "flowbite-react";
 
 const NavBar = () => {
   const { user, signOutUser } = useContext(AuthContext);
-  const [theme,setTheme]=useState(true);
+  const [theme, setTheme] = useState(true);
   const eventTypes = [
     "Swimming",
     "Sprinting",
@@ -32,36 +38,44 @@ const NavBar = () => {
     </>
   );
 
+  const linkList = (
+    <>
+      <li>
+        <NavLink
+          to="/"
+          className={({ isActive }) => (isActive ? "active" : "")}
+        >
+          Home
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/eventType"
+          className={({ isActive }) => (isActive ? "active" : "")}
+        >
+          Events Page
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/createEvent"
+          className={({ isActive }) => (isActive ? "active" : "")}
+        >
+          Create Event
+        </NavLink>
+      </li>
+    </>
+  );
   const handleLogOut = () => {
     signOutUser()
       .then(() => {
-        toast.success(
-          "Logged Out of PlayPulse! Stay active, come back stronger! 💪",
-          {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: false,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-          }
+        SuccessToast(
+          "Logged Out of PlayPulse! Stay active, come back stronger! 💪"
         );
       })
       .catch((error) => {
-        toast.success(
-          `⚠️ Oops! Something tripped — ${error.message}. Let's get back in the game! 🏃‍♂️💨`,
-          {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: false,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-          }
+        ErrorToast(
+          `⚠️ Oops! Something tripped — ${error.message}. Let's get back in the game! 🏃‍♂️💨`
         );
       });
   };
@@ -76,12 +90,8 @@ const NavBar = () => {
   };
 
   return (
-    <div className="navbar bg-base-100 shadow-sm ">
+    <div className="navbar bg-base-100 shadow-sm px-5">
       <div className="navbar-start">
-        <div className="mask mask-squircle h-12 w-12">
-          <img src={user?.photoURL} alt="Avatar Tailwind CSS Component" />
-        </div>
-
         {/* dropdown for theme  */}
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -103,61 +113,41 @@ const NavBar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+            className="menu menu-sm dropdown-content bg-base-200 rounded-box z-1 mt-3 w-52 p-2 shadow  text-lg font-semibold"
           >
-            <li>
-              <Link to={"/registerSeeker"}>Add Profile</Link>
-            </li>
-            <li>
-              <a>Parent</a>
-              <ul className="p-2">{eventList}</ul>
-            </li>
-            <li>
-              <Link to={"/manageEvents"}>Manage Events</Link>
-            </li>
+            {linkList}
           </ul>
         </div>
         <Link to={"/"} className="text-3xl text-blue-400 font-bold">
           <Playpulsenameplate></Playpulsenameplate>
         </Link>
       </div>
-      <div className="navbar-center hidden lg:flex ">
-        <ul className="menu menu-horizontal px-1">
-          <li>
-            <Link to={"/"}>Home</Link>
-          </li>
-          <li>
-            <Link to={"/createEvent"}>Create Event</Link>
-          </li>
-          <li>
-            <details>
-              <summary>Event List</summary>
-              <ul className="p-2">{eventList}</ul>
-            </details>
-          </li>
-          <li>
-            <Link to={"/manageEvents"}>Manage Events</Link>
-          </li>
-          <li>
-            <Link to={"/myBookings"}>My Bookings</Link>
-          </li>
-        </ul>
+      <div className="navbar-center hidden lg:flex text-lg font-semibold">
+        <ul className="menu menu-horizontal px-1">{linkList}</ul>
       </div>
       <div className="navbar-end flex gap-5 px-5">
+        <button
+          onClick={() => {
+            setTheme(!theme);
+            toggleTheme();
+          }}
+        >
+          {theme ? <FaSun size={30}></FaSun> : <FaMoon size={30}></FaMoon>}
+        </button>
         {!user ? (
           <>
-            <NavLink
+            <Link
               to={"/login"}
               className="btn btn-primary btn-soft rounded-2xl"
             >
               Login
-            </NavLink>
-            <NavLink
+            </Link>
+            <Link
               to={"/register"}
               className="btn btn-primary btn-soft rounded-2xl"
             >
               Register
-            </NavLink>
+            </Link>
           </>
         ) : (
           <button
@@ -168,14 +158,56 @@ const NavBar = () => {
           </button>
         )}
 
-        <button
-          onClick={()=>{
-            setTheme(!theme);
-            toggleTheme();
-          }}
-        >
-          {(theme?(<FaSun size={30}></FaSun>):(<FaMoon size={30}></FaMoon>))}
-        </button>
+        <div className="dropdown dropdown-end">
+          <div tabIndex={0} role="button" className="">
+            <div className="">
+              {user ? (
+                user.photoURL ? (
+                  <Avatar
+                    img={user.photoURL}
+                    rounded
+                    bordered
+                    color="success"
+                    className=" w-15 h-15"
+                  />
+                ) : (
+                  <Avatar rounded />
+                )
+              ) : (
+                <Avatar rounded />
+              )}
+            </div>
+          </div>
+          <ul
+            tabIndex={0}
+            className="dropdown-content menu bg-base-100 rounded-box z-1 w-52  shadow-sm"
+          >
+            <li>
+              <Link
+                to="/manageEvents"
+                className={({ isActive }) => (isActive ? "active" : "")}
+              >
+                Book Events
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/manageEvents"
+                className={({ isActive }) => (isActive ? "active" : "")}
+              >
+                Manage Events
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/myBookings"
+                className={({ isActive }) => (isActive ? "active" : "")}
+              >
+                My Bookings
+              </Link>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   );
