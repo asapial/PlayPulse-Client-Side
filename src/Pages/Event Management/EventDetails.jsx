@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { AuthContext } from "../../main";
-import Swal from "sweetalert2";
 import Playpulsebutton from "../../Atoms/Playpulsebutton";
 import {
   FaCalendarAlt,
@@ -13,50 +12,73 @@ import {
   FaUserCheck,
 } from "react-icons/fa";
 import { SuccessToast } from "../../Utilities/ToastMaker";
+import useFetchApi from "../../api/useFetchApi";
+import Loader from "../../Components/Common/Loader";
 
 const EventDetails = () => {
   const { id } = useParams();
-  const { user } = useContext(AuthContext);
+  const { user, loading } = useContext(AuthContext);
+  const { fetchEventDetails, fetchBookedData, bookEvent } = useFetchApi();
   const [event, setEvent] = useState({});
+  const [stateLoading, setStateLoading] = useState(false);
   const [booked, setBooked] = useState(true);
+
   // const navigate = useNavigate();
-  console.log(user);
+  // console.log(user);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/events/${id}`)
-      .then((res) => res.json())
-      .then((data) => setEvent(data));
-  }, [id]);
-  console.log(event);
+    const fetchData = async () => {
+      setStateLoading(true); // start loading
+      try {
+        const data = await fetchEventDetails(id, user.email);
+        setEvent(data);
+      } catch (error) {
+        console.error("Failed to fetch events:", error);
+      } finally {
+        setStateLoading(false);
+      }
+    };
+
+    if (user?.email) {
+      fetchData();
+    }
+  }, [user?.email]);
 
   useEffect(() => {
-    if (user?.uid && id) {
-      fetch(
-        `http://localhost:3000/checkBooking?userId=${user.uid}&eventId=${id}`
-      )
-        .then((res) => res.json())
-        .then((data) => setBooked(data.booked));
+    const fetchData = async () => {
+      setStateLoading(true); // start loading
+      try {
+        const data = await fetchBookedData(user.uid, user.email, id);
+        setBooked(data);
+      } catch (error) {
+        console.error("Failed to fetch events:", error);
+      } finally {
+        setStateLoading(false);
+      }
+    };
+    if (user?.uid) {
+      fetchData();
+    }
+
+    if (loading || stateLoading) {
+      return <Loader />;
     }
   }, [user?.uid, id]);
 
-  const handleBookNow = () => {
-    if (user?.uid && id) {
-      fetch(`http://localhost:3000/checkBooking`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ userId: user.uid, eventId: id }),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.acknowledged) {
-            setBooked(true);
-            SuccessToast("🎉 Event Booked Successfully!");
-          }
-        });
+const handleBookNow = async () => {
+  if (user?.uid && id) {
+    try {
+      const data = await bookEvent(user.uid, user.email, id);
+      if (data.acknowledged) {
+        setBooked(true);
+        SuccessToast("🎉 Event Booked Successfully!");
+      }
+    } catch (error) {
+      console.error("Booking failed:", error);
+      // Error toast here
     }
-  };
+  }
+};
 
   return (
     <div className="w-full md:max-w-7xl mx-auto bg-base-100 shadow-primary shadow-xs rounded-2xl p-3 lg:p-8 border border-primary py-10">
