@@ -18,25 +18,29 @@ const ManageEventsPage = () => {
   const [data, setData] = useState([]);
   const [relode, setRelode] = useState(false);
   const [viewMode, setViewMode] = useState("table");
+  const [stateLoading, setStateLoading] = useState(false);
   const {myEvents}=useFetchApi();
 
 useEffect(() => {
   const fetchData = async () => {
+    setStateLoading(true);   // start loading
     try {
       const data = await myEvents(user.email);
       setData(data);
     } catch (error) {
       console.error('Failed to fetch events:', error);
+    } finally {
+      setStateLoading(false);  // stop loading after success or error
     }
   };
 
   if (user?.email) {
     fetchData();
   }
-}, [ user?.email,relode ]);
+}, [user?.email, relode]);
 
 
-  if (loading) {
+  if (loading || stateLoading ) {
     return <Loader />;
   }
 
