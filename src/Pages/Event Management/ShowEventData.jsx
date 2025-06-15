@@ -12,7 +12,7 @@ const ShowEventData = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch(`http://localhost:3000/showEventData/${event}`)
+    fetch(`https://play-pulse-server.vercel.app/showEventData/${event}`)
       .then((res) => res.json())
       .then((fetchData) => {
         setData(fetchData);

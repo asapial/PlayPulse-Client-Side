@@ -9,7 +9,7 @@ const ShowEvent = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/showSixData")
+    fetch("https://play-pulse-server.vercel.app/showSixData")
       .then((res) => res.json())
       .then((fetchData) => setData(fetchData));
   }, []);
