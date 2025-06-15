@@ -14,6 +14,7 @@ import Playpulsebutton from "../../Atoms/Playpulsebutton";
 import Loader from "../../Components/Common/Loader";
 import { ErrorToast, SuccessToast } from "../../Utilities/ToastMaker";
 import useFetchApi from "../../api/useFetchApi";
+import { motion } from "motion/react"
 
 const UpdateEvent = () => {
   const eventTypes = [
