@@ -11,6 +11,7 @@ import BookingRow from "../../Atoms/BookingRow";
 import BookingEventCard from "../../Atoms/BookingEventCard";
 import { ErrorToast, SuccessToast } from "../../Utilities/ToastMaker";
 import useFetchApi from "../../api/useFetchApi";
+import { motion } from "framer-motion";
 
 const MyBookings = () => {
   const { user, loading } = useContext(AuthContext);
@@ -50,7 +51,13 @@ const MyBookings = () => {
   };
 
   return (
-    <div className="custom-gradient mx-auto">
+ <motion.div
+      className="custom-gradient mx-auto"
+      initial={{ opacity: 0, y: 40, scale: 0.96 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      exit={{ opacity: 0, y: 40, scale: 0.92 }}
+      transition={{ duration: 5, type: "spring" }}
+    >
       <div className="w-full lg:max-w-7xl mx-auto py-10 px-4 min-h-screen custom-gradient">
         <title>PlayPulse | My Bookings</title>
         {/* Header */}
@@ -142,7 +149,7 @@ const MyBookings = () => {
           </div>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

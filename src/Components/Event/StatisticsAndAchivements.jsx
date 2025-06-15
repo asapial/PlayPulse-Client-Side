@@ -57,7 +57,7 @@ export function StatisticsAndAchivements() {
                 {icon}
               </div>
               <span className="text-5xl font-extrabold text-secondary drop-shadow">
-                <CountUp end={value} duration={2} separator="," />
+                <CountUp end={value} duration={5} separator="," />
               </span>
               <p className="text-xl font-bold text-neutral">{label}</p>
               <p className="text-base text-secondary">{desc}</p>

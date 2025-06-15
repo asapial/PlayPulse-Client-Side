@@ -1,8 +1,6 @@
 import React from 'react';
-import { motion } from "framer-motion";
-// import { FaBasketballBall, FaFutbol, FaSwimmer, FaTableTennis, FaVolleyballBall, FaRunning } from "react-icons/fa";
+import { motion, AnimatePresence } from "framer-motion";
 import Playpulsenameplate from '../../Atoms/Playpulsenameplate';
-
 import { FaSwimmer, FaRunning, FaLongArrowAltRight, FaArrowUp, FaWater, FaDumbbell } from "react-icons/fa";
 
 const sports = [
@@ -44,40 +42,93 @@ const sports = [
   },
 ];
 
+// Framer Motion variants for container and cards
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.2,
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 40, scale: 0.95 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    scale: 1,
+    transition: { type: "spring", stiffness: 120, damping: 14 }
+  },
+  hover: {
+    scale: 1.04,
+    boxShadow: "0 8px 32px 0 rgba(0,255,255,0.15), 0 1.5px 8px 0 rgba(0,0,0,0.10)",
+    transition: { type: "spring", stiffness: 300, damping: 18 }
+  }
+};
+
 export function PopularEvent() {
   return (
-    <div className="max-w-7xl mx-auto py-10 px-4 min-h-screen  text-primary p-8 flex flex-col justify-center">
-      <h2 className="text-3xl lg:text-4xl font-bold text-center mb-10 flex items-center justify-center gap-">
-        🏅 Popular Sports at <Playpulsenameplate></Playpulsenameplate>
-      </h2>
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10  mx-auto">
-        {sports.map((sport, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: i * 0.15 }}
-            className="relative group rounded-3xl overflow-hidden shadow-2xl"
-          >
-
-            {/* Card content */}
-            <div className="relative  rounded-3xl overflow-hidden flex flex-col h-full shadow-lg border border-slate-700 border-b-8 border-b-cyan-900 group-hover:border-cyan-400 transition">
-              <img
+    <motion.div
+      className="max-w-7xl mx-auto py-10 px-4 min-h-screen text-primary p-8 flex flex-col justify-center"
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 40 }}
+      transition={{ duration: 0.8, type: "spring" }}
+    >
+      <motion.h2
+        className="text-3xl lg:text-4xl font-bold text-center mb-10 flex items-center justify-center gap-2"
+        initial={{ opacity: 0, y: -30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, type: "spring" }}
+      >
+        🏅 Popular Sports at <Playpulsenameplate />
+      </motion.h2>
+      <motion.div
+        className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10 mx-auto"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <AnimatePresence>
+          {sports.map((sport, i) => (
+            <motion.div
+              key={sport.name}
+              variants={cardVariants}
+              whileHover="hover"
+              className="relative group rounded-3xl overflow-hidden shadow-2xl bg-white/10 backdrop-blur-xl border-2 border-transparent hover:border-cyan-400 hover:shadow-cyan-400/30 shadow-lg transition-all duration-300"
+              layout
+            >
+              <motion.img
                 src={sport.image}
                 alt={sport.name}
-                className="w-full h-48 object-cover object-center rounded-t-3xl border-b border-slate-800"
+                className="w-full h-48 object-cover object-center rounded-t-3xl border-b border-slate-800 group-hover:scale-105 transition-transform duration-300"
+                whileHover={{ scale: 1.07 }}
+                transition={{ type: "spring", stiffness: 200, damping: 18 }}
               />
-              <div className="p-6 flex flex-col items-center text-center gap-2  bg-gradient-to-t from-base-100 to-base-300/50 h-full ">
-                <div className="mb-2">{sport.icon}</div>
+              <motion.div
+                className="p-6 flex flex-col items-center text-center gap-2 bg-gradient-to-t from-base-100 to-base-300/50 h-full"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.2 + i * 0.1 }}
+              >
+                <motion.div
+                  className="mb-2"
+                  whileHover={{ rotate: [0, 10, -10, 0], scale: 1.2 }}
+                  transition={{ duration: 0.5, repeat: Infinity, repeatType: "reverse" }}
+                >
+                  {sport.icon}
+                </motion.div>
                 <h3 className="text-2xl font-bold text-primary">{sport.name}</h3>
-                <p className="text-neutral ">{sport.desc}</p>
-              </div>
-            </div>
-          </motion.div>
-        ))}
-      </div>
-    </div>
+                <p className="text-neutral">{sport.desc}</p>
+              </motion.div>
+            </motion.div>
+          ))}
+        </AnimatePresence>
+      </motion.div>
+    </motion.div>
   );
 }
 
