@@ -9,41 +9,44 @@ import {
 import Loader from "../../Components/Common/Loader";
 import BookingRow from "../../Atoms/BookingRow";
 import BookingEventCard from "../../Atoms/BookingEventCard";
-import { SuccessToast } from "../../Utilities/ToastMaker";
+import { ErrorToast, SuccessToast } from "../../Utilities/ToastMaker";
+import useFetchApi from "../../api/useFetchApi";
 
 const MyBookings = () => {
   const { user, loading } = useContext(AuthContext);
   const [data, setData] = useState([]);
   const [relode, setRelode] = useState(false);
   const [viewMode, setViewMode] = useState("table");
+  const { fetchUserBookingData,fetchBookingDelete } = useFetchApi();
+  const [stateLoading, setStateLoading] = useState(false);
 
   useEffect(() => {
     if (user?.uid && !loading) {
-      fetch(`http://localhost:3000/userBookings/${user.uid}`)
-        .then((res) => res.json())
-        .then((fetchData) => setData(fetchData));
+      setStateLoading(true);
+      fetchUserBookingData(user.uid, user.email)
+      .then((fetchData) => {
+        setData(fetchData);
+      })
+      .finally(() => {
+        setStateLoading(false);
+      });
     }
   }, [user?.uid, loading, relode]);
 
-  if (loading) {
+  if (loading || stateLoading) {
     return <Loader />;
   }
 
   const handleEventDelete = (userId, eventId) => {
-    fetch(
-      `http://localhost:3000/deleteBookingEvent?userId=${userId}&eventId=${eventId}`,
-      {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "Application/json",
-        },
-      }
-    )
+eventId
+    fetchBookingDelete(userId, user.email, eventId)
       .then(() => {
         SuccessToast("🗑️ Booking Deleted — Pulse Back in Play!");
         setRelode(!relode);
       })
-      .catch(() => {});
+      .catch((error) => {
+        ErrorToast(`Error Occurred: ${error.message}`);
+      });
   };
 
   return (
