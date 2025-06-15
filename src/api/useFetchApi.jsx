@@ -49,6 +49,12 @@ const useFetchApi = () => {
       .then((res) => res.data);
   };
 
+    const fetchUpdateEvent = (eventData, email,id) => {
+    return axiosSecure
+      .patch(`/updateEvent?email=${email}&id=${id}`, eventData)
+      .then((res) => res.data);
+  };
+
   return {
     myEvents,
     fetchEventDetails,
@@ -57,7 +63,8 @@ const useFetchApi = () => {
     createEvent,
     fetchUserBookingData,
     fetchBookingDelete,
-    fetchEventDelete
+    fetchEventDelete,
+    fetchUpdateEvent
   };
 };
 

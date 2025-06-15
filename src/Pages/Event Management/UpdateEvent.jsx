@@ -1,6 +1,5 @@
 import { AuthContext } from "../../main";
 import { useNavigate, useParams } from "react-router";
-import { motion } from "framer-motion";
 import {
   FaEnvelope,
   FaUser,
@@ -13,7 +12,8 @@ import Playpulsenameplate from "../../Atoms/Playpulsenameplate";
 import { useContext, useEffect, useState } from "react";
 import Playpulsebutton from "../../Atoms/Playpulsebutton";
 import Loader from "../../Components/Common/Loader";
-import { SuccessToast } from "../../Utilities/ToastMaker";
+import { ErrorToast, SuccessToast } from "../../Utilities/ToastMaker";
+import useFetchApi from "../../api/useFetchApi";
 
 const UpdateEvent = () => {
   const eventTypes = [
@@ -31,20 +31,23 @@ const UpdateEvent = () => {
   const { user, loading } = useContext(AuthContext);
   const [event, setEvent] = useState();
   const navigate = useNavigate();
-
+  const { fetchEventDetails,fetchUpdateEvent } = useFetchApi();
   const { id } = useParams();
   console.log(id);
 
+  // Fetch event details when the component mounts or user email changes
   useEffect(() => {
-    fetch(`http://localhost:3000/events/${id}`)
-      .then((res) => res.json())
-      .then((data) => setEvent(data));
-  }, []);
+    // Check if user email is available and loading is complete
+    if (user.email && !loading) {
+      fetchEventDetails(id, user?.email)
+        .then((data) => setEvent(data));
+    }
+  }, [user?.email]);
 
   if (loading) {
     return <Loader></Loader>;
   }
-  console.log(event);
+
 
   const handleUpdateEvent = (e) => {
     e.preventDefault();
@@ -53,20 +56,18 @@ const UpdateEvent = () => {
     const data = Object.fromEntries(formData.entries());
     console.log(data);
 
-    fetch(`http://localhost:3000/updateEvent/${id}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
-      .then((res) => res.json())
+
+       fetchUpdateEvent(data,user.email,id)
       .then((data) => {
         if (data.modifiedCount) {
           SuccessToast("🎉 Event Updated Successfully!");
           navigate("/manageEvents");
         }
+      })
+      .catch((error) => {
+        ErrorToast(`Error Occurred: ${error.message}`);
       });
+
   };
   return (
     <section className="min-h-screen  flex items-center justify-center py-10">
