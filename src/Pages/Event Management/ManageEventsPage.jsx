@@ -10,8 +10,7 @@ import {
 import Loader from "../../Components/Common/Loader";
 import EventCard from "../../Atoms/EventCard";
 import useFetchApi from "../../api/useFetchApi";
-import { SuccessToast } from "../../Utilities/ToastMaker";
-
+import { ErrorToast, SuccessToast } from "../../Utilities/ToastMaker";
 
 const ManageEventsPage = () => {
   const { user, loading } = useContext(AuthContext);
@@ -19,44 +18,40 @@ const ManageEventsPage = () => {
   const [relode, setRelode] = useState(false);
   const [viewMode, setViewMode] = useState("table");
   const [stateLoading, setStateLoading] = useState(false);
-  const {myEvents}=useFetchApi();
+  const { myEvents, fetchEventDelete } = useFetchApi();
 
-useEffect(() => {
-  const fetchData = async () => {
-    setStateLoading(true);   // start loading
-    try {
-      const data = await myEvents(user.email);
-      setData(data);
-    } catch (error) {
-      console.error('Failed to fetch events:', error);
-    } finally {
-      setStateLoading(false);  // stop loading after success or error
+  useEffect(() => {
+    const fetchData = async () => {
+      setStateLoading(true); // start loading
+      try {
+        const data = await myEvents(user.email);
+        setData(data);
+      } catch (error) {
+        console.error("Failed to fetch events:", error);
+      } finally {
+        setStateLoading(false); // stop loading after success or error
+      }
+    };
+
+    if (user?.email) {
+      fetchData();
     }
-  };
+  }, [user?.email, relode]);
 
-  if (user?.email) {
-    fetchData();
-  }
-}, [user?.email, relode]);
-
-
-  if (loading || stateLoading ) {
+  if (loading || stateLoading) {
     return <Loader />;
   }
 
   const handleEventDelete = (id) => {
-    fetch(`http://localhost:3000/events/${id}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((res) => res.json())
+    fetchEventDelete(user.email, id)
       .then((deletedData) => {
         if (deletedData.deletedCount) {
           SuccessToast("🗑️ Event Deleted Successfully");
           setRelode(!relode);
         }
+      })
+      .catch((error) => {
+        ErrorToast(`Error Occurred: ${error.message}`);
       });
   };
 
@@ -67,7 +62,9 @@ useEffect(() => {
       <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8 gap-4">
         <div className="flex items-center gap-3">
           <FaCalendarAlt className="text-4xl text-secondary drop-shadow" />
-          <h2 className="text-4xl font-extrabold text-primary tracking-tight">Manage My Events</h2>
+          <h2 className="text-4xl font-extrabold text-primary tracking-tight">
+            Manage My Events
+          </h2>
         </div>
         <div className="flex items-center gap-3">
           <button

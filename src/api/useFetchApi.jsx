@@ -43,6 +43,12 @@ const useFetchApi = () => {
       .then((res) => res.data);
   };
 
+    const fetchEventDelete = ( email, eventId) => {
+    return axiosSecure
+    .delete(`/deleteCreatedEvent?email=${email}&eventId=${eventId}`)
+      .then((res) => res.data);
+  };
+
   return {
     myEvents,
     fetchEventDetails,
@@ -51,6 +57,7 @@ const useFetchApi = () => {
     createEvent,
     fetchUserBookingData,
     fetchBookingDelete,
+    fetchEventDelete
   };
 };
 
