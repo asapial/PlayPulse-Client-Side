@@ -191,7 +191,7 @@ const NavBar = () => {
           >
             <li>
               <Link
-                to="/manageEvents"
+                to="/bookedEvents"
                 className={({ isActive }) => (isActive ? "active" : "")}
               >
                 Book Events

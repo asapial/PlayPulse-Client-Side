@@ -19,9 +19,11 @@ const useFetchApi = () => {
       .then((res) => res.data);
   };
 
-  const bookEvent = (uid, email, eventId) => {
+  const bookEvent = (uid, email, eventId, userName) => {
     return axiosSecure
-      .post(`/checkBooking?uid=${uid}&email=${email}&eventId=${eventId}`)
+      .post(
+        `/checkBooking?uid=${uid}&email=${email}&eventId=${eventId}&userName=${userName}`
+      )
       .then((res) => res.data);
   };
 
@@ -39,19 +41,27 @@ const useFetchApi = () => {
 
   const fetchBookingDelete = (uid, email, eventId) => {
     return axiosSecure
-    .delete(`/deleteBookingEvent?uid=${uid}&email=${email}&eventId=${eventId}`)
+      .delete(
+        `/deleteBookingEvent?uid=${uid}&email=${email}&eventId=${eventId}`
+      )
       .then((res) => res.data);
   };
 
-    const fetchEventDelete = ( email, eventId) => {
+  const fetchEventDelete = (email, eventId) => {
     return axiosSecure
-    .delete(`/deleteCreatedEvent?email=${email}&eventId=${eventId}`)
+      .delete(`/deleteCreatedEvent?email=${email}&eventId=${eventId}`)
       .then((res) => res.data);
   };
 
-    const fetchUpdateEvent = (eventData, email,id) => {
+  const fetchUpdateEvent = (eventData, email, id) => {
     return axiosSecure
       .patch(`/updateEvent?email=${email}&id=${id}`, eventData)
+      .then((res) => res.data);
+  };
+
+  const fetchMyEventsWithBookings = (email) => {
+    return axiosSecure
+      .get(`/myEventsWithBookings?email=${email}`)
       .then((res) => res.data);
   };
 
@@ -64,7 +74,8 @@ const useFetchApi = () => {
     fetchUserBookingData,
     fetchBookingDelete,
     fetchEventDelete,
-    fetchUpdateEvent
+    fetchUpdateEvent,
+    fetchMyEventsWithBookings
   };
 };
 

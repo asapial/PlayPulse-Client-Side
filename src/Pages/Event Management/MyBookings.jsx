@@ -50,7 +50,7 @@ eventId
   };
 
   return (
-    <div className="w-full lg:max-w-7xl mx-auto py-10 px-4 min-h-screen">
+    <div className="w-full lg:max-w-7xl mx-auto py-10 px-4 min-h-screen custom-gradient">
       <title>PlayPulse | My Bookings</title>
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-10 gap-4">

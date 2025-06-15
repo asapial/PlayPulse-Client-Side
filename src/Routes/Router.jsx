@@ -15,71 +15,97 @@ import updateProfile from "../Pages/Authentication/UpdateProfile";
 import EventsPage from "../Pages/Event Management/EventsPage";
 import Copyright from "../Pages/Footer.jsx/Copyright";
 import ContactInformation from "../Pages/Footer.jsx/ContactInformation";
+import BookedEvent from "../Pages/Event Management/BookedEvent";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     Component: Root,
-    children:[
-        {
-            index:true,
-            Component: Home
-        },
-        {
-            path:'login',
-            Component:Login
-        },
-        {
-          path:'register',
-          Component:Register
-        },
-        {
-          path:'update',
-          Component:updateProfile
-        },
-        {
-          path:'createEvent',
-          element:<ProtectedRoute><CreateEvent></CreateEvent></ProtectedRoute>
-        },
-        {
-          path:'/events/:id',
-          element:<ProtectedRoute><EventDetails></EventDetails></ProtectedRoute>
-        },
-        {
-          path:'myBookings',
-          element:<ProtectedRoute><MyBookings></MyBookings></ProtectedRoute>
-
-        },
-        {
-          path:'updateEvent/:id',
-                    element:<ProtectedRoute><UpdateEvent></UpdateEvent></ProtectedRoute>
-
-        },
-        {
-          path:'manageEvents',
-           element:<ProtectedRoute><ManageEventsPage></ManageEventsPage></ProtectedRoute>
-        },
-        {
-          path:'showEventData/:event',
-          Component:ShowEventData
-        },
-        {
-          path:'eventType',
-          Component:EventsPage,
-        },
-        {
-          path:'copyRight',
-          Component:Copyright,
-        },
-        {
-          path:'contactInformation',
-          Component:ContactInformation,
-        }
-
-    ]
+    children: [
+      {
+        index: true,
+        Component: Home,
+      },
+      {
+        path: "login",
+        Component: Login,
+      },
+      {
+        path: "register",
+        Component: Register,
+      },
+      {
+        path: "update",
+        Component: updateProfile,
+      },
+      {
+        path: "createEvent",
+        element: (
+          <ProtectedRoute>
+            <CreateEvent></CreateEvent>
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "/events/:id",
+        element: (
+          <ProtectedRoute>
+            <EventDetails></EventDetails>
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "myBookings",
+        element: (
+          <ProtectedRoute>
+            <MyBookings></MyBookings>
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "bookedEvents",
+        element: (
+          <ProtectedRoute>
+            <BookedEvent></BookedEvent>
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "updateEvent/:id",
+        element: (
+          <ProtectedRoute>
+            <UpdateEvent></UpdateEvent>
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "manageEvents",
+        element: (
+          <ProtectedRoute>
+            <ManageEventsPage></ManageEventsPage>
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "showEventData/:event",
+        Component: ShowEventData,
+      },
+      {
+        path: "eventType",
+        Component: EventsPage,
+      },
+      {
+        path: "copyRight",
+        Component: Copyright,
+      },
+      {
+        path: "contactInformation",
+        Component: ContactInformation,
+      },
+    ],
   },
   {
-    path:"*",
-    Component:Error
-  }
+    path: "*",
+    Component: Error,
+  },
 ]);
