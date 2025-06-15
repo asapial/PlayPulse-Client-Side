@@ -65,19 +65,19 @@ const EventDetails = () => {
     }
   }, [user?.uid, id]);
 
-const handleBookNow = async () => {
-  if (user?.uid && id) {
-    try {
-      const data = await bookEvent(user.uid, user.email, id);
-      if (data.acknowledged) {
-        setBooked(true);
-        SuccessToast("🎉 Event Booked Successfully!");
+  const handleBookNow = async () => {
+    if (user?.uid && id) {
+      try {
+        const data = await bookEvent(user.uid, user.email, id);
+        if (data.acknowledged) {
+          setBooked(true);
+          SuccessToast("🎉 Event Booked Successfully!");
+        }
+      } catch (error) {
+        ErrorToast(`Error Occurred: ${error.message}`);
       }
-    } catch (error) {
-      ErrorToast(`Error Occurred: ${error.message}`);
     }
-  }
-};
+  };
 
   return (
     <div className="w-full md:max-w-7xl mx-auto bg-base-100 shadow-primary shadow-xs rounded-2xl p-3 lg:p-8 border border-primary py-10">
