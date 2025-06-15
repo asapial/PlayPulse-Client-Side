@@ -1,44 +1,46 @@
 import React from 'react';
 import { motion } from "framer-motion";
-import { FaBasketballBall, FaFutbol, FaSwimmer, FaTableTennis, FaVolleyballBall, FaRunning } from "react-icons/fa";
+// import { FaBasketballBall, FaFutbol, FaSwimmer, FaTableTennis, FaVolleyballBall, FaRunning } from "react-icons/fa";
 import Playpulsenameplate from '../../Atoms/Playpulsenameplate';
+
+import { FaSwimmer, FaRunning, FaLongArrowAltRight, FaArrowUp, FaWater, FaDumbbell } from "react-icons/fa";
 
 const sports = [
   {
-    name: "Basketball",
-    image: "https://images.unsplash.com/photo-1517649763962-0c623066013b",
-    icon: <FaBasketballBall className="text-orange-400 text-3xl" />,
-    desc: "Fast-paced team sport with slam dunks and 3-pointers.",
-  },
-  {
-    name: "Soccer",
-    image: "https://images.unsplash.com/photo-1508609349937-5ec4ae374ebf",
-    icon: <FaFutbol className="text-green-400 text-3xl" />,
-    desc: "The world’s most popular game, played with skill and passion.",
-  },
-  {
     name: "Swimming",
-    image: "https://images.unsplash.com/photo-1464983953574-0892a716854b",
+    image: "https://i.ibb.co/4g5fjCV4/swimming-pool-4.png",
     icon: <FaSwimmer className="text-cyan-400 text-3xl" />,
-    desc: "Dive in for speed, endurance, and aquatic fun.",
+    desc: "Dive into competitive swimming events and showcase your aquatic skills.",
   },
   {
-    name: "Table Tennis",
-    image: "https://images.unsplash.com/photo-1517649763962-0c623066013b?fit=crop&w=600&q=80",
-    icon: <FaTableTennis className="text-pink-400 text-3xl" />,
-    desc: "Lightning-fast reflexes and precision at the table.",
+    name: "Sprinting",
+    image: "https://i.ibb.co/Gf78FBkC/springting-track-5.png",
+    icon: <FaRunning className="text-orange-400 text-3xl" />,
+    desc: "Test your speed and agility in thrilling sprint races.",
   },
   {
-    name: "Volleyball",
-    image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb",
-    icon: <FaVolleyballBall className="text-yellow-400 text-3xl" />,
-    desc: "Jump, spike, and block in this exciting net sport.",
+    name: "Long Jump",
+    image: "https://i.ibb.co/KxKt7KY0/long-jump-2.png",
+    icon: <FaLongArrowAltRight className="text-yellow-500 text-3xl" />,
+    desc: "Leap for distance and compete in long jump events.",
   },
   {
-    name: "Running",
-    image: "https://images.unsplash.com/photo-1465101046530-73398c7f28ca",
-    icon: <FaRunning className="text-red-400 text-3xl" />,
-    desc: "Test your speed and stamina on the track.",
+    name: "High Jump",
+    image: "https://i.ibb.co/ccd2g094/high-jump-2.png",
+    icon: <FaArrowUp className="text-green-500 text-3xl" />,
+    desc: "Show your vertical prowess in high jump competitions.",
+  },
+  {
+    name: "Water-Polo",
+    image: "https://i.ibb.co/3Y8pCtZX/water-polo-1.png",
+    icon: <FaWater className="text-blue-500 text-3xl" />,
+    desc: "Join the excitement of water-polo and compete in the pool.",
+  },
+  {
+    name: "Fencing",
+    image: "https://i.ibb.co/nM5jCwnx/fencing-1.png",
+    icon: <FaDumbbell className="text-purple-500 text-3xl" />,
+    desc: "Engage in strategic duels and master the art of fencing.",
   },
 ];
 
