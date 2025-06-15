@@ -12,7 +12,7 @@ const EventTypeCards = () => {
   }, []);
 
   return (
-    <div className="custom-gradient min-h-screen">
+    <div className="custom-gradient min-h-screen py-10">
       <div className="container mx-auto px-4 py-12">
         <div className="flex flex-col items-center mb-10">
           <FaCalendarAlt className="text-5xl text-primary mb-2 drop-shadow" />

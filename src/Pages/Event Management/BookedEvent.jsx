@@ -38,7 +38,7 @@ const BookedEvent = () => {
   }
 
   return (
-    <div className="custom-gradient mx-auto">
+    <div className="custom-gradient mx-auto py-10">
       <div className="w-full lg:max-w-7xl mx-auto py-10 px-4 min-h-screen custom-gradient">
         <title>PlayPulse | Booked Events</title>
         {/* Header */}

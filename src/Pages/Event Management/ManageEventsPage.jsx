@@ -58,7 +58,7 @@ const ManageEventsPage = () => {
 
   return (
     <motion.div
-      className="custom-gradient mx-auto"
+      className="custom-gradient mx-auto py-10"
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 40 }}

@@ -80,7 +80,8 @@ const EventDetails = () => {
   };
 
   return (
-    <div className="w-full md:max-w-7xl mx-auto bg-base-100 shadow-primary shadow-xs rounded-2xl p-3 lg:p-8 border border-primary py-10 custom-gradient">
+    <div className="custom-gradient mx-auto py-10">
+          <div className="w-full md:max-w-7xl mx-auto bg-base-100 shadow-primary shadow-xs rounded-2xl p-3 lg:p-8 border border-primary py-10">
       <title>PlayPulse | Details</title>
       <h2 className="text-3xl font-extrabold mb-4 flex items-center gap-2 text-primary text-center">
         <FaTag className="text-secondary" /> {event.eventName}
@@ -177,6 +178,9 @@ const EventDetails = () => {
         </div>
       </div>
     </div>
+    </div>
+    
+
   );
 };
 

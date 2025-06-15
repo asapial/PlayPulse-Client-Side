@@ -59,6 +59,7 @@ const CreateEvent = () => {
   };
 
   return (
+    
     <section className="min-h-screen  flex items-center justify-center py-10 custom-gradient ">
       <title>PlayPulse | CreateEvent</title>
       <div className="bg-base-200 shadow rounded-2xl w-full max-w-6xl  lg:flex justify-center items-center p-2 lg:p-5 border border-primary shadow-primary  ">
