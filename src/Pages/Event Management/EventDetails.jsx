@@ -11,7 +11,7 @@ import {
   FaInfoCircle,
   FaUserCheck,
 } from "react-icons/fa";
-import { SuccessToast } from "../../Utilities/ToastMaker";
+import { ErrorToast, SuccessToast } from "../../Utilities/ToastMaker";
 import useFetchApi from "../../api/useFetchApi";
 import Loader from "../../Components/Common/Loader";
 
@@ -74,8 +74,7 @@ const handleBookNow = async () => {
         SuccessToast("🎉 Event Booked Successfully!");
       }
     } catch (error) {
-      console.error("Booking failed:", error);
-      // Error toast here
+      ErrorToast(`Error Occurred: ${error.message}`);
     }
   }
 };

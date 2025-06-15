@@ -1,9 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import Playpulsebutton from './Playpulsebutton';
 import { FaEdit, FaTrash } from 'react-icons/fa';
 
 const DataRow = ({ data, sl,handleEventDelete }) => {
+  const navigate = useNavigate();
   return (
     <tr className="hover:bg-base-300 transition-all duration-200">
       <th className="text-base-content">{sl}</th>
@@ -30,11 +31,11 @@ const DataRow = ({ data, sl,handleEventDelete }) => {
         {data.description}
       </td>
 
-<th className="w-[200px] flex gap-3">
+<th className="w-[200px] grid grid-cols-1 gap-3">
   {/* Update Button */}
   <Link
     to={`/updateEvent/${data._id}`}
-    className="flex items-center gap-2 px-3 py-2 bg-blue-100 text-blue-700 font-medium rounded-xl shadow-sm hover:bg-blue-200 transition duration-200"
+    className="flex justify-center items-center gap-2 px-3 py-2 bg-blue-100 text-blue-700 font-medium rounded-xl shadow-sm hover:bg-blue-200 transition duration-200"
   >
     <FaEdit className="text-blue-600" />
     Update
@@ -43,11 +44,19 @@ const DataRow = ({ data, sl,handleEventDelete }) => {
   {/* Delete Button */}
   <button
     onClick={()=>handleEventDelete(data._id)}
-    className="flex items-center gap-2 px-3 py-2 bg-red-100 text-red-700 font-medium rounded-xl shadow-sm hover:bg-red-200 transition duration-200"
+    className="flex justify-center items-center gap-2 px-3 py-2 bg-red-100 text-red-700 font-medium rounded-xl shadow-sm hover:bg-red-200 transition duration-200"
   >
     <FaTrash className="text-red-600" />
     Delete
   </button>
+          <button
+          onClick={() => navigate(`/events/${data._id}`)}
+          className="mt-3 w-full"
+        >
+          <Playpulsebutton>
+            View Details
+          </Playpulsebutton>
+        </button>
 </th>
 
     </tr>

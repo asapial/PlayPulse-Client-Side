@@ -20,15 +20,23 @@ const useFetchApi = () => {
   };
 
   const bookEvent = (uid, email, eventId) => {
-  return axiosSecure.post(`/checkBooking/?uid=${uid}&email=${email}&eventId=${eventId}`)
-    .then((res) => res.data);
-};
+    return axiosSecure
+      .post(`/checkBooking/?uid=${uid}&email=${email}&eventId=${eventId}`)
+      .then((res) => res.data);
+  };
+
+  const createEvent = (eventData, email) => {
+    return axiosSecure
+      .post(`/createEvent?email=${email}`, eventData)
+      .then((res) => res.data);
+  };
 
   return {
     myEvents,
     fetchEventDetails,
     fetchBookedData,
     bookEvent,
+    createEvent,
   };
 };
 

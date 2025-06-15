@@ -13,8 +13,9 @@ import Playpulsenameplate from "../../Atoms/Playpulsenameplate";
 import { AuthContext } from "../../main";
 import Playpulsebutton from "../../Atoms/Playpulsebutton";
 import Loader from "../../Components/Common/Loader";
-import { SuccessToast } from "../../Utilities/ToastMaker";
+import { ErrorToast, SuccessToast } from "../../Utilities/ToastMaker";
 import { Datepicker } from "flowbite-react";
+import useFetchApi from "../../api/useFetchApi";
 
 const eventTypes = [
   "Swimming",
@@ -31,6 +32,7 @@ const eventTypes = [
 
 const CreateEvent = () => {
   const { user, loading } = useContext(AuthContext);
+  const { createEvent } = useFetchApi();
 
   if (loading) {
     return <Loader></Loader>;
@@ -45,18 +47,14 @@ const CreateEvent = () => {
     const data = Object.fromEntries(formData.entries());
     console.log(data);
 
-    fetch("http://localhost:3000/createEvent", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
-      .then((res) => res.json())
+    createEvent(data, user?.email)
       .then((data) => {
         if (data.acknowledged) {
           SuccessToast("🎉 Event Created Successfully!");
         }
+      })
+      .catch((error) => {
+        ErrorToast(`Error Occurred: ${error.message}`);
       });
   };
 
@@ -108,10 +106,11 @@ const CreateEvent = () => {
             {/* Event Date */}
             <div className="relative">
               <Datepicker
-              title="Event Date"
+                title="Event Date"
                 id="eventDate"
                 name="eventDate"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-400 bg-inherit"              />
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-400 bg-inherit"
+              />
             </div>
             {/* Description */}
             <div className="relative">
