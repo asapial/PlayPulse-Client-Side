@@ -7,7 +7,7 @@ import StatisticsAndAchivements from "../../Components/Event/StatisticsAndAchive
 const Home = () => {
   return (
     <div className="min-h-screen">
-      <title>PlayPulse | Home</title>
+      <title>PlayPulse</title>
       <Slider></Slider>
       <div className="showEventContainer centerize custom-gradient">
         <ShowEvent></ShowEvent>
