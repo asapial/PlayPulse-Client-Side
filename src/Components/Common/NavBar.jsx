@@ -79,6 +79,12 @@ const NavBar = () => {
           >
             LogOut
           </button>
+                      <Link
+              to="/updateUserProfile"
+              className="btn btn-primary btn-soft rounded-2xl"
+            >
+              Update Profile
+            </Link>
         </li>
       )}
     </>
@@ -156,12 +162,20 @@ const NavBar = () => {
               </Link>
             </>
           ) : (
-            <button
-              onClick={handleLogOut}
-              className="btn btn-primary btn-soft rounded-2xl"
-            >
-              LogOut
-            </button>
+<>
+      <button
+        onClick={handleLogOut}
+        className="btn btn-primary btn-soft rounded-2xl"
+      >
+        LogOut
+      </button>
+      <Link
+        to="/updateUserProfile"
+        className="btn btn-primary btn-soft rounded-2xl"
+      >
+        Update Profile
+      </Link>
+    </>
           )}
         </div>
 

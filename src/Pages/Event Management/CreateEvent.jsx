@@ -6,6 +6,7 @@ import {
   FaCalendarAlt,
   FaListAlt,
   FaAlignLeft,
+  FaMapMarkerAlt,
 } from "react-icons/fa";
 import Lottie from "lottie-react";
 import sportAnimation from "../../assets/LottiAnimation/createEvent.json";
@@ -59,7 +60,7 @@ const CreateEvent = () => {
   };
 
   return (
-    
+
     <section className="min-h-screen  flex items-center justify-center py-10 custom-gradient ">
       <title>PlayPulse | CreateEvent</title>
       <div className="bg-base-200 shadow rounded-2xl w-full max-w-6xl  lg:flex justify-center items-center p-2 lg:p-5 border border-primary shadow-primary  ">
@@ -111,6 +112,17 @@ const CreateEvent = () => {
                 id="eventDate"
                 name="eventDate"
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-400 bg-inherit"
+              />
+            </div>
+            {/* Event Location */}
+            <div className="relative">
+              <FaMapMarkerAlt className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
+              <input
+                type="text"
+                name="eventLocation"
+                placeholder="Event Location"
+                className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                required
               />
             </div>
             {/* Description */}

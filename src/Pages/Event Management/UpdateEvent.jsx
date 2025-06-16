@@ -7,6 +7,7 @@ import {
   FaCalendarAlt,
   FaListAlt,
   FaAlignLeft,
+  FaMapMarkerAlt,
 } from "react-icons/fa";
 import Playpulsenameplate from "../../Atoms/Playpulsenameplate";
 import { useContext, useEffect, useState } from "react";
@@ -141,6 +142,18 @@ const UpdateEvent = () => {
                 className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-400"
                 required
                 defaultValue={event?.eventDate}
+              />
+            </div>
+                        {/* Event Location */}
+            <div className="relative">
+              <FaMapMarkerAlt className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
+              <input
+                type="text"
+                name="eventLocation"
+                placeholder="Event Location"
+                className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                required
+                defaultValue={event?.eventLocation}
               />
             </div>
             {/* Description */}

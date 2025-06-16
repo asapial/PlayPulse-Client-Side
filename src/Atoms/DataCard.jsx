@@ -7,7 +7,7 @@ const DataCard = ({ data }) => {
   const navigate = useNavigate();
 
   return (
-    <div className="bg-base-100 border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-300 rounded-2xl overflow-hidden flex flex-col">
+ <div className="bg-base-100 border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-300 rounded-2xl overflow-hidden flex flex-col">
       <figure className="h-150 overflow-hidden rounded-t-2xl">
         <img
           src={data.eventImage || "https://via.placeholder.com/300x200?text=No+Image"}
@@ -17,15 +17,15 @@ const DataCard = ({ data }) => {
       </figure>
       <div className="p-5 flex-1 flex flex-col gap-2">
         <h3 className="text-xl font-bold text-primary flex items-center gap-2">
-          <FaTag className="text-secondary" /> {data.eventName}
+          <FaTag className="text-pink-500" /> {data.eventName}
         </h3>
-        <div className="flex items-center gap-2 text-sm text-gray-500">
-          <FaCalendarAlt className="text-primary" /> {data.eventDate}
+        <div className="flex items-center gap-2 text-sm text-neutral">
+          <FaCalendarAlt className="text-blue-500" /> {data.eventDate}
         </div>
-        {/* <div className="flex items-center gap-2 text-sm text-gray-500">
-          <FaMapMarkerAlt className="text-primary" /> {data.location || "N/A"}
-        </div> */}
-        <div className="text-sm text-gray-600 mt-1">
+        <div className="flex items-center gap-2 text-sm text-neutral">
+          <FaMapMarkerAlt className="text-green-600" /> {data.eventLocation || "N/A"}
+        </div>
+        <div className="text-sm text-neutral mt-1">
           <span className="font-semibold">Type:</span> {data.eventType}
         </div>
         <button

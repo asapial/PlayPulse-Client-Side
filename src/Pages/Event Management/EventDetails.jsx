@@ -106,11 +106,11 @@ const EventDetails = () => {
               <FaCalendarAlt className="text-secondary" />{" "}
               <span className="font-semibold">Date:</span> {event.eventDate}
             </p>
-            {/* <p className="flex items-center gap-2 text-lg">
+            <p className="flex items-center gap-2 text-lg">
           <FaMapMarkerAlt className="text-secondary" />{" "}
           <span className="font-semibold">Location:</span>{" "}
-          {event.location || "N/A"}
-        </p> */}
+          {event.eventLocation || "N/A"}
+        </p>
             <p className="flex items-center gap-2 text-lg">
               <FaInfoCircle className="text-secondary" />{" "}
               <span className="font-semibold">Description:</span>{" "}

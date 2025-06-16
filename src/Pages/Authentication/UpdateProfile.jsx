@@ -1,4 +1,4 @@
-import React, { useContext} from "react";
+import React, { useContext } from "react";
 import {
   FaEnvelope,
   FaLock,
@@ -6,11 +6,12 @@ import {
   FaImage,
   FaEye,
   FaEyeSlash,
-} from "react-icons/fa"; 
+} from "react-icons/fa";
 import { AuthContext } from "../../main";
 import Playpulsebutton from "../../Atoms/Playpulsebutton";
 import { ErrorToast, SuccessToast } from "../../Utilities/ToastMaker";
 import Playpulsenameplate from "../../Atoms/Playpulsenameplate";
+import { motion } from "framer-motion";
 
 const UpdateProfile = () => {
   const { updateUser, user } = useContext(AuthContext);
@@ -34,9 +35,21 @@ const UpdateProfile = () => {
     <section className="min-h-screen custom-gradient flex items-center justify-center px-4 py-10">
       <title>PlayPulse | Update Profile</title>
       <div className="bg-base-100 shadow rounded-2xl w-full lg:max-w-5xl mx-auto lg:flex justify-center items-center border border-primary shadow-primary ">
-        {/* Lottie Animation */}
-        <div className="w-full lg:w-2/5 h-[500px] flex justify-center items-center p-10">
-          <img src={user?.photoURL} alt=""/>
+        {/* Profile Image with Breathing Effect */}
+        <div className="w-full lg:w-2/5 flex justify-center items-center p-10">
+          <motion.img
+            src={user?.photoURL}
+            alt=""
+            className="w-full"
+            style={{ maxWidth: 220, borderRadius: "50%" }}
+            animate={{ scale: [1, 1.08, 1] }}
+            transition={{
+              duration: 2.5,
+              repeat: Infinity,
+              repeatType: "loop",
+              ease: "easeInOut",
+            }}
+          />
         </div>
 
         {/* Registration Form */}
@@ -45,7 +58,7 @@ const UpdateProfile = () => {
             Join <Playpulsenameplate></Playpulsenameplate>
           </h2>
           <p className="text-center text-neutral text-sm">
-            Create an account to get started
+            Update your profile
           </p>
 
           <form className="space-y-4" onSubmit={handleUpdateUser}>
@@ -58,6 +71,7 @@ const UpdateProfile = () => {
                 placeholder="Full Name"
                 className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-400"
                 required
+                defaultValue={user.displayName}
               />
             </div>
 
@@ -70,6 +84,7 @@ const UpdateProfile = () => {
                 placeholder="Email"
                 className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-400"
                 value={user?.email}
+                readOnly
               />
             </div>
 
@@ -81,6 +96,7 @@ const UpdateProfile = () => {
                 name="photoURL"
                 placeholder="Profile Photo URL"
                 className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                defaultValue={user.photoURL}
               />
             </div>
 
@@ -88,7 +104,6 @@ const UpdateProfile = () => {
             <button type="submit" className="w-full">
               <Playpulsebutton>Update Profile</Playpulsebutton>
             </button>
-            
           </form>
         </div>
       </div>

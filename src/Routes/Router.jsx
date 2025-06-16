@@ -16,6 +16,7 @@ import EventsPage from "../Pages/Event Management/EventsPage";
 import Copyright from "../Pages/Footer.jsx/Copyright";
 import ContactInformation from "../Pages/Footer.jsx/ContactInformation";
 import BookedEvent from "../Pages/Event Management/BookedEvent";
+import UpdateProfile from "../Pages/Authentication/UpdateProfile";
 
 export const router = createBrowserRouter([
   {
@@ -35,8 +36,12 @@ export const router = createBrowserRouter([
         Component: Register,
       },
       {
-        path: "update",
-        Component: updateProfile,
+        path: "updateUserProfile",
+                element: (
+          <ProtectedRoute>
+            <UpdateProfile></UpdateProfile>
+          </ProtectedRoute>
+        ),
       },
       {
         path: "createEvent",
