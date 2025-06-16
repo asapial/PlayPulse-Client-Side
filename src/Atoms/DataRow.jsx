@@ -19,7 +19,7 @@ const DataRow = ({ data, sl, handleEventDelete }) => {
       initial="hidden"
       animate="visible"
       exit="exit"
-      whileHover={{ scale: 1.01, backgroundColor: "#f0f4ff" }}
+      whileHover={{ scale: 1.01 }}
       layout
     >
       <th className="text-base-content">{sl}</th>

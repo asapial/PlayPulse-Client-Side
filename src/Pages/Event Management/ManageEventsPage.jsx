@@ -59,10 +59,10 @@ const ManageEventsPage = () => {
   return (
     <motion.div
       className="custom-gradient mx-auto py-10"
-      initial={{ opacity: 0, y: 40 }}
+      initial={{ opacity: 0, y: 100 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 40 }}
-      transition={{ duration: 0.7, type: "spring" }}
+      transition={{ duration: 2, type: "spring" }}
     >
       <div className="w-full lg:max-w-7xl mx-auto py-10 px-4 min-h-screen  ">
         <title>PlayPulse | ManageEvents</title>
