@@ -44,6 +44,7 @@ The purpose of PlayPulse is to:
 | **lottie-react**       | Renders Lottie animations (JSON-based vector animations) in React.                      |
 | **motion**             | Utility for advanced animations and gestures, often used with framer-motion.            |
 | **react**              | Core library for building user interfaces.                                              |
+| **react-confetti**     | Confetti animation for celebration effects.                                             |
 | **react-countup**      | Animates numbers counting up, useful for stats and counters.                            |
 | **react-dom**          | Provides DOM-specific methods for React, enabling rendering to the browser.             |
 | **react-icons**        | Collection of popular icon packs as React components.                                   |
@@ -53,7 +54,8 @@ The purpose of PlayPulse is to:
 | **react-toastify**     | Displays toast notifications for feedback and alerts.                                   |
 | **sweetalert2**        | Beautiful, customizable popup boxes for alerts and confirmations.                       |
 | **swiper**             | Modern touch slider for creating carousels and sliders.                                 |
-| **tailwindcss**        | Utility-first CSS framework for rapid
+| **tailwindcss**        | Utility-first CSS framework for rapid UI development.                                   |
+
 
 ---
 
