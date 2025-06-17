@@ -74,6 +74,7 @@ const Login = () => {
             </div>
 
             {/* Password */}
+            {/* Password */}
             <div className="relative">
               <FaLock className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
               <input
@@ -92,6 +93,16 @@ const Login = () => {
               >
                 {showPassword ? <FaEyeSlash /> : <FaEye />}
               </span>
+            </div>
+
+            {/* Forgot Password Link */}
+            <div className="text-right mt-1">
+              <a
+                href="/forgetPassword"
+                className="text-secondary text-sm hover:underline"
+              >
+                Forgot Password?
+              </a>
             </div>
 
             {/* Submit Button */}
