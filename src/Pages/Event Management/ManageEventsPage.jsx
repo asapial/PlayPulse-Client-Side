@@ -16,39 +16,39 @@ import { motion } from "framer-motion";
 const ManageEventsPage = () => {
   const { user, loading } = useContext(AuthContext);
   const [data, setData] = useState([]);
-  const [relode, setRelode] = useState(false);
   const [viewMode, setViewMode] = useState("table");
   const [stateLoading, setStateLoading] = useState(false);
   const { myEvents, fetchEventDelete } = useFetchApi();
 
   useEffect(() => {
     const fetchData = async () => {
-      setStateLoading(true); // start loading
+      setStateLoading(true);
       try {
         const data = await myEvents(user.email);
         setData(data);
       } catch (error) {
         console.error("Failed to fetch events:", error);
       } finally {
-        setStateLoading(false); // stop loading after success or error
+        setStateLoading(false);
       }
     };
 
     if (user?.email) {
       fetchData();
     }
-  }, [user?.email, relode]);
+  }, [user?.email]);
 
   if (loading || stateLoading) {
     return <Loader />;
   }
 
+  // Delete event and remove from UI without reload
   const handleEventDelete = (id) => {
     fetchEventDelete(user.email, id)
       .then((deletedData) => {
         if (deletedData.deletedCount) {
           SuccessToast("🗑️ Event Deleted Successfully");
-          setRelode(!relode);
+          setData((prev) => prev.filter((item) => item._id !== id));
         }
       })
       .catch((error) => {
@@ -58,7 +58,7 @@ const ManageEventsPage = () => {
 
   return (
     <div className="custom-gradient mx-auto py-10">
-      <div className="w-full lg:max-w-7xl mx-auto py-10 px-4 min-h-screen  ">
+      <div className="w-full lg:max-w-7xl mx-auto py-10 px-4 min-h-screen">
         <title>PlayPulse | ManageEvents</title>
         {/* Header */}
         <motion.div

@@ -26,6 +26,7 @@ const EventDetails = () => {
   const [bookedLoading, setBookedLoading] = useState(false);
   const [booked, setBooked] = useState(true);
   const [showConfetti, setShowConfetti] = useState(false);
+  const [confettiOpacity, setConfettiOpacity] = useState(1);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -71,7 +72,29 @@ const EventDetails = () => {
           setBooked(true);
           SuccessToast("🎉 Event Booked Successfully!");
           setShowConfetti(true);
-          setTimeout(() => setShowConfetti(false), 7000);
+          setConfettiOpacity(1);
+
+          // Start fading after 7 seconds
+          setTimeout(() => {
+            let start = null;
+            const duration = 3000; // 3s fade
+
+            const fadeOut = (timestamp) => {
+              if (!start) start = timestamp;
+              const elapsed = timestamp - start;
+              const newOpacity = Math.max(1 - elapsed / duration, 0);
+              setConfettiOpacity(newOpacity);
+
+              if (elapsed < duration) {
+                requestAnimationFrame(fadeOut);
+              } else {
+                setShowConfetti(false);
+                setConfettiOpacity(1);
+              }
+            };
+
+            requestAnimationFrame(fadeOut);
+          }, 7000);
         }
       } catch (error) {
         ErrorToast(`Error Occurred: ${error.message}`);
@@ -86,9 +109,26 @@ const EventDetails = () => {
   return (
     <div className="custom-gradient mx-auto py-10">
       <title>PlayPulse | Details</title>
+
       {showConfetti && (
-        <Confetti width={window.innerWidth} height={window.innerHeight} numberOfPieces={400} />
+        <div
+          style={{
+            pointerEvents: "none",
+            position: "fixed",
+            inset: 0,
+            zIndex: 50,
+            opacity: confettiOpacity,
+            transition: "opacity 0.1s linear",
+          }}
+        >
+          <Confetti
+            width={window.innerWidth}
+            height={window.innerHeight}
+            numberOfPieces={500}
+          />
+        </div>
       )}
+
       <div className="w-full md:max-w-7xl mx-auto bg-base-100 shadow-primary shadow-xs rounded-2xl p-3 lg:p-8 border border-primary py-10">
         <h2 className="text-3xl font-extrabold mb-4 flex items-center gap-2 text-primary text-center">
           <FaTag className="text-secondary" /> {event.eventName}
@@ -115,19 +155,23 @@ const EventDetails = () => {
               </p>
               <p className="flex items-center gap-2 text-lg">
                 <FaMapMarkerAlt className="text-secondary" />
-                <span className="font-semibold">Location:</span> {event.eventLocation || "N/A"}
+                <span className="font-semibold">Location:</span>{" "}
+                {event.eventLocation || "N/A"}
               </p>
               <p className="flex items-center gap-2 text-lg">
                 <FaInfoCircle className="text-secondary" />
-                <span className="font-semibold">Description:</span> {event.description}
+                <span className="font-semibold">Description:</span>{" "}
+                {event.description}
               </p>
               <p className="flex items-center gap-2 text-lg">
                 <FaUser className="text-secondary" />
-                <span className="font-semibold">Creator Name:</span> {event.creatorName}
+                <span className="font-semibold">Creator Name:</span>{" "}
+                {event.creatorName}
               </p>
               <p className="flex items-center gap-2 text-lg">
                 <FaEnvelope className="text-secondary" />
-                <span className="font-semibold">Creator Email:</span> {event.creatorEmail}
+                <span className="font-semibold">Creator Email:</span>{" "}
+                {event.creatorEmail}
               </p>
             </div>
 

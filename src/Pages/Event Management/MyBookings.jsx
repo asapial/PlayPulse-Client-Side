@@ -16,7 +16,6 @@ import { motion } from "framer-motion";
 const MyBookings = () => {
   const { user, loading } = useContext(AuthContext);
   const [data, setData] = useState([]);
-  const [relode, setRelode] = useState(false);
   const [viewMode, setViewMode] = useState("table");
   const { fetchUserBookingData, fetchBookingDelete } = useFetchApi();
   const [stateLoading, setStateLoading] = useState(false);
@@ -32,18 +31,22 @@ const MyBookings = () => {
           setStateLoading(false);
         });
     }
-  }, [user?.uid, loading, relode]);
+  }, [user?.uid, user?.email, loading]);
 
   if (loading || stateLoading) {
     return <Loader />;
   }
 
+  // Delete booking and remove from UI without reload
   const handleEventDelete = (userId, eventId) => {
-    eventId;
     fetchBookingDelete(userId, user.email, eventId)
-      .then(() => {
-        SuccessToast("🗑️ Booking Deleted — Pulse Back in Play!");
-        setRelode(!relode);
+      .then((deletedData) => {
+        if (deletedData.deletedCount) {
+          SuccessToast("🗑️ Booking Deleted — Pulse Back in Play!");
+          setData((prev) =>
+            prev.filter((item) => String(item.eventId) !== String(eventId))
+          );
+        }
       })
       .catch((error) => {
         ErrorToast(`Error Occurred: ${error.message}`);
