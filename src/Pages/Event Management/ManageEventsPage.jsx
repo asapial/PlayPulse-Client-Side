@@ -57,17 +57,16 @@ const ManageEventsPage = () => {
   };
 
   return (
-    <motion.div
-      className="custom-gradient mx-auto py-10"
-      initial={{ opacity: 0, y: 100 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: 40 }}
-      transition={{ duration: 2, type: "spring" }}
-    >
+    <div className="custom-gradient mx-auto py-10">
       <div className="w-full lg:max-w-7xl mx-auto py-10 px-4 min-h-screen  ">
         <title>PlayPulse | ManageEvents</title>
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8 gap-4">
+        <motion.div
+          initial={{ scale: 0 }}
+          animate={{ scale: 1, duration: 1 }}
+          transition={{ duration: 2 }}
+          className="flex flex-col md:flex-row md:items-center md:justify-between mb-8 gap-4"
+        >
           <div className="flex items-center gap-3">
             <FaCalendarAlt className="text-4xl text-secondary drop-shadow" />
             <h2 className="text-4xl font-extrabold text-primary tracking-tight">
@@ -107,10 +106,15 @@ const ManageEventsPage = () => {
               </button>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {viewMode === "table" ? (
-          <div className="overflow-x-auto rounded-xl  bg-base-100 border border-primary shadow-2xl ">
+          <motion.div
+            initial={{ scale: 0 }}
+            animate={{ scale: 1, duration: 1 }}
+            transition={{ duration: 2 }}
+            className="overflow-x-auto rounded-xl  bg-base-100 border border-primary shadow-2xl "
+          >
             <table className="table w-full table-zebra">
               <thead className="bg-base-200 text-base-content">
                 <tr className="text-xl">
@@ -139,9 +143,14 @@ const ManageEventsPage = () => {
                 )}
               </tbody>
             </table>
-          </div>
+          </motion.div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
+          <motion.div
+            initial={{ scale: 0 }}
+            animate={{ scale: 1, duration: 1 }}
+            transition={{ duration: 2 }}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7"
+          >
             {data.length === 0 ? (
               <div className="col-span-full text-center text-gray-400 py-8">
                 No events found.
@@ -155,10 +164,10 @@ const ManageEventsPage = () => {
                 />
               ))
             )}
-          </div>
+          </motion.div>
         )}
       </div>
-    </motion.div>
+    </div>
   );
 };
 

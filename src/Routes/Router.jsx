@@ -17,6 +17,7 @@ import Copyright from "../Pages/Footer.jsx/Copyright";
 import ContactInformation from "../Pages/Footer.jsx/ContactInformation";
 import BookedEvent from "../Pages/Event Management/BookedEvent";
 import UpdateProfile from "../Pages/Authentication/UpdateProfile";
+import ResetLink from "../Pages/Authentication/ResetLink";
 
 export const router = createBrowserRouter([
   {
@@ -34,6 +35,10 @@ export const router = createBrowserRouter([
       {
         path: "register",
         Component: Register,
+      },
+      {
+        path: "forgetPassword",
+        Component: ResetLink,
       },
       {
         path: "updateUserProfile",

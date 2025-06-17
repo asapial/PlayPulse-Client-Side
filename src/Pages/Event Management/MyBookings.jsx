@@ -51,17 +51,22 @@ const MyBookings = () => {
   };
 
   return (
- <motion.div
+    <motion.div
       className="custom-gradient mx-auto py-10"
       initial={{ opacity: 0, y: 40, scale: 0.96 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       exit={{ opacity: 0, y: 40, scale: 0.92 }}
       transition={{ duration: 5, type: "spring" }}
     >
-      <div className="w-full lg:max-w-7xl mx-auto py-10 px-4 min-h-screen custom-gradient">
+      <div className="w-full lg:max-w-7xl mx-auto py-10 px-4 min-h-screen ">
         <title>PlayPulse | My Bookings</title>
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-10 gap-4">
+        <motion.div
+          initial={{ scale: 0 }}
+          animate={{ scale: 1, duration: 2 }}
+          transition={{ duration: 3 }}
+          className="flex flex-col md:flex-row md:items-center md:justify-between mb-10 gap-4"
+        >
           <div className="flex items-center gap-3">
             <FaCalendarAlt className="text-4xl text-secondary drop-shadow" />
             <h2 className="text-4xl font-extrabold text-primary tracking-tight">
@@ -94,7 +99,7 @@ const MyBookings = () => {
               </button>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {viewMode === "table" ? (
           <div className="overflow-x-auto rounded-xl  bg-base-100 border border-primary shadow-2xl ">

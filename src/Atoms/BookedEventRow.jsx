@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router";
 import Playpulsebutton from "./Playpulsebutton";
 import { FaUser, FaEnvelope, FaRegCopy } from "react-icons/fa";
 import { SuccessToastSm } from "../Utilities/ToastMaker";
+import { motion } from "framer-motion";
 
 const BookedEventRow = ({ data, sl }) => {
   const navigate = useNavigate();
@@ -39,7 +40,9 @@ const BookedEventRow = ({ data, sl }) => {
 
       <td className="text-base-content text-lg text-justify max-w-md">
         {/* Small data card with bookedUser name and email */}
-        <div className="flex flex-col gap-2">
+        <motion.div         initial={{ scale: 0 }}
+        animate={{ scale: 1, duration: 1 }}
+        transition={{ duration: 2 }} className="flex flex-col gap-2">
           {data.bookedUsers && data.bookedUsers.length > 0 ? (
             data.bookedUsers.map((user, idx) => (
               <div
@@ -68,7 +71,7 @@ const BookedEventRow = ({ data, sl }) => {
           ) : (
             <span className="text-gray-400">No users booked</span>
           )}
-        </div>
+        </motion.div>
       </td>
 
       <td className="w-[200px] grid grid-cols-1 gap-3">

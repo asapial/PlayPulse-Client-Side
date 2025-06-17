@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import useFetchApi from "../../api/useFetchApi";
 import { AuthContext } from "../../main";
 import BookedEventRow from "../../Atoms/BookedEventRow";
+import { motion } from "framer-motion";
 import {
   FaCalendarAlt,
   FaRegSadTear,
@@ -39,8 +40,13 @@ const BookedEvent = () => {
 
   return (
     <div className="custom-gradient mx-auto py-10">
-      <div className="w-full lg:max-w-7xl mx-auto py-10 px-4 min-h-screen custom-gradient">
-        <title>PlayPulse | Booked Events</title>
+      <title>PlayPulse | Booked Events</title>
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        className="w-full lg:max-w-7xl mx-auto py-10 px-4 min-h-screen"
+      >
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8 gap-4">
           <div className="flex items-center gap-3">
@@ -103,7 +109,7 @@ const BookedEvent = () => {
             </tbody>
           </table>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };
