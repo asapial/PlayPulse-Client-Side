@@ -35,7 +35,7 @@ const DataCard = ({ data }) => {
           <Playpulsebutton>View Details</Playpulsebutton>
         </button>
       </div>
-    </div>
+  </div>
   );
 };
 
