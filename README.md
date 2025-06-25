@@ -59,5 +59,38 @@ The purpose of PlayPulse is to:
 
 ---
 
+## 📦 Installation
 
-**PlayPulse — Energize Your Game!**
+1. **Clone the repository:**
+   ```sh
+   git clone https://github.com/asapial/PlayPulse-Client-Side.git
+   cd PlayPulse-Client-Side
+   ```
+
+2. **Install dependencies:**
+   ```sh
+   npm install
+   ```
+
+3. **Set up environment variables:**
+   - Copy `.env.example` to `.env.local` and fill in your Firebase and backend API credentials.
+
+4. **Start the development server:**
+   ```sh
+   npm run dev
+   ```
+
+---
+
+
+
+## 🤝 Contributing
+
+Contributions are welcome! Please open an issue or submit a pull request for any improvements or bug fixes.
+
+---
+
+## 📄 License
+
+All content, including recipes, images, and branding, is the intellectual property of PlayPulse unless otherwise stated. Unauthorized use or duplication without explicit permission is strictly prohibited.
+
