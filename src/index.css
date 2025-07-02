@@ -85,14 +85,14 @@
 
 
  [data-theme="PlayPulseLight"] .custom-gradient {
-   background: linear-gradient(135deg, #bae6fd, #fff, #a7f3d0);
+   background: linear-gradient(135deg, #e3f3fc, #fff, #daf5e8);
  }
 
  [data-theme="PlayPulseLight"] .custom-gradient-alt {
   background: linear-gradient(
     to bottom right,
-    #fef3c7,   /* Softer cream */
-    #fef3c7,   /* Pale warm yellow */
+    #f8f2db,   /* Softer cream */
+    #faf5e1,   /* Pale warm yellow */
     #ffffff    /* Light pastel orange */
   );
 }

@@ -100,7 +100,7 @@ const NavBar = () => {
   };
 
   return (
-    <div className="navbar bg-base-100 shadow-sm px-5">
+<div className="navbar bg-base-100 shadow-sm px-5 sticky top-0 z-50 backdrop-blur-lg bg-opacity-90">
       <div className="navbar-start">
         {/* dropdown for theme  */}
         <div className="dropdown">
@@ -173,7 +173,7 @@ const NavBar = () => {
         to="/updateUserProfile"
         className="btn btn-primary btn-soft rounded-2xl"
       >
-        Update Profile
+        UpdateProfile
       </Link>
     </>
           )}

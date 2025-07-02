@@ -72,7 +72,7 @@ const cardVariants = {
 export function PopularEvent() {
   return (
     <motion.div
-      className="max-w-7xl mx-auto py-10 px-4 min-h-screen text-primary p-8 flex flex-col justify-center"
+      className="max-w-7xl mx-auto py-10 px-4  text-primary p-8 flex flex-col justify-center"
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 40 }}
