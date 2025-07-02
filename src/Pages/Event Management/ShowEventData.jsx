@@ -57,7 +57,7 @@ const ShowEventData = () => {
 
   return (
     <div className="custom-gradient mx-auto py-10">
-      <section className="max-w-11/12 mx-auto py-10 px-4">
+      <section className="w-full max-w-7xl mx-auto py-10 px-4">
         <h2 className="text-3xl font-bold text-primary mb-8 text-center flex items-center justify-center gap-2">
           <title>PlayPulse | EventData</title>
           <Typewriter
@@ -101,7 +101,7 @@ const ShowEventData = () => {
           </button>
         </div>
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"
           drag
           dragElastic={0.7}
           dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }} // Snap back to origin
