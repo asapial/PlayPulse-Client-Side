@@ -11,7 +11,8 @@ const ShowEventData = () => {
   const { event } = useParams();
   const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState("");
-  const [searchTrigger, setSearchTrigger] = useState(false);
+  // const [searchTrigger, setSearchTrigger] = useState(false);
+  const [sortOrder, setSortOrder] = useState("desc");
 
   // Fetch data on load and when event/search changes
   useEffect(() => {
@@ -20,7 +21,7 @@ const ShowEventData = () => {
       setLoading(true);
       try {
         const res = await fetch(
-          `https://play-pulse-server.vercel.app/showEventData/${event}`
+          `https://play-pulse-server.vercel.app/showEventData/${event}?sort=${sortOrder}`
         );
         const fetchData = await res.json();
         setData(fetchData);
@@ -32,7 +33,7 @@ const ShowEventData = () => {
     };
 
     fetchData();
-  }, [event]);
+  }, [event,sortOrder]);
 
   const handleSearchClick = async (e) => {
     e.preventDefault();
@@ -42,7 +43,8 @@ const ShowEventData = () => {
     try {
       const url = `https://play-pulse-server.vercel.app/showEventData/${event}?search=${encodeURIComponent(
         search
-      )}`;
+      )}&sort=${sortOrder}`;
+
       const res = await fetch(url);
       const fetchData = await res.json();
       setData(fetchData);
@@ -82,7 +84,7 @@ const ShowEventData = () => {
           />
         </h2>
 
-        <div className="flex justify-center mb-8 gap-2">
+        {/* <div className="flex justify-center mb-8 gap-2">
           <input
             type="text"
             value={search}
@@ -99,6 +101,31 @@ const ShowEventData = () => {
           >
             <FaSearch /> Search
           </button>
+        </div> */}
+        <div className="flex justify-center mb-8 gap-2 flex-wrap items-center">
+          <input
+            type="text"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            placeholder="Search event type or name..."
+            className="input input-bordered w-full max-w-xs"
+          />
+          <button
+            type="button"
+            className="btn btn-primary flex items-center gap-2"
+            disabled={!search.trim()}
+            onClick={handleSearchClick}
+          >
+            <FaSearch /> Search
+          </button>
+          <select
+            value={sortOrder}
+            onChange={(e) => setSortOrder(e.target.value)}
+            className="select select-bordered ml-2"
+          >
+            <option value="desc">Newest First</option>
+            <option value="asc">Oldest First</option>
+          </select>
         </div>
         <motion.div
           className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"
