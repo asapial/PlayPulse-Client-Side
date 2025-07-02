@@ -55,6 +55,14 @@ const NavBar = () => {
           Create Event
         </NavLink>
       </li>
+      <li>
+        <NavLink
+          to="/leaderBoard"
+          className={({ isActive }) => (isActive ? "active" : "")}
+        >
+          LeaderBoard
+        </NavLink>
+      </li>
       {!user ? (
         <>
           <li className="block sm:hidden">

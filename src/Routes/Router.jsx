@@ -18,6 +18,7 @@ import ContactInformation from "../Pages/Footer.jsx/ContactInformation";
 import BookedEvent from "../Pages/Event Management/BookedEvent";
 import UpdateProfile from "../Pages/Authentication/UpdateProfile";
 import ResetLink from "../Pages/Authentication/ResetLink";
+import LeaderBoard from "../Pages/Event Management/LeaderBoard";
 
 export const router = createBrowserRouter([
   {
@@ -111,6 +112,10 @@ export const router = createBrowserRouter([
       {
         path: "contactInformation",
         Component: ContactInformation,
+      },
+      {
+        path: "leaderBoard",
+        Component: LeaderBoard,
       },
     ],
   },
