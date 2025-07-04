@@ -19,6 +19,13 @@ const testimonials = [
     message:
       "The testimonials are real—this is where champions grow. Highly recommended!",
   },
+  {
+    name: "Emily Chen",
+    role: "Enthusiast",
+    image: "https://i.pravatar.cc/150?img=3",
+    message:
+      "A fantastic platform for discovering new sports and connecting with fellow enthusiasts.",
+  },
 ];
 
 const containerVariants = {
@@ -26,32 +33,38 @@ const containerVariants = {
   show: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.18,
+      staggerChildren: 0.2,
     },
   },
 };
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 40 },
-  show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 80 } },
+  hidden: { opacity: 0, y: 50, scale: 0.9 },
+  show: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { type: "spring", stiffness: 90, damping: 15 },
+  },
 };
 
 export function Testimonial() {
   useEffect(() => {
-    AOS.init({ duration: 900, once: true });
+    AOS.init({ duration: 1000, once: true });
   }, []);
 
   return (
-    <div className="max-w-7xl mx-auto py-10 px-4  relative flex items-center justify-center  overflow-hidden ">
-      <div className=" w-full">
+    <div className="relative py-16  overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br from-base-200 to-base-300 opacity-50"></div>
+      <div className="max-w-7xl mx-auto px-4 relative z-10">
         <h2
-          className="text-4xl lg:text-5xl font-extrabold text-center text-primary mb-5"
+          className="text-4xl lg:text-5xl font-extrabold text-center text-primary mb-12"
           data-aos="fade-down"
         >
           🌟 What Our Users Say
         </h2>
         <motion.div
-          className="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto"
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto"
           variants={containerVariants}
           initial="hidden"
           animate="show"
@@ -61,27 +74,28 @@ export function Testimonial() {
               key={i}
               variants={cardVariants}
               whileHover={{
-                scale: 1.03,
-                boxShadow: "0 8px 32px 0 rgba(0,0,0,0.15)",
+                scale: 1.04,
+                boxShadow: "0 12px 40px 0 rgba(0, 255, 255, 0.2)",
+                y: -5,
               }}
               whileTap={{ scale: 0.98 }}
               className="transition-all duration-300"
               data-aos="fade-up"
-              data-aos-delay={i * 120}
+              data-aos-delay={i * 150}
             >
-              <div className="rounded-3xl shadow-2xl p-8 border border-sky-100 hover:border-primary/30 hover:shadow-primary/20 transition">
-                <div className="flex gap-5 items-start">
+              <div className="bg-white/10 backdrop-blur-lg rounded-3xl shadow-2xl p-8 border border-cyan-400/20 hover:border-cyan-400/50 transition-all duration-300 h-full flex flex-col">
+                <FaQuoteLeft className="text-cyan-400 text-3xl mb-4" />
+                <p className="text-lg text-neutral font-medium leading-relaxed mb-6 flex-grow">
+                  "{t.message}"
+                </p>
+                <div className="flex items-center gap-4 mt-auto">
                   <img
                     src={t.image}
                     alt={t.name}
-                    className="w-20 h-20 rounded-full object-cover border-4 border-sky-200 shadow"
+                    className="w-16 h-16 rounded-full object-cover border-4 border-cyan-300 shadow-lg"
                   />
                   <div className="flex-1">
-                    <FaQuoteLeft className="text-sky-300 text-2xl mb-2" />
-                    <p className="text-lg text-slate-700 font-medium leading-relaxed mb-4">
-                      "{t.message}"
-                    </p>
-                    <div className="flex items-center gap-2 mb-1">
+                    <div className="flex items-center gap-1 mb-1">
                       {[...Array(5)].map((_, idx) => (
                         <FaStar
                           key={idx}
@@ -89,10 +103,10 @@ export function Testimonial() {
                         />
                       ))}
                     </div>
-                    <h3 className="text-base font-bold text-primary">
+                    <h3 className="text-lg font-bold text-primary">
                       {t.name}
                     </h3>
-                    <p className="text-sm text-slate-500">{t.role}</p>
+                    <p className="text-sm text-cyan-200 font-medium">{t.role}</p>
                   </div>
                 </div>
               </div>
