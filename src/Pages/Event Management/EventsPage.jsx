@@ -46,11 +46,8 @@ const EventTypeCards = () => {
       >
         <div className="flex flex-col items-center mb-12">
           <div className="flex items-center justify-center gap-5">
-            <span className="">
-              <FaTags className="text-5xl text-white drop-shadow" />
-            </span>
             <motion.h2
-              className="text-4xl lg:text-6xl font-extrabold text-center mb-3 tracking-tight"
+              className="text-3xl lg:text-4xl font-extrabold text-center mb-3 tracking-tight flex items-center justify-center gap-2"
               animate={{
                 color: [
                   "#fbbf24", // premium gold
@@ -68,7 +65,9 @@ const EventTypeCards = () => {
                 repeatType: "loop",
               }}
             >
-              Discover Event Types
+                         <span className="">
+              <FaTags  />
+            </span> Discover Event Types
             </motion.h2>
           </div>
           <p className="text-neutral text-lg text-center max-w-2xl flex items-center gap-2">
