@@ -68,7 +68,7 @@ const ManageEventsPage = () => {
           className="flex flex-col md:flex-row md:items-center md:justify-between mb-8 gap-4"
         >
           <div className="flex items-center gap-3">
-            <FaCalendarAlt className="text-4xl text-secondary drop-shadow" />
+            <FaCalendarAlt className="text-3xl md:text-4xl text-secondary drop-shadow" />
             <h2 className="text-4xl font-extrabold text-primary tracking-tight">
               Manage My Events
             </h2>
