@@ -63,7 +63,7 @@ const Leaderboard = () => {
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ delay: 0.2 }}
-          className="text-4xl md:text-5xl font-extrabold text-primary flex justify-center items-center"
+          className="text-3xl md:text-4xl font-extrabold text-primary flex justify-center items-center"
         >
           <motion.div
             initial={{ y: -20, opacity: 0 }}
