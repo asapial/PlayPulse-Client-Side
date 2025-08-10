@@ -71,7 +71,7 @@ const CreateEvent = () => {
 
         {/* Event Creation Form */}
         <div className="p-2 lg:p-5 space-y-6 w-full lg:w-3/5">
-          <h2 className="text-3xl lg:text-5xl font-bold text-center text-neutral">
+          <h2 className="text-3xl lg:text-4xl font-bold text-center text-neutral flex items-center justify-center">
             Create Event <Playpulsenameplate />
           </h2>
           <form className="space-y-4" onSubmit={handleCreateEvent}>
